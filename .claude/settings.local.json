@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -)",
+      "Bash(rm -f /private/tmp/claude-501/-Users-yushancheng06-Downloads-MinimalFolio/b8901277-e51a-445d-9300-ee4dad2f4dab/scratchpad/IBM-mono.svg.png)",
+      "Bash(qlmanage -t -s 800 -o /private/tmp/claude-501/-Users-yushancheng06-Downloads-MinimalFolio/b8901277-e51a-445d-9300-ee4dad2f4dab/scratchpad logos/IBM-mono.svg)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

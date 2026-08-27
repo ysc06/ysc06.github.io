@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Naomi Cheng's Portfolio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Opt out of the browser restoring a previous scroll offset on refresh, so a
+       fresh load without a hash always starts at the hero. Must run before the
+       browser attempts restoration, hence the placement in <head>. -->
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="./feather2.svg" height="25" class="me-2"> Naomi Cheng </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mx-4">
+          <a class="nav-link active" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#">Resume</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="https://github.com/ysc06">GitHub</a>
+        </li>
+
+      </ul>
+    </div>
+</div>
+</nav>
+  
+  </header>
+
+  <main class="main">
+
+<section id="hero" class="hero section">
+
+<div class="container">
+
+<div class="row align-items-center gx-5 gy-5">
+
+<!-- 左側 -->
+<div class="col-lg-5">
+
+<figure class="portrait-wrap hero-fade">
+<img src="./portfolio.png"
+class="img-fluid w-100 rounded"
+alt="Profile">
+</figure>
+
+<div class="mt-3">
+
+<a href="./Naomi_Cheng_Resume.pdf"
+class="btn btn-button btn-sm"
+download>
+Download CV
+</a>
+
+<a href="#contact" class="ms-2">
+<i class="bi bi-envelope"></i>
+</a>
+
+<a href="http://www.linkedin.com/in/yushancheng" class="ms-2">
+<i class="bi bi-linkedin"></i>
+</a>
+
+</div>
+
+<div class="mt-3">
+
+<p class="mb-0">
+<i class="bi bi-geo-alt"></i> New York City Metropolitan Area
+</p>
+
+</div>
+
+</div>
+
+<!-- 右側 -->
+<div class="col-lg-7">
+
+
+<h1 class="display-1 fw-bold mb-2 hero-reveal hero-reveal-1">
+Naomi Cheng </h1>
+<h1 class="hero-subtitle fw-semibold mb-2 hero-reveal hero-reveal-2">Software Engineer building AI-powered applications and reliable systems</h1>
+
+<h5 class="status-inline hero-reveal hero-reveal-3">Software Engineering at IBM · AI Innovation at ETS</h5><br>
+
+<p class="fs-4 hero-reveal hero-reveal-4">
+Experienced in
+<span class="phrase-rotator" id="phrase-rotator">
+<span class="phrase is-active">AI-Powered Applications</span>
+<span class="phrase">LLM &amp; RAG Systems</span>
+<span class="phrase">Software Infrastructure</span>
+<span class="phrase">Web &amp; API Automation</span>
+</span>
+</p>
+
+<div class="mt-4 hero-reveal hero-reveal-5">
+
+<span class="badge text-bg-light">TypeScript</span>
+<span class="badge text-bg-light">Python</span>
+<span class="badge text-bg-light">React</span>
+<span class="badge text-bg-light">FastAPI</span>
+<span class="badge text-bg-light">Playwright</span>
+<span class="badge text-bg-light">AWS</span>
+
+</div>
+
+
+
+<div class="mt-4">
+
+<a href="#portfolio" class="btn btn-button hero-reveal hero-reveal-5">
+View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
+</a>
+
+<section class="logo-strip hero-reveal hero-reveal-6">
+
+  <div class="logo-row">
+    <p class="logo-row-label">Experience</p>
+    <div class="logo-container">
+      <img src="logos/IBM-mono.svg" class="logo-wordmark" alt="IBM">
+      <img src="logos/ets-trimmed.png" class="logo-wordmark" alt="ETS — Educational Testing Service">
+    </div>
+  </div>
+
+  <div class="logo-row">
+    <p class="logo-row-label">Education &amp; Honors</p>
+    <div class="logo-container">
+      <img src="logos/UIUC.png" class="logo-badge" alt="University of Illinois Urbana-Champaign">
+      <img src="logos/TBP.png" class="logo-lockup" alt="Tau Beta Pi — The Engineering Honor Society">
+      <img src="logos/Phi-emblem.png" class="logo-badge" alt="The Honor Society of Phi Kappa Phi">
+    </div>
+  </div>
+
+</section>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Technical Toolkit Section -->
+<section id="toolkit" class="toolkit section">
+
+  <div class="container">
+
+    <h2 class="mb-5 text-center" data-aos="fade-up">Technical Toolkit</h2>
+
+    <div class="toolkit-groups">
+
+      <div class="toolkit-group" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="toolkit-label">Languages</h3>
+        <ul class="chip-list">
+          <li class="chip">TypeScript</li>
+          <li class="chip">JavaScript</li>
+          <li class="chip">Python</li>
+          <li class="chip">SQL</li>
+          <li class="chip">Java</li>
+          <li class="chip">HTML/CSS</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group" data-aos="fade-up" data-aos-delay="150">
+        <h3 class="toolkit-label">Frontend &amp; Backend</h3>
+        <ul class="chip-list">
+          <li class="chip">React</li>
+          <li class="chip">FastAPI</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="toolkit-label">Testing &amp; Developer Tools</h3>
+        <ul class="chip-list">
+          <li class="chip">Playwright</li>
+          <li class="chip">Git</li>
+          <li class="chip">Docker</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group" data-aos="fade-up" data-aos-delay="250">
+        <h3 class="toolkit-label">Cloud</h3>
+        <ul class="chip-list">
+          <li class="chip">AWS</li>
+          <li class="chip">S3</li>
+          <li class="chip">Lambda</li>
+          <li class="chip">Glue</li>
+          <li class="chip">EKS</li>
+          <li class="chip">Aurora</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="toolkit-label">Data</h3>
+        <ul class="chip-list">
+          <li class="chip">MySQL</li>
+          <li class="chip">Redis</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Technical Toolkit Section -->
+
+<section id="impact" class="section">
+
+  <div class="container">
+
+    <h2 class="mb-5 text-center">Leadership & Impact</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="bi bi-kanban"></i> Agile Management
+            </h5>
+            <p class="card-text">
+              Led an Agile AP exam content team of 4 external SMEs to deliver 100+ multiple-choice questions every 6 months at ~93% committee acceptance rate.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="bi bi-people"></i> Global Impact
+            </h5>
+            <p class="card-text">
+             Delivered Advanced Placement (AP) exams administered to 17,000+ test-takers worldwide annually.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="bi bi-cpu"></i> AI Innovation
+            </h5>
+            <p class="card-text">
+             Earned a ETS Spot Award recognition by developing a prompt-based LLM method that generating high-difficulty ETS flagship exam items, saving $56K annually.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="bi bi-mortarboard"></i> Teaching
+            </h5>
+            <p class="card-text">
+              Adjust Instructor at Boston University
+              Visiting Lecturer at Columbia University 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="nav nav-pills resume-navigation justify-content-center" id="resume-resume-tabs" role="tablist" data-aos="fade-up" data-aos-delay="200">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="resume-experience-tab" data-bs-toggle="pill" data-bs-target="#resume-experience" type="button" role="tab" aria-controls="resume-experience" aria-selected="true">
+                  <span class="nav-number">01</span>
+                  <span class="nav-label">Experience</span>
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="resume-education-tab" data-bs-toggle="pill" data-bs-target="#resume-education" type="button" role="tab" aria-controls="resume-education" aria-selected="false">
+                  <span class="nav-number">02</span>
+                  <span class="nav-label">Education</span>
+                </button>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        
+    <div class="tab-content" id="resume-resume-tabs-content">
+
+      <!-- Experience -->
+      <div class="tab-pane fade show active" id="resume-experience">
+
+        <div class="container" style="max-width:1000px;">
+          <div class="experience-item">
+            <div class="item-header">
+              <div class="position-info">
+                <h3>Software Developer Intern</h3>
+                <div class="company">International Business Machines (IBM)</div>
+              </div>
+              <div class="period">May to Aug 2026</div>
+            </div>
+            <div class="item-content"><br></div>
+          </div>
+        </div>
+
+        <div class="container" style="max-width:1000px;">
+          <div class="experience-item">
+            <div class="item-header">
+              <div class="position-info">
+                <h3>Assessment Specialist</h3>
+                <div class="company">Educational Testing Service (ETS)</div>
+              </div>
+              <div class="period">Nov 2020 to Sep 2025</div>
+            </div>
+            <div class="item-content"><br>
+              <p>• Achieved 95% automation of exam item workflows for ETS flagship high-stakes exams (TOEIC, TOEFL, PRAXIS, GRE) by engineering and standardizing LLM prompts through iterative experimentation across diverse task types.</p> 
+              <p>• Reduced outsourced item-writer expenses by $56K+ annually by developing a prompt-based LLM method that automates TOEIC triple passage item generation, earning ETS’s Spot Award (2025).</p>
+              <p>• Led an Agile AP exam content team of 4 external SMEs to deliver 100+ multiple-choice questions every 6 months at ~90% committee acceptance.</p>
+              <p>• Secured 100% on-time delivery and helped renew the College Board contract by building strong stakeholder relationships.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Education -->
+      <div class="tab-pane fade" id="resume-education">
+
+        <div class="container" style="max-width:1000px;">
+          <div class="experience-item">
+            <div class="item-header">
+              <div class="position-info">
+                <h3>Master's in Computer Science</h3>
+                <div class="company">University of Illinois Urbana-Champaign</div>
+              </div>
+              <div class="period">2024 – 2026</div>
+            </div><br>
+            <div class = "item-content">
+              <p><strong>GPA:</strong> 4.0 /4.0</p> 
+              <p><strong>Honors:</strong>Tau Beta Pi Engineering Honor Society</p>
+            </div>
+          </div>
+        </div>
+
+         <div class="container" style="max-width:1000px;">
+          <div class="experience-item">
+            <div class="item-header">
+              <div class="position-info">
+                <h3>Master's in Applied Linguistics</h3>
+                <div class="company">Boston University</div>
+              </div>
+              
+            </div><br>
+            <div class = "item-content">
+              
+              <p><strong>Honors:</strong>Tau Beta Pi Engineering Honor Society</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Project</h2>
+        <p> This is a showcase of selected projects. More can be found on my GitHub page. </p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
+
+          <div class="portfolio-filters-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <ul class="portfolio-filters isotope-filters">
+              <li data-filter="*" class="filter-active">All Projects</li>
+              <li data-filter=".filter-AI&ML"> AI & ML </li>
+              <li data-filter=".filter-system">Systems and Data</li>
+              <li data-filter=".filter-fullstack">Full-stack</li>
+              <li data-filter=".filter-app">Mobile</li>
+            </ul>
+          </div>
+
+          <!-- End Portfolio Item --> 
+          <div class="row gy-4">
+           <div class="col-lg-4 col-md-6 portfolio-item">
+              <div class="portfolio-card shadow-sm h-100">
+
+                <div class="image-container">
+                  <img src="assets/img/portfolio/taxi.png" 
+                      class="img-fluid" 
+                      alt="Reinforcement Learning Taxi Agent" 
+                      loading="lazy">
+                </div>
+
+                <div class="content p-3">
+
+                  <h5 class="fw-bold">Reinforcement Learning Taxi Agent</h5> 
+                  <p> April - May 2026 </p><br>
+                  <p class="text-muted small">
+                    Implemented a Q-learning agent from scratch using Python and Gymnasium. 
+                    Designed epsilon-greedy exploration and Q-learning updates. 
+                    The agent successfully learned an optimal policy in Taxi-v3.
+                  </p><br>
+
+                  <!-- Tech stack -->
+                  <div class="mb-3">
+                    <span class="badge bg-light text-dark border">Python</span>
+                    <span class="badge bg-light text-dark border">Reinforcement Learning</span>
+                    <span class="badge bg-light text-dark border">Gymnasium</span>
+                    <span class="badge bg-light text-dark border">NumPy</span>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-sm btn-dark">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-dark">
+                      <i class="bi bi-box-arrow-up-right"></i> Demo
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+         
+            <!-- End Portfolio Item -->
+          
+           <div class="col-lg-4 col-md-6 portfolio-item">
+              <div class="portfolio-card shadow-sm h-100">
+
+                <div class="image-container">
+                  <img src="assets/img/portfolio/taxi.png" 
+                      class="img-fluid" 
+                      alt="Reinforcement Learning Taxi Agent" 
+                      loading="lazy">
+                </div>
+
+                <div class="content p-3">
+
+                  <h5 class="fw-bold">Reinforcement Learning Taxi Agent</h5>
+
+                  <p class="text-muted small">
+                    Implemented a Q-learning agent from scratch using Python and Gymnasium. 
+                    Designed epsilon-greedy exploration and Q-learning updates. 
+                    The agent successfully learned an optimal policy in Taxi-v3.
+                  </p>
+
+                  <!-- Tech stack -->
+                  <div class="mb-3">
+                    <span class="badge bg-light text-dark border">Python</span>
+                    <span class="badge bg-light text-dark border">Reinforcement Learning</span>
+                    <span class="badge bg-light text-dark border">Gymnasium</span>
+                    <span class="badge bg-light text-dark border">NumPy</span>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-sm btn-dark">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-dark">
+                      <i class="bi bi-box-arrow-up-right"></i> Demo
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          
+            <!-- End Portfolio Item -->
+        
+           <div class="col-lg-4 col-md-6 portfolio-item">
+              <div class="portfolio-card shadow-sm h-100">
+
+                <div class="image-container">
+                  <img src="assets/img/portfolio/taxi.png" 
+                      class="img-fluid" 
+                      alt="Reinforcement Learning Taxi Agent" 
+                      loading="lazy">
+                </div>
+
+                <div class="content p-3">
+
+                  <h5 class="fw-bold">Reinforcement Learning Taxi Agent</h5>
+
+                  <p class="text-muted small">
+                    Implemented a Q-learning agent from scratch using Python and Gymnasium. 
+                    Designed epsilon-greedy exploration and Q-learning updates. 
+                    The agent successfully learned an optimal policy in Taxi-v3.
+                  </p>
+
+                  <!-- Tech stack -->
+                  <div class="mb-3">
+                    <span class="badge bg-light text-dark border">Python</span>
+                    <span class="badge bg-light text-dark border">Reinforcement Learning</span>
+                    <span class="badge bg-light text-dark border">Gymnasium</span>
+                    <span class="badge bg-light text-dark border">NumPy</span>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-sm btn-dark">
+                      <i class="bi bi-github"></i> Code
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-dark">
+                      <i class="bi bi-box-arrow-up-right"></i> Demo
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-portrait-8.webp" class="img-fluid" alt="Mobile App Design" loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-portrait-8.webp" class="glightbox zoom-link" title="Mobile App Design">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Mobile App Design</h3>
+                  <p>User-centered interface design</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="Packaging Design" loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox zoom-link" title="Packaging Design">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Packaging Design</h3>
+                  <p>Sustainable product packaging solutions</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-motion">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-11.webp" class="img-fluid" alt="Brand Animation" loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox zoom-link" title="Brand Animation">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Brand Animation</h3>
+                  <p>Dynamic brand identity systems</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Grid -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+
+  // Start the hero entrance animation once the page has loaded and the
+  // preloader is gone, so the reveal is not spent behind the overlay.
+  (function () {
+    // A hash in the URL means the visitor asked for a specific section, so the
+    // scroll position is left alone and main.js handles the anchor scrolling.
+    var hasHash = window.location.hash.length > 1;
+
+    function startHeroAnimation() {
+      // Runs once, on the initial load only; the user is free to scroll after this.
+      if (!hasHash) {
+        window.scrollTo(0, 0);
+      }
+      document.body.classList.add("hero-ready");
+    }
+
+    if (!hasHash) {
+      window.scrollTo(0, 0);
+    }
+
+    if (document.readyState === "complete") {
+      startHeroAnimation();
+    } else {
+      window.addEventListener("load", startHeroAnimation);
+    }
+  })();
+
+  // Rotates the "Experienced in ..." phrases. Every phrase is already in the
+  // markup and stacked in one grid cell, so only whole phrases are ever shown
+  // and the container is permanently as wide as the longest one.
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const rotator = document.getElementById("phrase-rotator");
+    if (!rotator) return;
+
+    const phrases = rotator.querySelectorAll(".phrase");
+    if (phrases.length < 2) return;
+
+    // Reduced motion: leave the first phrase showing, statically.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const HOLD = 2800;
+    let index = 0;
+
+    setInterval(function () {
+      phrases[index].classList.remove("is-active");
+      index = (index + 1) % phrases.length;
+      phrases[index].classList.add("is-active");
+    }, HOLD);
+
+  });
+
+  </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</html>
