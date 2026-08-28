@@ -67,15 +67,53 @@
 
 /* Drop the figure's default bottom margin so the CV button, contact icons and
    location sit directly under the illustration rather than 1rem clear of it. */
-#hero .portrait-wrap {
-  margin-bottom: 0;
+.portrait-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-/* Ease the name back by 10% on large screens only; below 1200px Bootstrap's
-   own fluid display-1 sizing still applies, so tablet/mobile is untouched. */
-@media (min-width: 1200px) {
-  #hero h1.display-1 {
-    font-size: 4.5rem;
+.portrait-image {
+  width: auto;
+  height: 420px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Right column (portrait & contact) center alignment */
+#hero .col-lg-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .portrait-image {
+    height: 340px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portrait-image {
+    height: 300px;
+  }
+}
+
+/* Mobile: Reorder content so text comes first */
+@media (max-width: 991px) {
+  #hero .row {
+    flex-direction: column;
+    --bs-gutter-x: 0;
+  }
+
+  #hero .col-lg-7 {
+    order: 1;
+  }
+
+  #hero .col-lg-5 {
+    order: 2;
   }
 }
 
@@ -87,7 +125,47 @@
 
 /* Wider container than the default 1140px, to give the subtitle room to sit on one line */
 #hero > .container {
-  max-width: 1320px;
+  max-width: 1100px;
+}
+
+/* Set appropriate gap between columns for compact layout */
+#hero .row {
+  --bs-gutter-x: 2.5rem;
+}
+
+/* Center the left content column */
+#hero .col-lg-7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Constrain headline width for readability while keeping it centered */
+#hero .col-lg-7 h1.display-1 {
+  max-width: 500px;
+}
+
+#hero .col-lg-7 .hero-subtitle {
+  max-width: 520px;
+}
+
+/* Center the CTA button */
+#hero .col-lg-7 > div.mt-4 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Center the logo row */
+#hero .logo-strip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#hero .logo-container {
+  justify-content: center;
 }
 
 /* Subtitle: sized against its own column width, so it stays on a single line at any width */
