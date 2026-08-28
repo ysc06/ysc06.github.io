@@ -160,36 +160,6 @@
 }
 
 /*--------------------------------------------------------------
-# Hero Phrase Rotator
---------------------------------------------------------------*/
-/* Every phrase occupies the same grid cell, so the box is always as wide and
-   tall as the longest phrase and nothing around it can shift as they change. */
-.phrase-rotator {
-  display: inline-grid;
-  vertical-align: bottom;
-}
-
-.phrase {
-  grid-area: 1 / 1;
-  color: #5e905e;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 350ms ease, transform 350ms ease;
-}
-
-.phrase.is-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .phrase {
-    transition: none;
-  }
-}
-
-/*--------------------------------------------------------------
 # Technical Toolkit
 --------------------------------------------------------------*/
 .toolkit .toolkit-groups {
@@ -287,21 +257,38 @@ a {
 }
 
 .btn-button {
-  color: black;
-  border: 1px solid black ;
-  background-color: transparent;
+  background: #ffffff;
+  border: 1px solid #303432;
+  color: #242725;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
-
 .btn-button:hover {
-  background: linear-gradient(135deg,
-      /* #c5d4ea, */
-      #c1dfc4,
-      #d0d9d1,
-      #d0d9d1,
-      #c1dfc4);
-  border:1px solid black ;
-  color: black;
+  background: #e8eae9;
+  border-color: #8b918e;
+  color: #1f2220;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 34, 32, 0.1);
+}
+
+.btn-button:focus-visible {
+  outline: 2px solid #737976;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-button {
+    transition: none;
+  }
+
+  .btn-button:hover {
+    transform: none;
+  }
 }
  
 
@@ -1018,30 +1005,24 @@ section .hero {
   }
 }
 .logo-strip{
-  padding:36px 0 0;
+  padding:24px 0 0;
   background:transparent;
 }
 
 .logo-row + .logo-row{
-  margin-top:26px;
+  margin-top:0;
 }
 
 /* Understated label so the logos stay the visual focus */
 .logo-row-label{
-  margin:0 0 10px;
-  font-family:var(--default-font);
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:color-mix(in srgb, var(--default-color), transparent 50%);
+  display:none;
 }
 
 .logo-container{
   display:flex;
   justify-content:flex-start;
   align-items:center;
-  gap:36px;
+  gap:32px;
   flex-wrap:wrap;
 }
 
@@ -1064,6 +1045,16 @@ section .hero {
   opacity:1;
 }
 
+/* Disclaimer text below logo row */
+.logo-disclaimer {
+  margin-top: 16px;
+  font-size: 12px;
+  text-align: center;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  line-height: 1.4;
+  font-family: var(--default-font);
+}
+
 @media (max-width:767.98px){
   .logo-row-label{
     text-align:center;
@@ -1072,6 +1063,12 @@ section .hero {
   .logo-container{
     justify-content:center;
     gap:24px 28px;
+  }
+  
+  .logo-disclaimer {
+    margin-top: 12px;
+    font-size: 11px;
+    padding: 0 12px;
   }
 }
 /*--------------------------------------------------------------

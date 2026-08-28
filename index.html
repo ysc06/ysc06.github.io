@@ -18,8 +18,7 @@
   </script>
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -123,60 +122,28 @@ Download CV
 Naomi Cheng </h1>
 <h1 class="hero-subtitle fw-semibold mb-2 hero-reveal hero-reveal-2">Software Engineer building AI-powered applications and reliable systems</h1>
 
-<h5 class="status-inline hero-reveal hero-reveal-3">Software Engineering at IBM · AI Innovation at ETS</h5><br>
-
-<p class="fs-4 hero-reveal hero-reveal-4">
-Experienced in
-<span class="phrase-rotator" id="phrase-rotator">
-<span class="phrase is-active">AI-Powered Applications</span>
-<span class="phrase">LLM &amp; RAG Systems</span>
-<span class="phrase">Software Infrastructure</span>
-<span class="phrase">Web &amp; API Automation</span>
-</span>
-</p>
-
-<div class="mt-4 hero-reveal hero-reveal-5">
-
-<span class="badge text-bg-light">TypeScript</span>
-<span class="badge text-bg-light">Python</span>
-<span class="badge text-bg-light">React</span>
-<span class="badge text-bg-light">FastAPI</span>
-<span class="badge text-bg-light">Playwright</span>
-<span class="badge text-bg-light">AWS</span>
-
-</div>
-
-
+<h5 class="status-inline hero-reveal hero-reveal-3">IBM Software Engineering Intern · AI Innovation at ETS</h5>
 
 <div class="mt-4">
 
-<a href="#portfolio" class="btn btn-button hero-reveal hero-reveal-5">
+<a href="#portfolio" class="btn btn-button hero-reveal hero-reveal-4">
 View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 </a>
 
-<section class="logo-strip hero-reveal hero-reveal-6">
+</div>
 
+<section class="logo-strip hero-reveal hero-reveal-5">
   <div class="logo-row">
-    <p class="logo-row-label">Experience</p>
     <div class="logo-container">
       <img src="logos/IBM-mono.svg" class="logo-wordmark" alt="IBM">
       <img src="logos/ets-trimmed.png" class="logo-wordmark" alt="ETS — Educational Testing Service">
-    </div>
-  </div>
-
-  <div class="logo-row">
-    <p class="logo-row-label">Education &amp; Honors</p>
-    <div class="logo-container">
       <img src="logos/UIUC.png" class="logo-badge" alt="University of Illinois Urbana-Champaign">
       <img src="logos/TBP.png" class="logo-lockup" alt="Tau Beta Pi — The Engineering Honor Society">
       <img src="logos/Phi-emblem.png" class="logo-badge" alt="The Honor Society of Phi Kappa Phi">
     </div>
   </div>
-
+  
 </section>
-
-
-</div>
 
 </div>
 
@@ -724,31 +691,6 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
       window.addEventListener("load", startHeroAnimation);
     }
   })();
-
-  // Rotates the "Experienced in ..." phrases. Every phrase is already in the
-  // markup and stacked in one grid cell, so only whole phrases are ever shown
-  // and the container is permanently as wide as the longest one.
-  document.addEventListener("DOMContentLoaded", function () {
-
-    const rotator = document.getElementById("phrase-rotator");
-    if (!rotator) return;
-
-    const phrases = rotator.querySelectorAll(".phrase");
-    if (phrases.length < 2) return;
-
-    // Reduced motion: leave the first phrase showing, statically.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const HOLD = 2800;
-    let index = 0;
-
-    setInterval(function () {
-      phrases[index].classList.remove("is-active");
-      index = (index + 1) % phrases.length;
-      phrases[index].classList.add("is-active");
-    }, HOLD);
-
-  });
 
   </script>
 </body>
