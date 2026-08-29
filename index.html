@@ -53,10 +53,10 @@
           <a class="nav-link active" aria-current="page" href="#">About</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Projects</a>
+          <a class="nav-link" href="#portfolio">Projects</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Resume</a>
+          <a class="nav-link" href="#resume">Resume</a>
         </li>
         <li class="nav-item mx-4">
           <a class="nav-link" href="https://github.com/ysc06">GitHub</a>
@@ -79,21 +79,23 @@
 
 <!-- 左側 - Professional Content -->
 <div class="col-lg-7 order-lg-1">
-
+<br>
 <h1 class="display-1 fw-bold mb-2 hero-reveal hero-reveal-1">
 Naomi Cheng </h1>
+<br>
 <h1 class="hero-subtitle fw-semibold mb-2 hero-reveal hero-reveal-2">Software Engineer building AI-powered applications and reliable systems</h1>
 
-<h5 class="status-inline hero-reveal hero-reveal-3">IBM Software Engineering Intern · AI Innovation at ETS</h5>
+<h5 class="status-inline hero-reveal hero-reveal-3">IBM Software Engineer Intern · AI Innovation at ETS</h5>
 
 <div class="mt-4">
+<br>
 
 <a href="#portfolio" class="btn btn-button hero-reveal hero-reveal-4">
 View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 </a>
 
 </div>
-
+<br>
 <section class="logo-strip hero-reveal hero-reveal-5">
   <div class="logo-row">
     <div class="logo-container">
@@ -158,8 +160,8 @@ Download CV
 <section id="toolkit" class="toolkit section">
 
   <div class="container">
-
-    <h2 class="mb-5 text-center" data-aos="fade-up">Technical Toolkit</h2>
+    <br></div>
+    <h2 class="mb-5 text-center" data-aos="fade-up">Technical Skills</h2>
 
     <div class="toolkit-groups">
 
@@ -404,11 +406,12 @@ Download CV
 
           <div class="portfolio-filters-wrapper" data-aos="fade-up" data-aos-delay="100">
             <ul class="portfolio-filters isotope-filters">
-              <li data-filter="*" class="filter-active">All Projects</li>
+              <li data-filter="*" class="filter-active">Featured Projects</li>
               <li data-filter=".filter-AI&ML"> AI & ML </li>
               <li data-filter=".filter-system">Systems and Data</li>
               <li data-filter=".filter-fullstack">Full-stack</li>
               <li data-filter=".filter-app">Mobile</li>
+              <li data-filter="*" class="filter-active">All Projects</li>
             </ul>
           </div>
 
@@ -418,36 +421,52 @@ Download CV
               <div class="portfolio-card shadow-sm h-100">
 
                 <div class="image-container">
-                  <img src="assets/img/portfolio/taxi.png" 
+                  <img src="assets/img/portfolio/ExamFlux01.png" 
                       class="img-fluid" 
-                      alt="Reinforcement Learning Taxi Agent" 
+                      alt="ExamFlux AI project" 
                       loading="lazy">
                 </div>
 
                 <div class="content p-3">
 
-                  <h5 class="fw-bold">Reinforcement Learning Taxi Agent</h5> 
-                  <p> April - May 2026 </p><br>
+                  <h5 class="fw-bold">
+                    <a href="portfolio-details.html" class="text-dark text-decoration-none">
+                      AI-Powered Exam Authoring and Review Platform
+                    </a>
+                  </h5>
+                  <p class="mb-0">Full-stack AI application</p>
+
+                  <p class="project-award">
+                    <i class="bi bi-award"></i>
+                    <span>Prompt workflow &mdash; 2025 ETS Spot Award</span>
+                  </p>
+
                   <p class="text-muted small">
-                    Implemented a Q-learning agent from scratch using Python and Gymnasium. 
-                    Designed epsilon-greedy exploration and Q-learning updates. 
-                    The agent successfully learned an optimal policy in Taxi-v3.
-                  </p><br>
+                    Built an end-to-end platform for generating and reviewing exam items, from single questions to complex multi-passage sets. A reusable prompt-orchestration layer decomposes generation into structured inference and synthesis steps, with Pydantic schemas keeping every LLM response machine-validated. Sentence-Transformer embeddings score semantic similarity to surface near-duplicate items, while a FastAPI + SQLAlchemy service persists versioned drafts behind a React review UI, containerized with Docker.
+                  </p>
 
                   <!-- Tech stack -->
                   <div class="mb-3">
                     <span class="badge bg-light text-dark border">Python</span>
-                    <span class="badge bg-light text-dark border">Reinforcement Learning</span>
-                    <span class="badge bg-light text-dark border">Gymnasium</span>
-                    <span class="badge bg-light text-dark border">NumPy</span>
+                    <span class="badge bg-light text-dark border">FastAPI</span>
+                    <span class="badge bg-light text-dark border">React</span>
+                    <span class="badge bg-light text-dark border">JavaScript</span>
+                    <span class="badge bg-light text-dark border">OpenAI API</span>
+                    <span class="badge bg-light text-dark border">GPT-4.1</span>
+                    <span class="badge bg-light text-dark border">SQLAlchemy</span>
+                    <span class="badge bg-light text-dark border">SQLite</span>
+                    <span class="badge bg-light text-dark border">Sentence Transformers</span>
+                    <span class="badge bg-light text-dark border">Embeddings</span>
+                    <span class="badge bg-light text-dark border">Docker</span>
+                    <span class="badge bg-light text-dark border">Pydantic</span>
                   </div>
 
                   <!-- Buttons -->
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-sm btn-dark">
-                      <i class="bi bi-github"></i> Code
+                  <div class="d-flex gap-2 flex-wrap">
+                    <a href="https://github.com/ysc06/AI-powered-exam-item-reviewer" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark">
+                      <i class="bi bi-github"></i> GitHub
                     </a>
-                    <a href="#" class="btn btn-sm btn-outline-dark">
+                    <a href="https://youtu.be/R-jLH7xjr88" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark">
                       <i class="bi bi-box-arrow-up-right"></i> Demo
                     </a>
                   </div>
