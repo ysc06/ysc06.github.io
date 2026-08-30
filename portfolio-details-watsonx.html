@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Adaptive Insights — Naomi Cheng</title>
+  <meta name="description" content="A 2026 IBM watsonx Hackathon project. My contribution: user-preference persistence — an LLM intent classifier that tells a preference from a question, a per-user store that survives the session, and a precedence rule that keeps the model from overruling what the user already asked for.">
+  <meta name="keywords" content="IBM watsonx Hackathon, 2026, personalization, user preferences, preference persistence, intent classification, LLM, agentic UI, adaptive UI, Ollama, Llama 3.2, Node.js, React, Recharts, Qdrant, RAG, MCP">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">Adaptive Insights</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>Adaptive Insights &mdash; Persistent User Preferences</h1>
+        <p>A 2026 IBM watsonx Hackathon project. I built the layer that makes the AI remember you &mdash; telling a preference apart from a question, storing it per user, and holding the interface steady enough to feel like yours while leaving room for it to still surprise you.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">2026 IBM watsonx Hackathon &mdash; Personalization &amp; Agent Memory</div>
+            <h1 class="project-title">Teaching an Adaptive UI to Remember You</h1>
+            <p class="project-subtitle">An AI that picks a fresh layout for every answer is impressive once and exhausting by the fourth question. Adaptive Insights lets a local model plan how each result is rendered; my contribution was the counterweight &mdash; <strong>persistent user preferences</strong>. Say &ldquo;use dark mode, a purple palette, and bar charts by default&rdquo; and the system recognizes it as an instruction rather than a query, writes it to a per-user store, and applies it to every session that follows. The hard part was never the file I/O. It was deciding <em>who wins</em> when a stored preference, a phrase in the current prompt, and the model&rsquo;s own opinion all want a different chart &mdash; and then deciding how much freedom to leave the model once the user&rsquo;s choices are locked.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Event</div>
+              <div class="meta-value">2026 IBM watsonx Hackathon &mdash; participating project</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">My Contribution</div>
+              <div class="meta-value">User-preference persistence &mdash; intent classification, per-user store, precedence rules, preference-aware rendering</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Team Project</div>
+              <div class="meta-value">Adaptive Insights &mdash; a brain-inspired agent UI over MCP-style tools and Qdrant RAG</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">Node.js, React, Ollama (Llama&nbsp;3.2), Recharts, Docker Compose</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/watsonx.png"
+                       alt="Persistent user preferences across sessions: in session one Naomi asks for dark mode, a purple palette and bar charts by default and the assistant replies preferences saved; the React UI sends username plus prompt to a Node.js API broker whose intent classifier routes to UPDATE_PREFERENCE, VIEW_PREFERENCES or QUERY_DATA, saving theme, palette, chartType and numberFormat to a per-user preference store; in session two the prompt show revenue by region loads and merges those preferences, reports preference applied, and renders a purple bar chart, with a variation history block preventing repeated chart styles"
+                       class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>My Contribution</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-award" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    Preference persistence &mdash; 2026 IBM watsonx Hackathon
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    I owned the personalization layer end to end: the <strong>LLM intent classifier</strong> that separates <code>UPDATE_PREFERENCE</code> and <code>VIEW_PREFERENCES</code> from <code>QUERY_DATA</code>, the <strong>per-user preference store</strong> behind it, and the <strong>precedence rule</strong> that resolves conflicts between a stored default, a phrase in the live prompt, and the render planner&rsquo;s own choice.<br><br>
+                    Four settings persist across sessions &mdash; <strong>theme, palette, chart type and number format</strong> &mdash; and they reach both ends of the stack: injected into the planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read directly by React when it paints colors and formats numbers.
+                  </p>
+                </div>
+                <p class="overview-text"><strong>The intent classifier</strong> runs at temperature 0 against a constrained JSON contract, returning an intent plus only the preference keys the user actually named &mdash; explicitly instructed not to invent values. It normalizes the vocabulary people really use: <em>grey</em> to gray, <em>violet</em> and <em>lavender</em> to purple, <em>navy</em> and <em>cyan</em> to blue, <em>colorful</em> to rainbow. If classification fails or the model is unreachable, the request degrades to <code>QUERY_DATA</code> and the user still gets an answer.</p>
+
+                <p class="overview-text"><strong>The store</strong> is keyed by username, merges partial updates over existing values rather than replacing the record, and falls back to documented defaults for anyone with no history &mdash; so a first-time user and a returning one take the same code path.</p>
+
+                <p class="overview-text"><strong>The UX position</strong> underneath all of it: an adaptive interface has to be predictable where the user has committed, and free everywhere else. Anything a person explicitly chose &mdash; theme, palette, chart type, number format &mdash; is treated as a promise and reproduced exactly. The details they never mentioned are where the interface is allowed to move: an accent, a card treatment, a legend position, a donut instead of a flat pie. Same shape you asked for, small delight you didn&rsquo;t &mdash; and because the variation is drawn to differ from the one you saw last, the surface stays alive across a session instead of settling into a template.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>In an interface where an LLM chooses the layout, personalization and adaptivity are in direct conflict. Let the model decide freely and the user&rsquo;s saved defaults evaporate; hard-code the defaults and the adaptive planner becomes decoration. Worse, both failure modes look like bugs to the user &mdash; and neither is reliably reproducible when a 3B model is making the call.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>I made the arbitration explicit instead of emergent, as a three-tier precedence: what you asked for <em>in this prompt</em> beats what you saved, what you saved beats what the model preferred, and any choice that doesn&rsquo;t fit the returned data shape loses to a deterministic fallback. Each outcome is stamped with a status &mdash; <code>ollama+prompt</code>, <code>ollama+preference</code>, <code>fallback</code> &mdash; so why a given view appeared is a fact in the response, not a guess.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Project Context</h3>
+            </div>
+            <div class="col-lg-9">
+              <p class="overview-text"><strong>Adaptive Insights</strong> is the team&rsquo;s hackathon entry: an analytics interface that decides <em>how</em> to answer, not just what. A prompt enters, a local Llama 3.2 model returns a render plan, and React draws whichever view fits the result &mdash; a spotlight for a single account, cards for a handful, a table for many, or a bar, pie, line, area, treemap or leaderboard for an aggregate. Three Docker services carry it: a Node.js broker that routes and validates, a Python service exposing MCP-style data tools, and Qdrant holding retrieval memory for report documentation. Everything, the reasoning model included, runs locally.</p>
+              <p class="overview-text">The architecture is described with a brain metaphor &mdash; the broker as thalamic routing, Qdrant as hippocampal memory, Ollama as cerebral reasoning, validation as cerebellar coordination, and a deterministic brainstem fallback that keeps the UI answering when the model is offline. <strong>Preference persistence is the long-term memory in that picture</strong>: the part that carries something forward from one session into the next.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">My Layer</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Intent Classification</span>
+                    <span class="tech-item">Constrained JSON Output</span>
+                    <span class="tech-item">Few-Shot Prompting</span>
+                    <span class="tech-item">Per-User Persistence</span>
+                    <span class="tech-item">Preference Merging</span>
+                    <span class="tech-item">Precedence Resolution</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">Backend</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">ES Modules</span>
+                    <span class="tech-item">Ollama</span>
+                    <span class="tech-item">Llama 3.2 3B</span>
+                    <span class="tech-item">REST APIs</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">Frontend</div>
+                  <div class="tech-list">
+                    <span class="tech-item">React 19</span>
+                    <span class="tech-item">Vite</span>
+                    <span class="tech-item">Recharts</span>
+                    <span class="tech-item">Intl Number Formatting</span>
+                    <span class="tech-item">Theming</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Team Platform</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">MCP-Style Tools</span>
+                    <span class="tech-item">Qdrant</span>
+                    <span class="tech-item">RAG</span>
+                    <span class="tech-item">Docker Compose</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>What I Built</h3>
+                <p>The path a preference travels: recognized in a sentence, written to a store, merged into the next session, defended against everything downstream that might overwrite it &mdash; and bounded, so the interface can still surprise you where you never expressed a preference.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-signpost-split"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Telling an Instruction From a Question</h4>
+                    <p>An LLM classifier routes every prompt to <code>QUERY_DATA</code>, <code>UPDATE_PREFERENCE</code>, or <code>VIEW_PREFERENCES</code>, so &ldquo;use pie charts by default&rdquo; is <em>stored</em> while &ldquo;show revenue by region&rdquo; is <em>answered</em>, and &ldquo;show my settings&rdquo; returns the saved record instead of searching for data. Few-shot examples pin the boundary cases &mdash; the ones where a preference and a query use nearly the same words.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-person-badge"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>A Per-User Store That Merges, Not Replaces</h4>
+                    <p>Preferences are namespaced by username and updated key by key, so setting a palette never silently clears a saved theme. Users with no history resolve to documented defaults, and a missing or unreadable store degrades to an empty object rather than throwing &mdash; the personalization layer can fail without taking the request with it.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-diagram-2"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Three-Tier Precedence, Stamped in the Response</h4>
+                    <p>An explicit request in the current prompt outranks a stored default, which outranks the model&rsquo;s own plan, which loses to a deterministic fallback if it doesn&rsquo;t fit the data. A stored chart type is applied only when the returned shape can carry it &mdash; a saved pie preference never turns a single record into a pie &mdash; and the response reports which rule fired.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-translate"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Normalizing the Words People Actually Use</h4>
+                    <p>Colors arrive as synonyms, so both paths normalize them: <em>grey</em> to gray, <em>crimson</em> to red, <em>lavender</em> and <em>violet</em> to purple, <em>magenta</em> and <em>rose</em> to pink, <em>colorful</em> to rainbow. The regex extractor is ordered most-specific first so <em>high contrast</em> isn&rsquo;t swallowed by a looser match, with guards against near-misses like &ldquo;not pie&rdquo;.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-arrow-left-right"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Inline Preferences, Captured in Passing</h4>
+                    <p>A preference mentioned mid-question &mdash; &ldquo;show revenue by region in a dark theme&rdquo; &mdash; is extracted from the prompt, merged over the stored record for this answer, <em>and</em> written back, so a user can drift into their preferred setup without ever visiting a settings screen or issuing an explicit command.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-icon">
+                    <i class="bi bi-palette"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Preferences Reaching Both Ends of the Stack</h4>
+                    <p>The stored record is injected into the render planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read again in React, where the palette drives Recharts series colors, the theme switches the shell, and the number format selects how revenue prints &mdash; compact, full, percentage, or currency &mdash; from one saved value.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
+                  <div class="feature-icon">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Familiar, Not Identical</h4>
+                    <p>Alongside the preferences I persisted a variation history &mdash; the accent, card style, chart variant, legend position and decimal precision last shown &mdash; and the next variation is drawn to differ from it. The user&rsquo;s stated choices are reproduced exactly; the unstated details are free to shift, so each answer feels attended-to rather than templated. The surprise is deliberately bounded: it never reaches a setting the user has committed to.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

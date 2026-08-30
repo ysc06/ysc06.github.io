@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Music Recommender Simulation - Naomi Cheng</title>
+  <meta name="description" content="TuneMatch 1.0 — a machine learning recommender built AI-assisted for CodePath's AI Engineering course: it scores an 18-song catalog against a user taste profile, explains every recommendation in plain language, and documents its own bias in a model card.">
+  <meta name="keywords" content="machine learning, recommender system, content-based filtering, AI-assisted development, CodePath, AI Engineering, Python, ranking, model card, AI ethics, bias, fairness, explainable AI, pytest">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">Music Recommender Simulation</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>Music Recommender Simulation</h1>
+        <p>A machine learning recommender small enough to read end to end &mdash; built AI-assisted for CodePath&rsquo;s AI Engineering course, with every score designed, every ranking explained, and every bias written down.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">Machine Learning &mdash; Recommender Systems</div>
+            <h1 class="project-title">TuneMatch 1.0 &mdash; Turning Taste Into a Ranking, and Saying Why</h1>
+            <p class="project-subtitle">Spotify's ranking logic is invisible by design; this one is not. I built a content-based recommender in pure Python that walks the standard machine learning recommender pipeline &mdash; represent each song as a feature vector, encode a listener as a four-field taste profile, score the catalog, rank it, then evaluate what the ranking got wrong. The scoring function is designed rather than fitted, which is the point: an interpretable baseline you can defend line by line before any weights get learned. Every recommendation ships with a sentence explaining which signals earned it its place, and the accompanying model card names the failure modes that same weighting creates.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Project</div>
+              <div class="meta-value">Content-Based Recommender &amp; Model Card</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Context</div>
+              <div class="meta-value">CodePath AI Engineering (AI 110) &mdash; Module 3 Show Project</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Role</div>
+              <div class="meta-value">Sole author &mdash; feature design, scoring model, evaluation, bias analysis; built AI-assisted</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">Python, dataclasses, CSV, pytest</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/music_rec.png"
+                       alt="The recommender's output for the default profile: a taste-profile panel showing genre lofi, mood focused, target energy 0.40 and acoustic on, beside a ranked list of five recommendations led by Focus Flow at 100.00, with badges naming the signals that earned each score, above a pipeline strip reading song features plus user taste profile to weighted match score to ranked top 5"
+                       class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>Project Overview</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-music-note-beamed" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    The scoring rule, in numbers
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    <strong>Genre is the anchor at 35 points</strong>, mood adds up to <strong>30</strong>, energy proximity up to <strong>25</strong>, and acoustic texture nudges the total by <strong>&plusmn;10</strong> &mdash; a deliberate choice that taste labels should outrank a perfect numerical fit.<br><br>
+                    For <strong>&ldquo;The Focused Studier&rdquo;</strong> profile, <em>Focus Flow</em> clears every signal at once and scores a perfect <strong>100.00</strong>; the next three are lofi tracks whose moods are <em>adjacent</em> to focused, landing in the <strong>86&ndash;88</strong> band on partial mood credit.
+                  </p>
+                </div>
+                <p class="overview-text">Each of the 18 catalog songs carries ten fields &mdash; genre, mood, energy, tempo, valence, danceability, acousticness and identifiers &mdash; loaded from CSV with numeric coercion at the boundary. A <code>UserProfile</code> compresses a listener into four: favorite genre, favorite mood, target energy, and whether they like acoustic. Scoring compares the two, sorts descending, and returns the top <em>k</em>, defaulting to five.</p>
+
+                <p class="overview-text">Built for CodePath's AI Engineering course (AI 110) as an AI-assisted project: I used an AI coding assistant throughout &mdash; drafting the scoring function, pressure-testing the weights against edge cases, and interrogating my own design for the biases that ended up in the model card &mdash; while keeping the modeling decisions, and the responsibility for them, mine.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>A recommender with no learned component has nowhere to hide: the weights <em>are</em> the model. Choosing them means committing, in advance, to a claim about what actually predicts whether someone likes a song &mdash; and then owning the recommendations that claim produces, including the bad ones.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>I made genre the anchor and demoted the continuous features to tie-breakers, on the reasoning that a slightly-too-energetic lofi track beats a perfectly-paced track from a genre the listener avoids. Then I softened the sharpest edge with mood adjacency &mdash; <em>chill</em> earns partial credit against <em>focused</em> &mdash; and audited the rest in a model card instead of pretending they were solved.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">Core</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Python 3</span>
+                    <span class="tech-item">dataclasses</span>
+                    <span class="tech-item">Type Hints</span>
+                    <span class="tech-item">AI-Assisted Development</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">Machine Learning</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Recommender Systems</span>
+                    <span class="tech-item">Content-Based Filtering</span>
+                    <span class="tech-item">Weighted Scoring</span>
+                    <span class="tech-item">Distance-Based Matching</span>
+                    <span class="tech-item">Top-k Ranking</span>
+                    <span class="tech-item">Mood Adjacency</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">Data</div>
+                  <div class="tech-list">
+                    <span class="tech-item">CSV</span>
+                    <span class="tech-item">Feature Engineering</span>
+                    <span class="tech-item">Numeric Coercion</span>
+                    <span class="tech-item">18-Song Catalog</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Quality &amp; Ethics</div>
+                  <div class="tech-list">
+                    <span class="tech-item">pytest</span>
+                    <span class="tech-item">Model Card</span>
+                    <span class="tech-item">Explainability</span>
+                    <span class="tech-item">Bias Analysis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>Key Features</h3>
+                <p>Everything between a CSV of songs and a ranked list a listener can argue with &mdash; the feature model, the weighting, the explanations, and an honest account of where it breaks.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-sliders"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Weighted Multi-Signal Scoring</h4>
+                    <p>Genre contributes 35 points, mood up to 30, energy proximity up to 25, and acoustic preference a &plusmn;10 adjustment &mdash; a fixed budget that makes the model's priorities inspectable rather than emergent.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-diagram-3"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Mood Adjacency, Not Exact Match</h4>
+                    <p>Rather than treating mood as a binary hit, related moods earn partial credit &mdash; <em>chill</em> and <em>relaxed</em> both score against a <em>focused</em> profile &mdash; so near-misses surface instead of collapsing to zero alongside genuinely wrong songs.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-chat-left-text"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>An Explanation With Every Result</h4>
+                    <p>Each recommendation is returned with a generated sentence naming the signals that earned it &mdash; matched genre, adjacent mood, energy 0.42 against a target of 0.40, acoustic texture &mdash; so a surprising ranking can be traced instead of guessed at.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-person-gear"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Profile-Driven Simulation</h4>
+                    <p>Swapping the four-field <code>UserProfile</code> reruns the whole catalog under a different listener, making it cheap to test how the same weights behave for a studier, a runner, or someone whose taste the catalog barely covers.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Documented Failure Modes</h4>
+                    <p>The model card records what the weighting costs: genre dominance means a great mood-and-energy match in the &ldquo;wrong&rdquo; genre can never win; single-song genres leave those listeners with filler; <em>indie pop</em> and <em>pop</em> are strangers to a string comparison; and tempo, valence and danceability sit unused in the data.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-icon">
+                    <i class="bi bi-check2-square"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Tested and Reproducible</h4>
+                    <p>A pytest suite pins the loader and the scoring behavior, and the run is a single <code>python -m src.main</code> against a checked-in catalog &mdash; the documented sample output is reproducible rather than illustrative.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
+                  <div class="feature-icon">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>AI-Assisted Engineering Workflow</h4>
+                    <p>Developed with an AI coding assistant as a working partner &mdash; drafting and refactoring the scoring function, generating adversarial profiles to probe the weights, and challenging the design until the failure modes were specific enough to write down. The modeling calls stayed mine; the assistant made it faster to find out where they were wrong.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+            <a href="https://github.com/ysc06/ai110-module3show-musicrecommendersimulation-starter" target="_blank" rel="noopener noreferrer" class="nav-link next-project">
+              <span class="nav-direction">Repository</span>
+              <span class="nav-title">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

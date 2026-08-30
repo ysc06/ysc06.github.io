@@ -1687,6 +1687,143 @@ ul li {
   min-height: 400px;
 }
 
+.resume .resume-pdf {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 80vh;
+  min-height: 500px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+}
+
+.resume .resume-pdf object,
+.resume .resume-pdf iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.resume .resume-pdf-fallback {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+@media (max-width: 768px) {
+  .resume .resume-pdf {
+    height: 65vh;
+    min-height: 380px;
+  }
+}
+
+.resume .section-title {
+  padding-bottom: 2.5rem;
+}
+
+.resume .section-title p {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+.resume .resume-block {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+
+.resume .resume-block:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.resume .resume-block-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 45%);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.resume .resume-block .experience-item,
+.resume .resume-block .education-entry {
+  padding: 1.5rem 0;
+}
+
+.resume .resume-block .experience-item .item-header {
+  margin-bottom: 0.75rem;
+}
+
+.resume .resume-block .education-entry .degree-details h3 {
+  margin-bottom: 0.25rem;
+}
+
+.resume .resume-block .education-entry .degree-details .institution {
+  margin-bottom: 0.5rem;
+}
+
+.resume .resume-block .education-entry .degree-details p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.resume .experience-grid .experience-item .item-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resume .experience-grid .experience-item .item-content ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.resume .experience-grid .experience-item .item-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.resume .experience-grid .experience-item .item-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 1px;
+  background-color: var(--accent-color);
+}
+
+.resume .experience-grid .experience-item .item-content ul li strong {
+  font-weight: 500;
+  color: var(--default-color);
+}
+
+.resume .experience-grid .experience-item .item-content .item-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.resume .experience-grid .experience-item .item-content .item-link a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.resume .experience-grid .experience-item .item-content .item-link a:hover {
+  text-decoration: underline;
+}
+
 .resume .resume-content .section-intro {
   text-align: center;
   max-width: 600px;
@@ -2109,6 +2246,29 @@ ul li {
   background: var(--accent-color);
   color: var(--contrast-color);
   transform: scale(1.1);
+}
+
+.portfolio .image-container .card-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio .content .card-text-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.portfolio .content .card-text-link:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.portfolio .content h5 a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .portfolio .content p.project-award {

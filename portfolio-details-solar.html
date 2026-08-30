@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>New Jersey Solar Journey - Naomi Cheng</title>
+  <meta name="description" content="A D3.js narrative visualization tracing New Jersey's solar capacity from 2001 to a 17 GW target for 2035, told as an interactive five-scene story of policy and growth.">
+  <meta name="keywords" content="D3.js, narrative visualization, data visualization, d3-annotation, solar energy, New Jersey, storytelling, interactive chart">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">New Jersey Solar Journey</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>New Jersey Solar Journey</h1>
+        <p>A D3.js narrative visualization &mdash; 25 years of solar policy told as a story you can walk through, then explore on your own.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">Data Visualization Project</div>
+            <h1 class="project-title">How Far Has New Jersey Come on Its Solar Journey?</h1>
+            <p class="project-subtitle">A line chart alone will not tell you <em>why</em> a curve bends. This project turns two decades of New Jersey solar installation data into a guided five-scene story &mdash; each scene framed by the policy that shaped it, from the 2001 rebate program through the SREC boom to Executive Order 315's pledge of 100% clean electricity by 2035. The reader advances through the argument scene by scene, and at every stop the chart stays fully interactive: click any year for its exact capacity, jump to any era, or open the expert commentary on what the numbers are hiding.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Project</div>
+              <div class="meta-value">Interactive Narrative Visualization</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Context</div>
+              <div class="meta-value">UIUC CS 416 &mdash; Data Visualization</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Role</div>
+              <div class="meta-value">Sole author &mdash; data preparation, narrative design, D3 implementation</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">D3.js v7, d3-annotation, JavaScript, HTML/CSS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/nj_solar.png"
+                       alt="Scene three of the visualization: a line chart of New Jersey cumulative solar capacity from 2011 to 2017, with the actual installation curve in blue above a dashed goal line, the gap between them shaded green, a d3-annotation label explaining the Solar Act, timeline buttons for each era, and a growth-rate badge"
+                       class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>Project Overview</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-brightness-high" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    The story the data tells
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    <strong>The rise:</strong> from <strong>23 kW</strong> of installed capacity in 2001 to <strong>4.4 GW</strong> by 2023 &mdash; New Jersey spent most of two decades ahead of its own published targets, holding <strong>#4 nationally</strong> through the SREC years.<br><br>
+                    <strong>The turn:</strong> in 2023 the state fell out of the national Top 10 for the first time in twenty years &mdash; just as its new target demands <strong>17 GW by 2035</strong>, roughly <strong>1.05 GW every year</strong>, about triple the pace of the decade behind it.
+                  </p>
+                </div>
+                <p class="overview-text">The visualization follows the <em>interactive slideshow</em> pattern: a fixed authored sequence of five scenes, each holding the reader inside one policy era, with free exploration available within every scene rather than only at the end. Scene state drives everything &mdash; the year domain, the annotation, the highlighted endpoints, the computed growth rate &mdash; so the story and the chart can never drift out of step.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>Twenty-five years of a single monotonically rising curve looks like uninterrupted success. The interesting question &mdash; is New Jersey ahead of or behind where it promised to be? &mdash; is invisible unless the promise is drawn alongside the outcome, and unless the reader is told which policy was in force when each bend happened.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>I plotted the state's published capacity goals as a dashed reference line under the actual installations, then shaded the area between them wherever reality ran ahead of the plan &mdash; making overachievement, and its later disappearance, readable at a glance. Around that, five scenes each carry an annotation, a national ranking, and an expert-insight panel, so every visible inflection is attached to the decision that caused it.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">Visualization</div>
+                  <div class="tech-list">
+                    <span class="tech-item">D3.js v7</span>
+                    <span class="tech-item">SVG</span>
+                    <span class="tech-item">Scales &amp; Axes</span>
+                    <span class="tech-item">Line &amp; Area Generators</span>
+                    <span class="tech-item">Transitions</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">Narrative</div>
+                  <div class="tech-list">
+                    <span class="tech-item">d3-annotation</span>
+                    <span class="tech-item">Scene State Machine</span>
+                    <span class="tech-item">Parameters &amp; Triggers</span>
+                    <span class="tech-item">Interactive Slideshow</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">Data</div>
+                  <div class="tech-list">
+                    <span class="tech-item">CSV</span>
+                    <span class="tech-item">d3-fetch</span>
+                    <span class="tech-item">Excel Source Cleaning</span>
+                    <span class="tech-item">Goal Interpolation</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Interface</div>
+                  <div class="tech-list">
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">HTML5</span>
+                    <span class="tech-item">CSS3</span>
+                    <span class="tech-item">GitHub Pages</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>Key Features</h3>
+                <p>Everything between the raw capacity numbers and a reader who leaves understanding what happened &mdash; the sequence, the reference line, the annotations, and the freedom to go check any of it directly.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-collection-play"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Five-Scene Guided Sequence</h4>
+                    <p>Each policy era &mdash; the Clean Energy Program, the SREC launch, the Solar Act, the Successor Incentive, and the 2035 Energy Master Plan &mdash; is its own scene, reachable with Next/Previous or by jumping straight to a period from the timeline buttons.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-graph-up"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Promise Plotted Against Outcome</h4>
+                    <p>Actual cumulative installations run as a solid line over the state's published goals as a dashed one, with the region between them filled wherever installations exceeded plan &mdash; so a shrinking green band signals a state losing its lead before any caption says so.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-chat-square-quote"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Annotations and Expert Commentary</h4>
+                    <p>Consistent d3-annotation labels mark the milestone behind each era, a national-ranking line sits above the chart, and a toggleable expert-insight panel supplies the interpretation &mdash; the trade-off, the risk, the comparison to peer states &mdash; that the curve alone cannot carry.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-percent"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Per-Scene Growth Rate</h4>
+                    <p>Every scene computes and displays the growth rate across its own span, with the opening and closing years marked directly on the line &mdash; giving each era a single comparable number instead of leaving the reader to eyeball slopes.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-cursor"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Exploration Inside the Story</h4>
+                    <p>The line draws itself in on entry, then hands control over: any data point can be clicked to pin a tooltip with its exact capacity, and multiple pins can stay open at once for comparison &mdash; drill-down available in every scene, not only after the narrative ends.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-icon">
+                    <i class="bi bi-database-check"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Cleaned, Reconciled Data</h4>
+                    <p>Annual and cumulative capacity series were derived from national installation records and reconciled against New Jersey's published goals, with interpolation filling the gap between the last stated target and the 17 GW commitment for 2035.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+            <a href="https://ysc06.github.io/NJ_solar_journey/" target="_blank" rel="noopener noreferrer" class="nav-link prev-project">
+              <span class="nav-direction">Live</span>
+              <span class="nav-title">Open Visualization</span>
+            </a>
+            <a href="https://github.com/ysc06/NJ_solar_journey" target="_blank" rel="noopener noreferrer" class="nav-link next-project">
+              <span class="nav-direction">Repository</span>
+              <span class="nav-title">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

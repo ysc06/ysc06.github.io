@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AWS Elastic Infrastructure - Naomi Cheng</title>
+  <meta name="description" content="A scalable web-service infrastructure on AWS that load-balances requests across EC2 instances and auto-scales capacity in response to CPU demand.">
+  <meta name="keywords" content="AWS, EC2, Application Load Balancer, Auto Scaling, Launch Template, Flask, cloud infrastructure">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">AWS Elastic Infrastructure</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>AWS Elastic Infrastructure</h1>
+        <p>A web service that grows and shrinks with its own traffic &mdash; load balanced across EC2, scaled by CPU demand.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">Cloud Infrastructure Project</div>
+            <h1 class="project-title">Elastic Web Infrastructure on AWS</h1>
+            <p class="project-subtitle">A single server is a single point of failure and a fixed ceiling on throughput. This project replaces it with infrastructure that has neither: an Application Load Balancer spreads HTTP requests across healthy Flask instances in two availability zones, and an Auto Scaling group watches average CPU utilization and <em>provisions or terminates instances on its own</em> &mdash; each new machine bootstrapping itself from a launch template and joining the load balancer without anyone touching a console.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Project</div>
+              <div class="meta-value">Load-Balanced, Auto-Scaling Web Service</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Context</div>
+              <div class="meta-value">UIUC &mdash; Cloud Computing Applications</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Role</div>
+              <div class="meta-value">Sole author &mdash; architecture, deployment, load testing</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">AWS EC2, ELB, Auto Scaling, Python, Flask</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/MP2_infra.png"
+                       alt="Architecture diagram: internet users reach an Application Load Balancer and target group, which route to Flask REST API instances in an EC2 Auto Scaling group spanning two availability zones, fed by a launch template and a CloudWatch-driven target tracking policy at 50% CPU"
+                       class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>Project Overview</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-arrows-expand" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    What was demonstrated
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    <strong>Scale-out:</strong> under simulated CPU load, the Auto Scaling group provisioned new instances against a <strong>50% average CPU</strong> target and each one passed its health check and began serving load-balanced traffic automatically.<br><br>
+                    <strong>Scale-in:</strong> once demand fell away, the group terminated the surplus instances back toward its desired capacity &mdash; capacity tracking demand in both directions, not just upward.
+                  </p>
+                </div>
+                <p class="overview-text">Built as a hands-on AWS project: a Python Flask REST service deployed on Amazon EC2, fronted by an Application Load Balancer, and placed under an Auto Scaling group sized <code>min 0 / desired 1 / max 3</code> across two availability zones. The goal was to work through the whole chain end to end &mdash; networking, health checks, bootstrapping, and elasticity &mdash; rather than any one piece in isolation.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>Elasticity only works if a machine that did not exist a minute ago can configure itself, pass a health check, and start taking real traffic with no manual step in between. Getting there means the security groups, the target group, the health-check path, and the startup script all have to be right at once &mdash; any one of them wrong and instances launch but silently never receive a request.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>An EC2 launch template with a user-data startup script that installs dependencies, pulls the application code, and starts the service on boot; security-group rules scoped so the load balancer &mdash; and only the load balancer &mdash; can reach the application port; and a target-tracking scaling policy driven by CloudWatch average CPU utilization. Then I verified it the only way that counts: generating CPU load and watching instances appear, register, and later drain away.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">Compute</div>
+                  <div class="tech-list">
+                    <span class="tech-item">AWS EC2</span>
+                    <span class="tech-item">Launch Templates</span>
+                    <span class="tech-item">User Data Scripts</span>
+                    <span class="tech-item">Linux</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">Networking</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Elastic Load Balancing</span>
+                    <span class="tech-item">Application Load Balancer</span>
+                    <span class="tech-item">Target Groups</span>
+                    <span class="tech-item">Security Groups</span>
+                    <span class="tech-item">VPC</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">Elasticity</div>
+                  <div class="tech-list">
+                    <span class="tech-item">EC2 Auto Scaling</span>
+                    <span class="tech-item">Target Tracking Policy</span>
+                    <span class="tech-item">Amazon CloudWatch</span>
+                    <span class="tech-item">Health Checks</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Application</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">Flask</span>
+                    <span class="tech-item">REST APIs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>Key Features</h3>
+                <p>Every layer between an incoming request and the process that answers it &mdash; routing, health, bootstrapping, and the policy that decides how many machines exist at all.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-diagram-3"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Load-Balanced Flask Services on EC2</h4>
+                    <p>Python Flask REST services developed and deployed on Amazon EC2, with an Application Load Balancer and target group distributing incoming HTTP requests across every instance currently reporting healthy.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-shield-lock"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Security Groups &amp; Health Checks</h4>
+                    <p>Security-group and health-check rules written so the load balancer can reach the application safely and reliably &mdash; the application port open to the balancer rather than the open internet, and an endpoint that tells the target group when an instance is genuinely ready.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-file-earmark-code"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Self-Bootstrapping Launch Template</h4>
+                    <p>An EC2 launch template carrying a startup script that installs dependencies, retrieves the application code, and launches the service &mdash; so a newly provisioned instance is serving traffic without any manual configuration.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-speedometer2"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>CPU-Driven Target Tracking</h4>
+                    <p>An Auto Scaling group with a target-tracking policy on average CPU utilization, spanning two availability zones, which adds and removes capacity to hold the metric near its target instead of reacting to hand-set thresholds.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-arrow-repeat"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Verified Scale-Out and Scale-In</h4>
+                    <p>Scale-out tested under simulated CPU load, confirming that newly created instances automatically joined the load balancer; scale-in validated after demand decreased, so idle capacity is released rather than left running and billed.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

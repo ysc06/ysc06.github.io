@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Tumblr Photo Feed iOS App - Naomi Cheng</title>
+  <meta name="description" content="A native iOS app that pulls Humans of New York photo posts from the Tumblr API — Swift and UIKit, a custom table view cell, Codable models, Nuke image loading, and a segue that hands the selected post to a detail screen.">
+  <meta name="keywords" content="iOS, Swift, UIKit, Storyboard, UITableView, UITableViewCell, URLSession, Codable, JSONDecoder, segue, prepare for segue, Nuke, NukeExtensions, Tumblr API, Humans of New York, CodePath iOS 101, mobile development, Xcode">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="./feather2.svg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">Tumblr Photo Feed</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>Tumblr Photo Feed</h1>
+        <p>A native iOS app that pulls Humans of New York photo posts straight from the Tumblr API and lets you tap any one of them through to a full-screen story &mdash; Swift, UIKit, and a storyboard segue that carries the selected post with it.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">iOS &mdash; Swift &amp; UIKit</div>
+            <h1 class="project-title">A Feed You Can Tap Into</h1>
+            <p class="project-subtitle">A scrolling list is only half an app. This one fetches photo posts from the <em>Humans of New York</em> Tumblr blog over the public API, decodes them into Swift models, and renders each as a custom table view cell with its photo and story summary. Tapping a cell segues to a detail screen that receives <em>that</em> post &mdash; the full-size photo and the complete text &mdash; which is where the interesting work lives: giving a destination view controller the data it needs before it ever appears on screen.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Project</div>
+              <div class="meta-value">Tumblr Photo Feed with a Detail Screen</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Context</div>
+              <div class="meta-value">CodePath iOS 101 &mdash; Unit 6 project, built in about 4 hours</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Data</div>
+              <div class="meta-value">Tumblr API v2 &mdash; photo posts from the Humans of New York blog</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">Swift, UIKit, Storyboards, URLSession, Codable, Nuke</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/tumblr.png"
+                       alt="Three iPhone screens side by side showing the app's feed at different scroll positions: each row pairs a Humans of New York photograph with the opening lines of its story"
+                       class="img-fluid">
+                </div>
+              </div>
+
+              <div class="app-walkthrough" data-aos="fade-up" data-aos-delay="200" style="margin-top: 2rem; text-align: center;">
+                <img src="assets/img/portfolio/tumblr.gif"
+                     alt="Screen recording of the running app: the feed scrolls smoothly through Humans of New York photo posts as each image loads in"
+                     class="img-fluid"
+                     style="max-width: 245px; border-radius: 12px;"
+                     loading="lazy">
+                <p style="margin-top: 0.75rem; font-size: 0.875rem; color: color-mix(in srgb, var(--default-color), transparent 30%);">Running in the simulator &mdash; photos load asynchronously as the feed scrolls.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>Project Overview</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-phone" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    All four required features, shipped
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    Navigation wired to the detail screen &middot; the detail view UI built out &middot; the selected post passed through to the detail view controller &middot; personal finishing touches on top.<br><br>
+                    <strong>Swift and UIKit only</strong> &mdash; no SwiftUI, no networking framework. One URLSession data task, one JSONDecoder, and a storyboard segue.
+                  </p>
+                </div>
+                <p class="overview-text">The feed is built on a plain UITableView with a custom PostCell. A background URLSession task hits Tumblr&rsquo;s public photo-posts endpoint, JSONDecoder maps the response into a small tree of Decodable structs, and the reload is hopped back onto the main queue before the table ever touches it.</p>
+
+                <p class="overview-text">Photographs are loaded through Nuke rather than fetched inline, so a cell can be dequeued and reused without waiting on the network. The same loader fills the detail screen&rsquo;s image view with the original-size version of whichever photo was tapped.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>A detail screen has no idea which row the user tapped. The segue fires before the destination view controller has loaded its views, so the data has to be handed over in that narrow window &mdash; and handed over as a real model object, not scraped back out of the cell&rsquo;s labels. Get it wrong and the detail screen either shows the wrong story or arrives empty.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>Resolve the tapped row inside prepare(for:sender:), index into the same posts array the table is driven by, and assign the Post to a property on the destination. The detail view controller owns an optional post and unwraps it safely in viewDidLoad, logging rather than crashing if the segue was ever misconfigured &mdash; so a wiring mistake surfaces as a message, not a blank screen.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">Core</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Swift</span>
+                    <span class="tech-item">UIKit</span>
+                    <span class="tech-item">Xcode</span>
+                    <span class="tech-item">iOS SDK</span>
+                    <span class="tech-item">MVC</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">UI &amp; Navigation</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Storyboards</span>
+                    <span class="tech-item">Auto Layout</span>
+                    <span class="tech-item">UITableView</span>
+                    <span class="tech-item">Custom UITableViewCell</span>
+                    <span class="tech-item">Segues</span>
+                    <span class="tech-item">UINavigationController</span>
+                    <span class="tech-item">UIAlertController</span>
+                    <span class="tech-item">UITextView</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">Networking &amp; Data</div>
+                  <div class="tech-list">
+                    <span class="tech-item">URLSession</span>
+                    <span class="tech-item">REST API</span>
+                    <span class="tech-item">Tumblr API v2</span>
+                    <span class="tech-item">Codable</span>
+                    <span class="tech-item">JSONDecoder</span>
+                    <span class="tech-item">CodingKeys</span>
+                    <span class="tech-item">GCD / DispatchQueue</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Libraries &amp; Tooling</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Nuke</span>
+                    <span class="tech-item">NukeExtensions</span>
+                    <span class="tech-item">Swift Package Manager</span>
+                    <span class="tech-item">NSAttributedString</span>
+                    <span class="tech-item">iOS Simulator</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>Key Features</h3>
+                <p>Everything between a public JSON endpoint and a story you can read full-screen &mdash; the fetch, the models, the reusable cell, the segue that carries the data, and the small touches that make it feel like an app.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-cloud-arrow-down"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Live Feed from the Tumblr API</h4>
+                    <p>A URLSession data task requests photo posts from the <em>Humans of New York</em> blog through Tumblr&rsquo;s v2 API. The completion handler guards each failure mode separately &mdash; a transport error, a status code outside 200&ndash;299, a nil body, a decoding failure &mdash; so a blank feed always comes with a reason attached rather than silently doing nothing.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-box"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Codable Models Mirroring the Response</h4>
+                    <p>The JSON is decoded into a small tree of Decodable structs &mdash; Blog wrapping a Response wrapping an array of Post, each carrying its photos. CodingKeys renames the API&rsquo;s original_size to a Swift-idiomatic originalSize, keeping the wire format&rsquo;s conventions out of the rest of the codebase.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-list-ul"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Custom Cell, Reused Down the Feed</h4>
+                    <p>The view controller acts as the table&rsquo;s data source and dequeues a registered PostCell for every row. Each cell owns a single configure(with:) method that takes a post and fills in its summary text and photo &mdash; one place to change how a row looks, no configuration logic leaking into the view controller.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-images"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Asynchronous Image Loading with Nuke</h4>
+                    <p>Photos are loaded into cell and detail image views through NukeExtensions.loadImage(with:into:), which handles fetching and caching off the main thread. Scrolling stays smooth because no cell ever blocks waiting on a download, and revisiting a row doesn&rsquo;t re-fetch an image already in the cache.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-arrow-right-circle"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Segue Navigation with a Typed Hand-Off</h4>
+                    <p>Tapping a row triggers the showDetail segue. prepare(for:sender:) matches the identifier, reads the selected index path, casts the destination to DetailViewController, and assigns the corresponding Post &mdash; the whole model object, so the detail screen can show fields the cell never displayed.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-icon">
+                    <i class="bi bi-phone"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>A Detail Screen Built for Reading</h4>
+                    <p>The story is presented in a UITextView configured deliberately: scrollable for long posts, non-editable so tapping never raises the keyboard, still selectable so text can be copied, with the container inset and line-fragment padding zeroed out so the copy aligns flush with the photo above it instead of floating in default padding.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
+                  <div class="feature-icon">
+                    <i class="bi bi-arrow-repeat"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Main-Thread Discipline</h4>
+                    <p>Decoding happens on the session&rsquo;s background queue; the model assignment and reloadData() are dispatched back to the main queue, captured weakly so a dismissed view controller isn&rsquo;t kept alive by an in-flight request. UIKit only ever hears from the main thread.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="500">
+                  <div class="feature-icon">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Finishing Touches</h4>
+                    <p>A welcome alert greets the reader on the detail screen, and a String extension strips HTML out of Tumblr&rsquo;s caption markup by rendering it through NSAttributedString &mdash; so tags from the API never leak into the UI as literal text.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+            <a href="https://github.com/ysc06/Tumblr_main" target="_blank" rel="noopener noreferrer" class="nav-link next-project">
+              <span class="nav-direction">Repository</span>
+              <span class="nav-title">GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=GA92eKlYio4" target="_blank" rel="noopener noreferrer" class="nav-link next-project">
+              <span class="nav-direction">Walkthrough</span>
+              <span class="nav-title">Demo</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
