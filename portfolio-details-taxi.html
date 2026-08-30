@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">Reinforcement Learning Project</div>
             <h1 class="project-title">Taxi Agent &amp; Dubins Car</h1>
-            <p class="project-subtitle">Two agents that learn to act in environments they are never given a model of — they only see states, choose actions, and receive rewards. The first solves a small discrete world with a Q-table. The second throws the table away: its state space is continuous, so it has to <em>generalize</em> from hand-designed features, steering a car with noisy controls around obstacles it perceives only through a 16-beam lidar.</p>
+            <p class="project-subtitle">Two agents that learn without ever being given a model of their world — they only see states, choose actions, and collect rewards. The first solves a small discrete world with a Q-table. The second cannot use one: its states are continuous, so it has to <em>generalize</em> from hand-designed features, steering a car with noisy controls around obstacles it sees only through a 16-beam lidar.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -183,21 +183,21 @@
                     Headline results
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    <strong>Taxi-v3:</strong> the learned Q-table delivers every passenger &mdash; 1000/1000 evaluation episodes, no failures and no timeouts &mdash; averaging a return of <strong>7.87</strong> over 13.1 steps. Taxi's optimal average sits just under 8, so the policy is essentially optimal.<br><br>
-                    <strong>Dubins car:</strong> the best checkpoint of a 21-run sweep reaches the goal in <strong>4 of 5</strong> held-out test environments with zero truncated episodes, scoring +17.76, +17.75, +17.45 and +17.31.
+                    <strong>Taxi-v3:</strong> the learned Q-table delivers every passenger &mdash; 1000 of 1000 test episodes, no failures and no timeouts &mdash; averaging a return of <strong>7.87</strong> over 13.1 steps. Taxi's best possible average sits just under 8, so the policy is close to optimal.<br><br>
+                    <strong>Dubins car:</strong> the best checkpoint from a 21-run sweep reaches the goal in <strong>4 of 5</strong> unseen test environments with no truncated episodes, scoring +17.76, +17.75, +17.45 and +17.31.
                   </p>
                 </div>
-                <p class="overview-text">Both agents were written from first principles for UIUC CS440 &mdash; no PyTorch and no RL library, just NumPy. The point was to build the update rules myself and then live with the consequences: tuning exploration, designing features, and reading training curves to work out why a run failed.</p>
+                <p class="overview-text">Both agents were written from scratch for UIUC CS440 &mdash; no PyTorch and no RL library, just NumPy. The point was to write the update rules myself and then live with them: tuning exploration, designing features, and reading training curves to work out why a run failed.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>A Q-table works beautifully for Taxi's 500 discrete states, and not at all for a car whose pose is continuous. The second agent had to learn from a state it can never revisit exactly, using controls perturbed by noise before the environment ever applies them, and an obstacle map it only glimpses through 16 lidar returns &mdash; all within a 30-step episode budget.</p>
+                    <p>A Q-table works well for Taxi's 500 discrete states and not at all for a car whose position is continuous. The second agent has to learn from states it can never revisit exactly, with noise added to its controls before the environment applies them, and an obstacle map it sees only through 16 lidar returns &mdash; all within a 30-step episode.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>For Taxi, epsilon-greedy tabular Q-learning with pessimistic initialization. For the Dubins car, linear function approximation &mdash; <code>Q(s, a) = &phi;(s) &middot; w<sub>a</sub></code> over a 24-dimensional feature vector &mdash; stabilized with an experience replay buffer and periodically frozen target weights, then narrowed down through a 21-run hyperparameter and feature-design sweep with every run preserved for comparison.</p>
+                    <p>For Taxi, epsilon-greedy tabular Q-learning with pessimistic initialization. For the Dubins car, linear function approximation &mdash; <code>Q(s, a) = &phi;(s) &middot; w<sub>a</sub></code> over a 24-dimensional feature vector &mdash; kept stable with an experience replay buffer and periodically frozen target weights, then tuned through a 21-run sweep over hyperparameters and feature design, with every run kept for comparison.</p>
                   </div>
                 </div>
               </div>
@@ -257,7 +257,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>From a 500-state lookup table to feature-based generalization under noise &mdash; two agents, one learning problem, two very different answers.</p>
+                <p>Two agents, one learning problem, two very different answers &mdash; a 500-state lookup table, and feature-based generalization under noise.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -277,7 +277,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>24-Dimensional Feature Design</h4>
-                    <p>Goal geometry, heading error as sine and cosine, minimum lidar range, and 16 raycast beam distances &mdash; the hand-built representation that lets a linear model generalize across a continuous pose space.</p>
+                    <p>Goal geometry, heading error as sine and cosine, minimum lidar range, and 16 beam distances &mdash; the hand-built representation that lets a linear model generalize across continuous positions.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -286,7 +286,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Replay Buffer &amp; Target Weights</h4>
-                    <p>Minibatches sampled from a 50k-transition buffer, with bootstrap targets drawn from a weight copy frozen for 100 updates at a time &mdash; the two ingredients that keep linear Q-learning from diverging.</p>
+                    <p>Minibatches sampled from a 50k-transition buffer, with targets drawn from a copy of the weights frozen for 100 updates at a time &mdash; the two pieces that keep linear Q-learning from diverging.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -295,7 +295,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Custom Dubins-Car Environment</h4>
-                    <p>A Gymnasium-registered unicycle-dynamics environment with action noise, per-substep polygon collision checking, shaped progress rewards, and JSON-defined workspaces for training and held-out evaluation.</p>
+                    <p>A Gymnasium-registered unicycle-dynamics environment with action noise, polygon collision checks at every substep, shaped progress rewards, and JSON-defined workspaces for training and testing.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">

@@ -77,7 +77,7 @@
 
       <div class="title-wrapper">
         <h1>Music Recommender Simulation</h1>
-        <p>A machine learning recommender small enough to read end to end &mdash; built AI-assisted for CodePath&rsquo;s AI Engineering course, with every score designed, every ranking explained, and every bias written down.</p>
+        <p>A recommender small enough to read end to end &mdash; built AI-assisted for CodePath&rsquo;s AI Engineering course, with every score designed, every ranking explained, and every bias written down.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">Machine Learning &mdash; Recommender Systems</div>
             <h1 class="project-title">TuneMatch 1.0 &mdash; Turning Taste Into a Ranking, and Saying Why</h1>
-            <p class="project-subtitle">Spotify's ranking logic is invisible by design; this one is not. I built a content-based recommender in pure Python that walks the standard machine learning recommender pipeline &mdash; represent each song as a feature vector, encode a listener as a four-field taste profile, score the catalog, rank it, then evaluate what the ranking got wrong. The scoring function is designed rather than fitted, which is the point: an interpretable baseline you can defend line by line before any weights get learned. Every recommendation ships with a sentence explaining which signals earned it its place, and the accompanying model card names the failure modes that same weighting creates.</p>
+            <p class="project-subtitle">Spotify's ranking logic is invisible by design; this one is not. I built a content-based recommender in plain Python that walks the standard pipeline &mdash; represent each song as a feature vector, encode a listener as a four-field taste profile, score the catalog, rank it, then look at what the ranking got wrong. The scoring function is designed rather than fitted, which is the point: a baseline you can defend line by line before any weights are learned. Every recommendation comes with a sentence explaining which signals earned it its place, and a model card names the failure modes that same weighting creates.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -134,23 +134,23 @@
                     The scoring rule, in numbers
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    <strong>Genre is the anchor at 35 points</strong>, mood adds up to <strong>30</strong>, energy proximity up to <strong>25</strong>, and acoustic texture nudges the total by <strong>&plusmn;10</strong> &mdash; a deliberate choice that taste labels should outrank a perfect numerical fit.<br><br>
-                    For <strong>&ldquo;The Focused Studier&rdquo;</strong> profile, <em>Focus Flow</em> clears every signal at once and scores a perfect <strong>100.00</strong>; the next three are lofi tracks whose moods are <em>adjacent</em> to focused, landing in the <strong>86&ndash;88</strong> band on partial mood credit.
+                    <strong>Genre is worth 35 points</strong>, mood up to <strong>30</strong>, energy closeness up to <strong>25</strong>, and acoustic texture moves the total by <strong>&plusmn;10</strong> &mdash; a deliberate claim that taste labels should outrank a perfect numerical fit.<br><br>
+                    For the <strong>&ldquo;Focused Studier&rdquo;</strong> profile, <em>Focus Flow</em> matches every signal and scores <strong>100.00</strong>. The next three are lofi tracks whose moods are <em>near</em> focused, landing at <strong>86&ndash;88</strong> on partial mood credit.
                   </p>
                 </div>
-                <p class="overview-text">Each of the 18 catalog songs carries ten fields &mdash; genre, mood, energy, tempo, valence, danceability, acousticness and identifiers &mdash; loaded from CSV with numeric coercion at the boundary. A <code>UserProfile</code> compresses a listener into four: favorite genre, favorite mood, target energy, and whether they like acoustic. Scoring compares the two, sorts descending, and returns the top <em>k</em>, defaulting to five.</p>
+                <p class="overview-text">Each of the 18 songs carries ten fields &mdash; genre, mood, energy, tempo, valence, danceability, acousticness and identifiers &mdash; loaded from CSV and converted to numbers at the boundary. A <code>UserProfile</code> holds four: favorite genre, favorite mood, target energy, and whether the listener likes acoustic. Scoring compares the two, sorts, and returns the top <em>k</em>, five by default.</p>
 
-                <p class="overview-text">Built for CodePath's AI Engineering course (AI 110) as an AI-assisted project: I used an AI coding assistant throughout &mdash; drafting the scoring function, pressure-testing the weights against edge cases, and interrogating my own design for the biases that ended up in the model card &mdash; while keeping the modeling decisions, and the responsibility for them, mine.</p>
+                <p class="overview-text">Built for CodePath's AI Engineering course (AI 110) with an AI coding assistant: drafting the scoring function, testing the weights against edge cases, and probing my own design for the biases that ended up in the model card. The modeling decisions, and the responsibility for them, stayed mine.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>A recommender with no learned component has nowhere to hide: the weights <em>are</em> the model. Choosing them means committing, in advance, to a claim about what actually predicts whether someone likes a song &mdash; and then owning the recommendations that claim produces, including the bad ones.</p>
+                    <p>A recommender with nothing learned has nowhere to hide: the weights <em>are</em> the model. Choosing them means committing in advance to a claim about what predicts whether someone likes a song &mdash; and then owning the recommendations that claim produces, including the bad ones.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>I made genre the anchor and demoted the continuous features to tie-breakers, on the reasoning that a slightly-too-energetic lofi track beats a perfectly-paced track from a genre the listener avoids. Then I softened the sharpest edge with mood adjacency &mdash; <em>chill</em> earns partial credit against <em>focused</em> &mdash; and audited the rest in a model card instead of pretending they were solved.</p>
+                    <p>I made genre the anchor and dropped the continuous features to tie-breakers, reasoning that a slightly-too-energetic lofi track beats a perfectly paced track from a genre the listener avoids. Then I softened the sharpest edge with mood adjacency &mdash; <em>chill</em> earns partial credit against <em>focused</em> &mdash; and wrote the remaining problems into a model card instead of pretending they were solved.</p>
                   </div>
                 </div>
               </div>
@@ -213,7 +213,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>Everything between a CSV of songs and a ranked list a listener can argue with &mdash; the feature model, the weighting, the explanations, and an honest account of where it breaks.</p>
+                <p>The feature model, the weighting, the explanations, and an honest account of where it breaks.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -224,7 +224,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Weighted Multi-Signal Scoring</h4>
-                    <p>Genre contributes 35 points, mood up to 30, energy proximity up to 25, and acoustic preference a &plusmn;10 adjustment &mdash; a fixed budget that makes the model's priorities inspectable rather than emergent.</p>
+                    <p>Genre contributes 35 points, mood up to 30, energy closeness up to 25, and acoustic preference a &plusmn;10 adjustment &mdash; a fixed budget that puts the model's priorities in plain sight.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
@@ -233,7 +233,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Mood Adjacency, Not Exact Match</h4>
-                    <p>Rather than treating mood as a binary hit, related moods earn partial credit &mdash; <em>chill</em> and <em>relaxed</em> both score against a <em>focused</em> profile &mdash; so near-misses surface instead of collapsing to zero alongside genuinely wrong songs.</p>
+                    <p>Instead of treating mood as hit-or-miss, related moods earn partial credit &mdash; <em>chill</em> and <em>relaxed</em> both score against a <em>focused</em> profile &mdash; so near-misses surface instead of dropping to zero alongside genuinely wrong songs.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -242,7 +242,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>An Explanation With Every Result</h4>
-                    <p>Each recommendation is returned with a generated sentence naming the signals that earned it &mdash; matched genre, adjacent mood, energy 0.42 against a target of 0.40, acoustic texture &mdash; so a surprising ranking can be traced instead of guessed at.</p>
+                    <p>Each recommendation comes back with a sentence naming the signals that earned it &mdash; matched genre, adjacent mood, energy 0.42 against a target of 0.40, acoustic texture &mdash; so a surprising ranking can be traced instead of guessed at.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -251,7 +251,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Profile-Driven Simulation</h4>
-                    <p>Swapping the four-field <code>UserProfile</code> reruns the whole catalog under a different listener, making it cheap to test how the same weights behave for a studier, a runner, or someone whose taste the catalog barely covers.</p>
+                    <p>Swapping the four-field <code>UserProfile</code> reruns the whole catalog for a different listener, so it is cheap to test how the same weights behave for a studier, a runner, or someone the catalog barely covers.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
@@ -260,7 +260,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Documented Failure Modes</h4>
-                    <p>The model card records what the weighting costs: genre dominance means a great mood-and-energy match in the &ldquo;wrong&rdquo; genre can never win; single-song genres leave those listeners with filler; <em>indie pop</em> and <em>pop</em> are strangers to a string comparison; and tempo, valence and danceability sit unused in the data.</p>
+                    <p>The model card records what the weighting costs: a great mood-and-energy match in the &ldquo;wrong&rdquo; genre can never win; genres with one song leave those listeners with filler; <em>indie pop</em> and <em>pop</em> are unrelated to a string comparison; and tempo, valence and danceability sit unused.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
@@ -269,7 +269,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Tested and Reproducible</h4>
-                    <p>A pytest suite pins the loader and the scoring behavior, and the run is a single <code>python -m src.main</code> against a checked-in catalog &mdash; the documented sample output is reproducible rather than illustrative.</p>
+                    <p>A pytest suite pins the loader and the scoring, and the whole run is one <code>python -m src.main</code> against a checked-in catalog &mdash; so the sample output in the docs can be reproduced, not just read.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
@@ -278,7 +278,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>AI-Assisted Engineering Workflow</h4>
-                    <p>Developed with an AI coding assistant as a working partner &mdash; drafting and refactoring the scoring function, generating adversarial profiles to probe the weights, and challenging the design until the failure modes were specific enough to write down. The modeling calls stayed mine; the assistant made it faster to find out where they were wrong.</p>
+                    <p>An AI coding assistant drafted and refactored the scoring function, generated adversarial profiles to probe the weights, and pushed on the design until the failure modes were specific enough to write down. The modeling calls stayed mine; the assistant made it faster to find out where they were wrong.</p>
                   </div>
                 </div>
               </div>

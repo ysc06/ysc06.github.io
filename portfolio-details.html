@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Details - MinimalFolio Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>ExamFlux &mdash; Naomi Cheng</title>
+  <meta name="description" content="An AI-powered exam authoring platform: a prompt or an uploaded document becomes structured exam items, checked for validity and near-duplicates, then sent to a reviewer for approval.">
+  <meta name="keywords" content="ExamFlux, exam item generation, LLM, prompt engineering, FastAPI, React, embeddings, human review">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/feather2.svg?v=3">
@@ -49,29 +49,11 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#services">Services</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -94,8 +76,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>AI-Powered Exam Review Platform</h1>
-        <p>AI-powered exam item generation, validation, and human review workflow.</p>
+        <h1>AI-Powered Exam Authoring and Review Platform</h1>
+        <p>Exam items generated, validated, and approved by a person before they ship.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -108,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">AI + Full-Stack Project</div>
             <h1 class="project-title">ExamFlux</h1>
-            <p class="project-subtitle">AI-Powered Exam Authoring and Review Platform is the product name for this system: users provide a prompt or upload a .docx file, then GenAI drafts structured exam items. Each item is checked for validity, compared against existing content with semantic embeddings, and sent through an approval workflow before it is committed to the database.</p>
+            <p class="project-subtitle">Give ExamFlux a prompt or a .docx file and it drafts structured exam items. Each item is checked for validity, compared against existing content using semantic embeddings, and routed through an approval workflow before it reaches the database.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -195,20 +177,20 @@
                     2025 ETS Spot Award
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    Developed a reusable prompt-based LLM workflow for complex TOEIC multi-passage item generation by decomposing inference and synthesis tasks into structured generation steps. The approach addressed a projected $56K+ in annual outsourced item-writer costs and earned an ETS Spot Award (2025).
+                    A reusable prompt-based LLM workflow for complex TOEIC multi-passage items, built by breaking inference and synthesis tasks into structured generation steps. It addressed a projected $56K+ a year in outsourced item-writer costs and earned an ETS Spot Award in 2025.
                   </p>
                 </div>
-                <p class="overview-text">ExamFlux was inspired by that work: I built a system that turns prompt engineering into a structured workflow for generating higher-order exam items, such as synthesis and inference questions, while preserving human review and quality control.</p>
+                <p class="overview-text">ExamFlux grew out of that work. It turns the same prompt engineering into a full system for writing higher-order items &mdash; synthesis and inference questions &mdash; with human review kept in the loop.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>Manual exam-item creation is slow, inconsistent, and difficult to scale. GenAI can accelerate production, but without strong system-level controls it often generates weak, repetitive, or structurally invalid items. I needed a technical workflow that could combine generation speed with validation, consistency, and reviewer accountability.</p>
+                    <p>Writing exam items by hand is slow, inconsistent, and hard to scale. An LLM speeds it up, but without controls around it, the output is often weak, repetitive, or malformed. The workflow had to keep the speed and add validation, consistency, and reviewer accountability.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>I built a full-stack architecture that combines structured generation, schema validation, semantic duplicate detection, and a human approval workflow. The system uses constrained prompts as part of a larger engineering pipeline, with backend validation and review checkpoints to ensure generated exam items are high quality, traceable, and production-ready.</p>
+                    <p>I built a full-stack pipeline: constrained prompts for generation, schema validation on the backend, embedding-based duplicate detection, and review checkpoints before anything is committed. Every item that ships has been checked by the system and approved by a person.</p>
                   </div>
                 </div>
               </div>
@@ -270,7 +252,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>ExamFlux brings together generation, validation, similarity analysis, and human review in one AI-assisted exam authoring workflow.</p>
+                <p>Generation, validation, similarity checks, and human review, in one workflow.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -281,7 +263,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Prompt-to-Item Generation</h4>
-                    <p>Users provide a prompt or upload .docx content, and GenAI generates draft exam items in a structured format ready for review.</p>
+                    <p>A prompt or an uploaded .docx file becomes draft exam items in a structured format, ready for review.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
@@ -290,7 +272,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Validation Guardrails</h4>
-                    <p>Each generated item is checked against formatting and content constraints so invalid choices and malformed output are filtered out early.</p>
+                    <p>Every item is checked against formatting and content rules, so invalid choices and malformed output are caught early.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -299,7 +281,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Duplicate Detection</h4>
-                    <p>Embedding-based similarity checks help identify near-duplicate question items before they reach the final inventory.</p>
+                    <p>Embedding similarity flags near-duplicate items before they reach the item bank.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -308,7 +290,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Human Review Workflow</h4>
-                    <p>Reviewers can approve, reject, or commit items, ensuring AI-generated content remains transparent and accountable.</p>
+                    <p>Reviewers approve, reject, or commit each item, so a person is always accountable for what ships.</p>
                   </div>
                 </div>
               </div>
@@ -340,12 +322,6 @@
     <div class="container">
       <div class="copyright text-center ">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

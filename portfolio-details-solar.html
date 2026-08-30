@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">Data Visualization Project</div>
             <h1 class="project-title">How Far Has New Jersey Come on Its Solar Journey?</h1>
-            <p class="project-subtitle">A line chart alone will not tell you <em>why</em> a curve bends. This project turns two decades of New Jersey solar installation data into a guided five-scene story &mdash; each scene framed by the policy that shaped it, from the 2001 rebate program through the SREC boom to Executive Order 315's pledge of 100% clean electricity by 2035. The reader advances through the argument scene by scene, and at every stop the chart stays fully interactive: click any year for its exact capacity, jump to any era, or open the expert commentary on what the numbers are hiding.</p>
+            <p class="project-subtitle">A line chart alone will not tell you <em>why</em> a curve bends. This project turns two decades of New Jersey solar installation data into a five-scene story, each scene framed by the policy behind it &mdash; from the 2001 rebate program through the SREC boom to Executive Order 315 and its pledge of 100% clean electricity by 2035. Readers move through it scene by scene, and the chart stays interactive throughout: click any year for its exact capacity, jump to any era, or open the commentary on what the numbers leave out.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -138,17 +138,17 @@
                     <strong>The turn:</strong> in 2023 the state fell out of the national Top 10 for the first time in twenty years &mdash; just as its new target demands <strong>17 GW by 2035</strong>, roughly <strong>1.05 GW every year</strong>, about triple the pace of the decade behind it.
                   </p>
                 </div>
-                <p class="overview-text">The visualization follows the <em>interactive slideshow</em> pattern: a fixed authored sequence of five scenes, each holding the reader inside one policy era, with free exploration available within every scene rather than only at the end. Scene state drives everything &mdash; the year domain, the annotation, the highlighted endpoints, the computed growth rate &mdash; so the story and the chart can never drift out of step.</p>
+                <p class="overview-text">The visualization follows the <em>interactive slideshow</em> pattern: a fixed sequence of five scenes, each holding the reader inside one policy era, with free exploration inside every scene rather than only at the end. Scene state drives everything &mdash; the year range, the annotation, the highlighted endpoints, the growth rate &mdash; so the story and the chart can never fall out of step.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>Twenty-five years of a single monotonically rising curve looks like uninterrupted success. The interesting question &mdash; is New Jersey ahead of or behind where it promised to be? &mdash; is invisible unless the promise is drawn alongside the outcome, and unless the reader is told which policy was in force when each bend happened.</p>
+                    <p>Twenty-five years of a curve that only rises looks like uninterrupted success. The interesting question &mdash; is New Jersey ahead of or behind what it promised? &mdash; is invisible unless the promise is drawn next to the outcome, and unless the reader is told which policy was in force at each bend.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>I plotted the state's published capacity goals as a dashed reference line under the actual installations, then shaded the area between them wherever reality ran ahead of the plan &mdash; making overachievement, and its later disappearance, readable at a glance. Around that, five scenes each carry an annotation, a national ranking, and an expert-insight panel, so every visible inflection is attached to the decision that caused it.</p>
+                    <p>I plotted the state's published capacity goals as a dashed line under the actual installations, then shaded the area between them wherever reality ran ahead of plan &mdash; so running ahead, and later stopping, is clear at a glance. Around that, each of the five scenes carries an annotation, a national ranking, and an insight panel, so every bend is tied to the decision that caused it.</p>
                   </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>Everything between the raw capacity numbers and a reader who leaves understanding what happened &mdash; the sequence, the reference line, the annotations, and the freedom to go check any of it directly.</p>
+                <p>The scene sequence, the reference line, the annotations, and the freedom to check any of it yourself.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -230,7 +230,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Promise Plotted Against Outcome</h4>
-                    <p>Actual cumulative installations run as a solid line over the state's published goals as a dashed one, with the region between them filled wherever installations exceeded plan &mdash; so a shrinking green band signals a state losing its lead before any caption says so.</p>
+                    <p>Actual installations run as a solid line above the state's published goals as a dashed one, with the area between them filled wherever installations beat plan &mdash; so a shrinking green band shows the state losing its lead before any caption says so.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -239,7 +239,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Annotations and Expert Commentary</h4>
-                    <p>Consistent d3-annotation labels mark the milestone behind each era, a national-ranking line sits above the chart, and a toggleable expert-insight panel supplies the interpretation &mdash; the trade-off, the risk, the comparison to peer states &mdash; that the curve alone cannot carry.</p>
+                    <p>A d3-annotation label marks the milestone behind each era, a national ranking sits above the chart, and a panel the reader can open supplies what the curve cannot &mdash; the trade-off, the risk, the comparison to other states.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -248,7 +248,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Per-Scene Growth Rate</h4>
-                    <p>Every scene computes and displays the growth rate across its own span, with the opening and closing years marked directly on the line &mdash; giving each era a single comparable number instead of leaving the reader to eyeball slopes.</p>
+                    <p>Every scene shows the growth rate across its own span, with its first and last years marked on the line &mdash; one comparable number per era, instead of leaving the reader to eyeball slopes.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
@@ -257,7 +257,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Exploration Inside the Story</h4>
-                    <p>The line draws itself in on entry, then hands control over: any data point can be clicked to pin a tooltip with its exact capacity, and multiple pins can stay open at once for comparison &mdash; drill-down available in every scene, not only after the narrative ends.</p>
+                    <p>The line draws itself in, then hands over control: click any point to pin a tooltip with its exact capacity, and keep several pinned at once to compare &mdash; available in every scene, not only after the story ends.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
@@ -266,7 +266,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Cleaned, Reconciled Data</h4>
-                    <p>Annual and cumulative capacity series were derived from national installation records and reconciled against New Jersey's published goals, with interpolation filling the gap between the last stated target and the 17 GW commitment for 2035.</p>
+                    <p>Annual and cumulative capacity were derived from national installation records and matched against New Jersey's published goals, with interpolation filling the gap between the last stated target and the 17 GW commitment for 2035.</p>
                   </div>
                 </div>
               </div>

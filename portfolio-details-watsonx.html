@@ -77,7 +77,7 @@
 
       <div class="title-wrapper">
         <h1>Adaptive Insights &mdash; Persistent User Preferences</h1>
-        <p>A 2026 IBM watsonx Hackathon project. I built the layer that makes the AI remember you &mdash; telling a preference apart from a question, storing it per user, and holding the interface steady enough to feel like yours while leaving room for it to still surprise you.</p>
+        <p>A 2026 IBM watsonx Hackathon project. I built the layer that makes the AI remember you: it tells a preference apart from a question, stores it per user, and keeps the interface steady where you have chosen &mdash; free to vary everywhere else.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">2026 IBM watsonx Hackathon &mdash; Personalization &amp; Agent Memory</div>
             <h1 class="project-title">Teaching an Adaptive UI to Remember You</h1>
-            <p class="project-subtitle">An AI that picks a fresh layout for every answer is impressive once and exhausting by the fourth question. Adaptive Insights lets a local model plan how each result is rendered; my contribution was the counterweight &mdash; <strong>persistent user preferences</strong>. Say &ldquo;use dark mode, a purple palette, and bar charts by default&rdquo; and the system recognizes it as an instruction rather than a query, writes it to a per-user store, and applies it to every session that follows. The hard part was never the file I/O. It was deciding <em>who wins</em> when a stored preference, a phrase in the current prompt, and the model&rsquo;s own opinion all want a different chart &mdash; and then deciding how much freedom to leave the model once the user&rsquo;s choices are locked.</p>
+            <p class="project-subtitle">An AI that picks a fresh layout for every answer is impressive once and tiring by the fourth question. Adaptive Insights lets a local model plan how each result is drawn; I built the counterweight &mdash; <strong>persistent user preferences</strong>. Say &ldquo;use dark mode, a purple palette, and bar charts by default&rdquo; and the system reads it as an instruction rather than a question, saves it per user, and applies it in every session after. The hard part was not the file I/O. It was deciding <em>who wins</em> when a saved preference, the current prompt, and the model each want a different chart &mdash; and how much freedom to leave the model once the user&rsquo;s choices are locked.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -134,25 +134,25 @@
                     Preference persistence &mdash; 2026 IBM watsonx Hackathon
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    I owned the personalization layer end to end: the <strong>LLM intent classifier</strong> that separates <code>UPDATE_PREFERENCE</code> and <code>VIEW_PREFERENCES</code> from <code>QUERY_DATA</code>, the <strong>per-user preference store</strong> behind it, and the <strong>precedence rule</strong> that resolves conflicts between a stored default, a phrase in the live prompt, and the render planner&rsquo;s own choice.<br><br>
-                    Four settings persist across sessions &mdash; <strong>theme, palette, chart type and number format</strong> &mdash; and they reach both ends of the stack: injected into the planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read directly by React when it paints colors and formats numbers.
+                    I owned the personalization layer end to end: the <strong>LLM intent classifier</strong> that separates <code>UPDATE_PREFERENCE</code> and <code>VIEW_PREFERENCES</code> from <code>QUERY_DATA</code>, the <strong>per-user store</strong> behind it, and the <strong>precedence rule</strong> that resolves conflicts between a saved default, the live prompt, and the render planner&rsquo;s own choice.<br><br>
+                    Four settings persist across sessions &mdash; <strong>theme, palette, chart type and number format</strong> &mdash; and they reach both ends of the stack: added to the planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read by React when it picks colors and formats numbers.
                   </p>
                 </div>
-                <p class="overview-text"><strong>The intent classifier</strong> runs at temperature 0 against a constrained JSON contract, returning an intent plus only the preference keys the user actually named &mdash; explicitly instructed not to invent values. It normalizes the vocabulary people really use: <em>grey</em> to gray, <em>violet</em> and <em>lavender</em> to purple, <em>navy</em> and <em>cyan</em> to blue, <em>colorful</em> to rainbow. If classification fails or the model is unreachable, the request degrades to <code>QUERY_DATA</code> and the user still gets an answer.</p>
+                <p class="overview-text"><strong>The classifier</strong> runs at temperature 0 against a fixed JSON contract, returning an intent plus only the preference keys the user actually named &mdash; it is told not to invent values. It also normalizes the words people really use: <em>grey</em> to gray, <em>violet</em> and <em>lavender</em> to purple, <em>navy</em> and <em>cyan</em> to blue, <em>colorful</em> to rainbow. If it fails or the model is unreachable, the request falls back to <code>QUERY_DATA</code> and the user still gets an answer.</p>
 
-                <p class="overview-text"><strong>The store</strong> is keyed by username, merges partial updates over existing values rather than replacing the record, and falls back to documented defaults for anyone with no history &mdash; so a first-time user and a returning one take the same code path.</p>
+                <p class="overview-text"><strong>The store</strong> is keyed by username and merges partial updates instead of replacing the record. Anyone with no history gets documented defaults, so a first-time user and a returning one take the same code path.</p>
 
-                <p class="overview-text"><strong>The UX position</strong> underneath all of it: an adaptive interface has to be predictable where the user has committed, and free everywhere else. Anything a person explicitly chose &mdash; theme, palette, chart type, number format &mdash; is treated as a promise and reproduced exactly. The details they never mentioned are where the interface is allowed to move: an accent, a card treatment, a legend position, a donut instead of a flat pie. Same shape you asked for, small delight you didn&rsquo;t &mdash; and because the variation is drawn to differ from the one you saw last, the surface stays alive across a session instead of settling into a template.</p>
+                <p class="overview-text"><strong>The idea underneath it:</strong> an adaptive interface should be predictable where the user has chosen, and free everywhere else. Theme, palette, chart type, and number format are treated as promises and reproduced exactly. The details nobody mentioned &mdash; an accent, a card style, a legend position, a donut instead of a flat pie &mdash; are where the interface can move. Each variation is drawn to differ from the last one, so the surface stays alive across a session without ever changing something the user asked for.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>In an interface where an LLM chooses the layout, personalization and adaptivity are in direct conflict. Let the model decide freely and the user&rsquo;s saved defaults evaporate; hard-code the defaults and the adaptive planner becomes decoration. Worse, both failure modes look like bugs to the user &mdash; and neither is reliably reproducible when a 3B model is making the call.</p>
+                    <p>When an LLM chooses the layout, personalization and adaptivity pull against each other. Let the model decide freely and saved defaults disappear; hard-code the defaults and the planner becomes decoration. Both look like bugs to the user, and neither reproduces reliably when a 3B model is making the call.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>I made the arbitration explicit instead of emergent, as a three-tier precedence: what you asked for <em>in this prompt</em> beats what you saved, what you saved beats what the model preferred, and any choice that doesn&rsquo;t fit the returned data shape loses to a deterministic fallback. Each outcome is stamped with a status &mdash; <code>ollama+prompt</code>, <code>ollama+preference</code>, <code>fallback</code> &mdash; so why a given view appeared is a fact in the response, not a guess.</p>
+                    <p>I wrote the rule down instead of letting it emerge. Three tiers: what you ask for <em>in this prompt</em> beats what you saved, what you saved beats what the model preferred, and any choice that doesn&rsquo;t fit the returned data loses to a fixed fallback. Each response carries the rule that fired &mdash; <code>ollama+prompt</code>, <code>ollama+preference</code>, <code>fallback</code> &mdash; so why a view appeared is a fact, not a guess.</p>
                   </div>
                 </div>
               </div>
@@ -166,8 +166,8 @@
               <h3>Project Context</h3>
             </div>
             <div class="col-lg-9">
-              <p class="overview-text"><strong>Adaptive Insights</strong> is the team&rsquo;s hackathon entry: an analytics interface that decides <em>how</em> to answer, not just what. A prompt enters, a local Llama 3.2 model returns a render plan, and React draws whichever view fits the result &mdash; a spotlight for a single account, cards for a handful, a table for many, or a bar, pie, line, area, treemap or leaderboard for an aggregate. Three Docker services carry it: a Node.js broker that routes and validates, a Python service exposing MCP-style data tools, and Qdrant holding retrieval memory for report documentation. Everything, the reasoning model included, runs locally.</p>
-              <p class="overview-text">The architecture is described with a brain metaphor &mdash; the broker as thalamic routing, Qdrant as hippocampal memory, Ollama as cerebral reasoning, validation as cerebellar coordination, and a deterministic brainstem fallback that keeps the UI answering when the model is offline. <strong>Preference persistence is the long-term memory in that picture</strong>: the part that carries something forward from one session into the next.</p>
+              <p class="overview-text"><strong>Adaptive Insights</strong> is our team&rsquo;s hackathon entry: an analytics interface that decides <em>how</em> to answer, not just what. A prompt comes in, a local Llama 3.2 model returns a render plan, and React draws whichever view fits &mdash; a spotlight for a single account, cards for a handful, a table for many, or a bar, pie, line, area, treemap or leaderboard for an aggregate. Three Docker services carry it: a Node.js broker that routes and validates, a Python service exposing MCP-style data tools, and Qdrant holding retrieval memory. Everything runs locally, including the model.</p>
+              <p class="overview-text">The team described the architecture with a brain metaphor &mdash; the broker as routing, Qdrant as memory, Ollama as reasoning, validation as coordination, and a fixed fallback that keeps the UI answering when the model is offline. <strong>Preference persistence is the long-term memory</strong>: the part that carries something from one session into the next.</p>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>What I Built</h3>
-                <p>The path a preference travels: recognized in a sentence, written to a store, merged into the next session, defended against everything downstream that might overwrite it &mdash; and bounded, so the interface can still surprise you where you never expressed a preference.</p>
+                <p>The path a preference travels: recognized in a sentence, saved, merged into the next session, and protected from anything downstream that might overwrite it.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -241,7 +241,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Telling an Instruction From a Question</h4>
-                    <p>An LLM classifier routes every prompt to <code>QUERY_DATA</code>, <code>UPDATE_PREFERENCE</code>, or <code>VIEW_PREFERENCES</code>, so &ldquo;use pie charts by default&rdquo; is <em>stored</em> while &ldquo;show revenue by region&rdquo; is <em>answered</em>, and &ldquo;show my settings&rdquo; returns the saved record instead of searching for data. Few-shot examples pin the boundary cases &mdash; the ones where a preference and a query use nearly the same words.</p>
+                    <p>An LLM classifier routes every prompt to <code>QUERY_DATA</code>, <code>UPDATE_PREFERENCE</code>, or <code>VIEW_PREFERENCES</code>. &ldquo;Use pie charts by default&rdquo; is <em>saved</em>, &ldquo;show revenue by region&rdquo; is <em>answered</em>, and &ldquo;show my settings&rdquo; returns the saved record instead of searching for data. Few-shot examples pin down the cases where a preference and a question use nearly the same words.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
@@ -250,7 +250,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>A Per-User Store That Merges, Not Replaces</h4>
-                    <p>Preferences are namespaced by username and updated key by key, so setting a palette never silently clears a saved theme. Users with no history resolve to documented defaults, and a missing or unreadable store degrades to an empty object rather than throwing &mdash; the personalization layer can fail without taking the request with it.</p>
+                    <p>Preferences are namespaced by username and updated key by key, so setting a palette never quietly clears a saved theme. Users with no history get documented defaults, and a missing or unreadable store returns an empty object instead of throwing &mdash; the personalization layer can fail without taking the request down with it.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -259,7 +259,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Three-Tier Precedence, Stamped in the Response</h4>
-                    <p>An explicit request in the current prompt outranks a stored default, which outranks the model&rsquo;s own plan, which loses to a deterministic fallback if it doesn&rsquo;t fit the data. A stored chart type is applied only when the returned shape can carry it &mdash; a saved pie preference never turns a single record into a pie &mdash; and the response reports which rule fired.</p>
+                    <p>A request in the current prompt outranks a saved default, which outranks the model&rsquo;s own plan, which loses to a fixed fallback if it doesn&rsquo;t fit the data. A saved chart type applies only when the data can carry it &mdash; a saved pie preference never turns a single record into a pie &mdash; and the response reports which rule fired.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -268,7 +268,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Normalizing the Words People Actually Use</h4>
-                    <p>Colors arrive as synonyms, so both paths normalize them: <em>grey</em> to gray, <em>crimson</em> to red, <em>lavender</em> and <em>violet</em> to purple, <em>magenta</em> and <em>rose</em> to pink, <em>colorful</em> to rainbow. The regex extractor is ordered most-specific first so <em>high contrast</em> isn&rsquo;t swallowed by a looser match, with guards against near-misses like &ldquo;not pie&rdquo;.</p>
+                    <p>Colors arrive as synonyms, so both paths normalize them: <em>grey</em> to gray, <em>crimson</em> to red, <em>lavender</em> and <em>violet</em> to purple, <em>magenta</em> and <em>rose</em> to pink, <em>colorful</em> to rainbow. The regex extractor is ordered most-specific first so <em>high contrast</em> isn&rsquo;t caught by a looser match, and guards against near-misses like &ldquo;not pie&rdquo;.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
@@ -277,7 +277,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Inline Preferences, Captured in Passing</h4>
-                    <p>A preference mentioned mid-question &mdash; &ldquo;show revenue by region in a dark theme&rdquo; &mdash; is extracted from the prompt, merged over the stored record for this answer, <em>and</em> written back, so a user can drift into their preferred setup without ever visiting a settings screen or issuing an explicit command.</p>
+                    <p>A preference mentioned mid-question &mdash; &ldquo;show revenue by region in a dark theme&rdquo; &mdash; is pulled from the prompt, applied to this answer, <em>and</em> saved. Users can settle into their preferred setup without ever opening a settings screen.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
@@ -286,7 +286,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Preferences Reaching Both Ends of the Stack</h4>
-                    <p>The stored record is injected into the render planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read again in React, where the palette drives Recharts series colors, the theme switches the shell, and the number format selects how revenue prints &mdash; compact, full, percentage, or currency &mdash; from one saved value.</p>
+                    <p>The saved record goes into the render planner&rsquo;s prompt as the user&rsquo;s standing defaults, and is read again in React: the palette sets Recharts series colors, the theme switches the shell, and one saved value decides how revenue prints &mdash; compact, full, percentage, or currency.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
@@ -295,7 +295,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Familiar, Not Identical</h4>
-                    <p>Alongside the preferences I persisted a variation history &mdash; the accent, card style, chart variant, legend position and decimal precision last shown &mdash; and the next variation is drawn to differ from it. The user&rsquo;s stated choices are reproduced exactly; the unstated details are free to shift, so each answer feels attended-to rather than templated. The surprise is deliberately bounded: it never reaches a setting the user has committed to.</p>
+                    <p>Alongside the preferences I saved a variation history &mdash; the accent, card style, chart variant, legend position and decimal precision last shown &mdash; and the next variation is drawn to differ from it. Stated choices are reproduced exactly; unstated details are free to shift, so each answer feels considered rather than templated. The variation never touches a setting the user has chosen.</p>
                   </div>
                 </div>
               </div>

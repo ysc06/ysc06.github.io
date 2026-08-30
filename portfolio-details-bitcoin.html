@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">Machine Learning Project</div>
             <h1 class="project-title">Can Blockchain Activity Predict Tomorrow&rsquo;s Bitcoin Price?</h1>
-            <p class="project-subtitle">Bitcoin&rsquo;s price is the textbook example of a series that punishes na&iuml;ve modelling: non-stationary, heavy-tailed, and driven by predictors that are all correlated with one another. This project asks a narrow, testable question &mdash; how much of the daily market price can four on-chain activity signals and their recent history explain? &mdash; and answers it with three regression models compared under identical conditions: the same lagged feature matrix, the same chronological split, the same metric. The result was the opposite of the expected one: <em>ordinary least squares beat both regularized models</em>, and the gap widened as the lag window grew.</p>
+            <p class="project-subtitle">Bitcoin&rsquo;s price is a hard series to model: it drifts, it swings, and its predictors are all correlated with one another. This project asks one narrow question &mdash; how much of the daily price can four on-chain activity signals and their recent history explain? &mdash; and answers it with three regression models compared under identical conditions: the same lagged features, the same chronological split, the same metric. The result was the opposite of the expected one: <em>ordinary least squares beat both regularized models</em>, and the gap widened as the lag window grew.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -135,20 +135,20 @@
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
                     <strong>Best model:</strong> plain linear regression on a 7-day lag window &mdash; <strong>RMSE 978.4</strong>, against a mean-predictor baseline of roughly <strong>5570</strong>, an error reduction of about <strong>82%</strong>.<br><br>
-                    <strong>The surprise:</strong> Ridge came in at <strong>1150.7</strong> and Lasso at <strong>2191.4</strong>. Shrinkage bought stability that this dataset never needed, and Lasso&rsquo;s L1 penalty removed predictors that were genuinely carrying signal.
+                    <strong>The surprise:</strong> Ridge came in at <strong>1150.7</strong> and Lasso at <strong>2191.4</strong>. Shrinkage bought stability this dataset never needed, and Lasso&rsquo;s L1 penalty dropped predictors that were carrying real signal.
                   </p>
                 </div>
-                <p class="overview-text">The dataset holds <strong>2,920 daily observations</strong> of Bitcoin network activity across 23 variables. Rather than throwing all of them at the model, I kept four interpretable on-chain features &mdash; trade volume, transaction count, estimated USD transaction volume, and output volume &mdash; and gave each one memory, expanding them into <strong>12 lagged predictors</strong> at a 3-day window and <strong>28</strong> at 7 days.</p>
+                <p class="overview-text">The dataset holds <strong>2,920 daily observations</strong> of Bitcoin network activity across 23 variables. Rather than use all of them, I kept four I could explain &mdash; trade volume, transaction count, estimated USD transaction volume, and output volume &mdash; and gave each one memory, expanding them into <strong>12 lagged predictors</strong> at a 3-day window and <strong>28</strong> at 7 days.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>A price series cannot be shuffled. Random cross-validation would let the model train on the future and be tested on the past, quietly inflating every score. On top of that, lagged copies of the same four features are severely collinear with one another &mdash; the textbook case for regularization, which made its failure here worth explaining rather than hiding.</p>
+                    <p>A price series cannot be shuffled. Random cross-validation would let the model train on the future and be tested on the past, quietly inflating every score. On top of that, lagged copies of the same four features are highly correlated &mdash; the textbook case for regularization, which is why its failure here was worth explaining rather than hiding.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>I split <strong>chronologically, 80/20</strong>, so the test set is strictly later than the training set, forward-filled the missing values that lag construction creates and dropped the unaligned leading rows. Then I held the design matrix and the split fixed and varied only the estimator &mdash; OLS with sequential forward selection, <code>RidgeCV</code>, <code>LassoCV</code>, and a constant-mean baseline &mdash; so the RMSE differences are attributable to the models themselves.</p>
+                    <p>I split <strong>by date, 80/20</strong>, so the test set is always later than the training set, forward-filled the missing values that building lags creates, and dropped the leading rows that don&rsquo;t line up. Then I held the features and the split fixed and changed only the model &mdash; OLS with sequential forward selection, <code>RidgeCV</code>, <code>LassoCV</code>, and a constant-mean baseline &mdash; so the RMSE differences come from the models themselves.</p>
                   </div>
                 </div>
               </div>
@@ -211,7 +211,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>Everything between a raw blockchain export and a defensible claim about which model wins &mdash; the feature design, the split that keeps the evaluation honest, and the comparison that produced an unexpected answer.</p>
+                <p>The feature design, the split that keeps the evaluation honest, and the comparison that gave an unexpected answer.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -222,7 +222,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Interpretable On-Chain Feature Set</h4>
-                    <p>Four of the 23 available variables were kept, each for a stated economic reason: trade volume as liquidity, transaction count as demand, estimated USD transaction volume as economic activity, and output volume as coin movement &mdash; keeping the model readable instead of maximally wide.</p>
+                    <p>Four of the 23 variables were kept, each for a stated economic reason: trade volume as liquidity, transaction count as demand, estimated USD transaction volume as economic activity, and output volume as coin movement &mdash; a readable model rather than the widest one.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
@@ -240,7 +240,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Leakage-Free Chronological Split</h4>
-                    <p>Time order was preserved through an 80/20 split &mdash; 2,333 train / 584 test rows at L=3 and 2,330 / 583 at L=7 &mdash; with forward-fill imputation and leading-row removal aligning every predictor to the target it is meant to precede.</p>
+                    <p>An 80/20 split that keeps time order &mdash; 2,333 train / 584 test rows at L=3 and 2,330 / 583 at L=7 &mdash; with forward-fill and leading-row removal aligning every predictor to the day it is meant to precede.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -249,7 +249,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Two Kinds of Feature Selection</h4>
-                    <p>Sequential forward selection chose the OLS predictor subset by minimizing mean squared error, while Lasso performed embedded selection through its L1 penalty &mdash; letting an explicit search and an implicit one be compared on the same data.</p>
+                    <p>Sequential forward selection picked the OLS predictors by minimizing mean squared error, while Lasso selected its own through the L1 penalty &mdash; an explicit search and an implicit one, compared on the same data.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
@@ -258,7 +258,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Four-Way RMSE Comparison</h4>
-                    <p>Linear (1384.6 at L=3, 978.4 at L=7), Ridge (1443.4 / 1150.7), Lasso (2227.7 / 2191.4), and a constant-mean baseline (~5570) were scored on the same held-out period, with RMSE chosen deliberately for its sensitivity to the large errors that volatility produces.</p>
+                    <p>Linear (1384.6 at L=3, 978.4 at L=7), Ridge (1443.4 / 1150.7), Lasso (2227.7 / 2191.4), and a constant-mean baseline (~5570) were scored on the same held-out period. RMSE was chosen for its sensitivity to the large errors volatility produces.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
@@ -267,7 +267,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>A Finding Worth Reporting</h4>
-                    <p>Regularization underperformed: Ridge added stability the data did not need, and Lasso over-penalized into underfitting. Widening the window from 3 to 7 days helped only modestly &mdash; diminishing returns from predictors that largely repeat each other &mdash; a reminder that model assumptions have to be tested, not inherited.</p>
+                    <p>Regularization lost: Ridge added stability the data did not need, and Lasso penalized so hard it underfit. Widening the window from 3 to 7 days helped only a little, since the extra predictors largely repeat each other &mdash; a reminder that assumptions have to be tested, not inherited.</p>
                   </div>
                 </div>
               </div>

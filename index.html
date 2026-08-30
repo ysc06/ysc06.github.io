@@ -159,8 +159,8 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
    
-        <h2>Project</h2>
-        <p> This is a showcase of selected projects. More can be found on my GitHub page. </p>
+        <h2>Projects</h2>
+        <p>Selected work. More on my GitHub page.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -181,23 +181,23 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
           <div class="portfolio-summary" data-aos="fade-up" data-aos-delay="150">
 
             <p class="portfolio-summary-text summary-active" data-summary-for=".filter-featured">
-              The five I am most proud of. An exam-authoring platform that turns a prompt or an uploaded document into finished test questions &mdash; drafted, checked for errors and near-duplicates, then sent to a person for approval. An analytics app that answers questions about your data and remembers how you like the charts drawn, session after session. A web service on AWS that adds and removes servers as traffic rises and falls, load-tested in both directions. A Bitcoin price model built from eight years of blockchain activity and tested only on days it had never seen. And a recommender that ranks 200 Philadelphia restaurants from the text of 90,000 reviews alone &mdash; no cuisine or price filters.
+              The five I am most proud of: a platform that drafts and checks exam questions, an analytics app that remembers how you like your charts, a web service on AWS that scales with its own traffic, a Bitcoin price model tested only on days it never saw, and a restaurant ranker built from review text alone.
             </p>
 
             <p class="portfolio-summary-text" data-summary-for=".filter-fullstack">
-              Two AI apps I built front to back &mdash; the screen, the server, and the AI logic in between. One drafts exam questions, checks them for errors and repeats, and sends them to a person for approval. The other answers questions about your data and remembers how you like the charts drawn.
+              Two AI apps I built front to back &mdash; the screen, the server, and the AI logic in between.
             </p>
 
             <p class="portfolio-summary-text" data-summary-for=".filter-ai">
-              Five projects on the modeling side: an agent that learns to drive by trial and error, a Bitcoin price predictor, an interactive story about 25 years of solar power in New Jersey, a music recommender that explains its picks, and a restaurant ranker built from about 90,000 Yelp reviews.
+              Five projects on the modeling side: agents that learn by trial and error, a Bitcoin price predictor, an interactive story about New Jersey solar power, a music recommender that explains its picks, and a restaurant ranker built from Yelp reviews.
             </p>
 
             <p class="portfolio-summary-text" data-summary-for=".filter-app">
-              An iPhone app written in Swift. It pulls photo posts from the Tumblr API and shows them as a scrolling feed; tap one to read the full story.
+              An iPhone app in Swift &mdash; a scrolling photo feed you can tap into.
             </p>
 
             <p class="portfolio-summary-text" data-summary-for="*">
-              Nine projects across AI apps, machine learning, cloud, and mobile &mdash; some built for real users, others to work through an idea end to end.
+              Nine projects across AI apps, machine learning, cloud, and mobile.
             </p>
 
           </div>
@@ -232,7 +232,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 
                   <p class="text-muted small">
                     <a href="portfolio-details.html" class="card-text-link">
-                      Built an end-to-end platform that turns a prompt or an uploaded document into structured exam items &mdash; drafted, schema-validated, checked against existing content for near-duplicates, and routed through human approval. Designed the reusable prompt-orchestration layer and the FastAPI + React service around it.
+                      Turns a prompt or an uploaded document into structured exam items: drafted by an LLM, checked against a schema, compared with existing content for near-duplicates, then sent to a reviewer for approval. I built the prompt-orchestration layer and the FastAPI + React service around it.
                     </a>
                   </p>
 
@@ -296,7 +296,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 
                   <p class="text-muted small">
                     <a href="portfolio-details-watsonx.html" class="card-text-link">
-                      My contribution to our hackathon entry, an analytics UI where a local Llama 3.2 model decides <em>how</em> each answer is drawn: the layer that makes it remember you. An LLM intent classifier tells a preference from a question &mdash; &ldquo;use bar charts by default&rdquo; gets stored, &ldquo;show revenue by region&rdquo; gets answered &mdash; and theme, palette, chart type and number format persist per user across sessions. A three-tier precedence rule settles the conflict when a stored default, a phrase in the live prompt, and the model&rsquo;s own plan each want a different chart. The UX bet: reproduce exactly what someone committed to, and let the details they never mentioned vary a little &mdash; familiar, but never quite the same twice.
+                      Our hackathon entry is an analytics UI where a local Llama 3.2 model decides <em>how</em> each answer is drawn. I built the layer that makes it remember you. An LLM classifier tells a preference from a question &mdash; &ldquo;use bar charts by default&rdquo; is saved, &ldquo;show revenue by region&rdquo; is answered &mdash; and theme, palette, chart type and number format persist per user across sessions. A three-tier rule decides who wins when a saved default, the current prompt, and the model each want a different chart.
                     </a>
                   </p>
 
@@ -343,7 +343,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-taxi.html" class="card-text-link">
-                      Implemented two agents from first principles in pure NumPy &mdash; no PyTorch, no RL library. Tuned tabular Q-learning into an essentially optimal Taxi-v3 policy, solving 1000/1000 evaluation episodes. Then designed a 24-feature Linear DQN that steers a noisy-control Dubins car around lidar-sensed obstacles, reaching the goal in 4 of 5 held-out environments.
+                      Two agents written from scratch in NumPy &mdash; no PyTorch, no RL library. Tabular Q-learning solves Taxi-v3 in 1000 of 1000 test episodes. A 24-feature Linear DQN then steers a noisy-control car around lidar-sensed obstacles, reaching the goal in 4 of 5 unseen environments.
                     </a>
                   </p>
 
@@ -394,7 +394,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-bitcoin.html" class="card-text-link">
-                      Predicted daily Bitcoin market price from 2,920 days of blockchain activity, expanding four on-chain features into 3-day and 7-day lag windows and splitting chronologically to keep the evaluation leakage-free. Compared Linear, Ridge, and Lasso regression under identical conditions &mdash; plain OLS won at RMSE 978.4, about 82% below the mean baseline, with regularization hurting rather than helping.
+                      Predicted daily Bitcoin price from 2,920 days of blockchain activity. Four on-chain features expand into 3-day and 7-day lag windows, split by date so the test period always comes after the training period. Plain linear regression beat Ridge and Lasso at RMSE 978.4 &mdash; about 82% below the mean baseline.
                     </a>
                   </p>
 
@@ -446,7 +446,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-aws.html" class="card-text-link">
-                      Designed and deployed a web service that scales with its own traffic: Flask instances behind an Application Load Balancer across two availability zones, with an Auto Scaling group tracking average CPU and bootstrapping each new machine from a launch template. Load-tested it in both directions, verifying scale-out under simulated demand and scale-in once it fell away.
+                      A web service that scales with its own traffic: Flask instances behind an Application Load Balancer across two availability zones, with an Auto Scaling group tracking average CPU and starting each new machine from a launch template. Load-tested both ways &mdash; instances appear under demand and shut down once it passes.
                     </a>
                   </p>
 
@@ -493,7 +493,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-solar.html" class="card-text-link">
-                      Turned 25 years of New Jersey solar data into a five-scene interactive story, each scene framed by the policy that shaped it. Plotted the state&rsquo;s published goals against what it actually built and shaded the gap, so a state running ahead of plan &mdash; and later falling behind a 17 GW target for 2035 &mdash; is readable at a glance.
+                      Turned 25 years of New Jersey solar data into a five-scene interactive story, each scene framed by the policy behind it. The state&rsquo;s published goals are plotted against what it actually built, with the gap shaded &mdash; so running ahead of plan, then falling behind a 17 GW target for 2035, is clear at a glance.
                     </a>
                   </p>
 
@@ -547,7 +547,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-music.html" class="card-text-link">
-                      Built the full machine learning recommender pipeline end to end &mdash; feature representation, a weighted scoring model, ranking, and evaluation &mdash; over an 18-song catalog matched against a four-field taste profile. Genre anchors the model at 35 points, with mood, energy proximity, and acoustic texture as tie-breakers. Every prediction ships with an explanation, and a model card documents what the weighting costs: genre lock-in, thin coverage for underrepresented styles, and three features left unscored.
+                      Built the whole recommender pipeline &mdash; features, a weighted scoring model, ranking, and evaluation &mdash; over an 18-song catalog and a four-field taste profile. Genre is worth 35 points, with mood, energy, and acoustic texture as tie-breakers. Every pick comes with an explanation, and a model card lists what the weighting costs: genre lock-in, thin coverage for rare styles, and three features left unused.
                     </a>
                   </p>
 
@@ -601,7 +601,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-philly.html" class="card-text-link">
-                      Ranked Philadelphia&rsquo;s 200 most-reviewed restaurants on review text alone &mdash; no cuisine tags, no price filters. Scored a free-text craving against ~90,000 pooled Yelp reviews using BM25, Word2Vec, and pivoted length normalization, then fused four sentiment analyzers (VADER, TextBlob, SentiWordNet, BERT) into one z-score ensemble so no single method&rsquo;s blind spot sets a restaurant&rsquo;s reputation.
+                      Ranked Philadelphia&rsquo;s 200 most-reviewed restaurants on review text alone &mdash; no cuisine tags, no price filters. A free-text craving is scored against ~90,000 pooled Yelp reviews with BM25, Word2Vec, and pivoted length normalization, then combined with sentiment from four analyzers (VADER, TextBlob, SentiWordNet, BERT) so no single method sets a restaurant&rsquo;s reputation.
                     </a>
                   </p>
 
@@ -657,7 +657,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-tumblr.html" class="card-text-link">
-                      Built an iPhone app that pulls <em>Humans of New York</em> photo posts from the Tumblr API and renders them as a scrolling feed &mdash; a URLSession fetch decoded into Codable models, a custom table view cell, and Nuke loading photos off the main thread so scrolling never stalls. Tapping a row fires a storyboard segue that hands the selected post to a detail screen built for reading the full story.
+                      An iPhone app that pulls <em>Humans of New York</em> photo posts from the Tumblr API into a scrolling feed &mdash; a URLSession fetch decoded into Codable models, a custom table view cell, and Nuke loading photos off the main thread so scrolling stays smooth. Tapping a row hands the selected post to a detail screen built for reading.
                     </a>
                   </p>
 
@@ -777,7 +777,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
               <i class="bi bi-kanban"></i> Agile Management
             </h5>
             <p class="card-text">
-              Led an Agile AP exam content team of 4 external SMEs to deliver 100+ multiple-choice questions every 6 months at ~93% committee acceptance rate.
+              Led an Agile team of 4 external subject-matter experts to deliver 100+ AP exam questions every six months, at about 90% committee acceptance.
             </p>
           </div>
         </div>
@@ -790,7 +790,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
               <i class="bi bi-people"></i> Global Impact
             </h5>
             <p class="card-text">
-             Delivered Advanced Placement (AP) exams administered to 17,000+ test-takers worldwide annually.
+             Delivered Advanced Placement (AP) exams taken by 17,000+ students worldwide each year.
             </p>
           </div>
         </div>
@@ -803,7 +803,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
               <i class="bi bi-cpu"></i> AI Innovation
             </h5>
             <p class="card-text">
-             Earned a ETS Spot Award recognition by developing a prompt-based LLM method that generating high-difficulty ETS flagship exam items, saving $56K annually.
+             Won an ETS Spot Award for a prompt-based LLM method that writes high-difficulty items for ETS flagship exams, addressing a projected $56K a year in outsourced item-writing costs.
             </p>
           </div>
         </div>
@@ -816,8 +816,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
               <i class="bi bi-mortarboard"></i> Teaching
             </h5>
             <p class="card-text">
-              Adjust Instructor at Boston University
-              Visiting Lecturer at Columbia University 
+              Adjunct Instructor at Boston University. Visiting Lecturer at Columbia University.
             </p>
           </div>
         </div>
