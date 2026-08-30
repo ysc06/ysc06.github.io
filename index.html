@@ -155,6 +155,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
+   
         <h2>Project</h2>
         <p> This is a showcase of selected projects. More can be found on my GitHub page. </p>
       </div><!-- End Section Title -->
@@ -171,6 +172,31 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
               <li data-filter=".filter-app">Mobile</li>
               <li data-filter="*">All Projects</li>
             </ul>
+          </div>
+
+          <!-- Per-filter summary: swapped by the script at the bottom of the page -->
+          <div class="portfolio-summary" data-aos="fade-up" data-aos-delay="150">
+
+            <p class="portfolio-summary-text summary-active" data-summary-for=".filter-featured">
+              The five I am most proud of. An exam-authoring platform that turns a prompt or an uploaded document into finished test questions &mdash; drafted, checked for errors and near-duplicates, then sent to a person for approval. An analytics app that answers questions about your data and remembers how you like the charts drawn, session after session. A web service on AWS that adds and removes servers as traffic rises and falls, load-tested in both directions. A Bitcoin price model built from eight years of blockchain activity and tested only on days it had never seen. And a recommender that ranks 200 Philadelphia restaurants from the text of 90,000 reviews alone &mdash; no cuisine or price filters.
+            </p>
+
+            <p class="portfolio-summary-text" data-summary-for=".filter-fullstack">
+              Two AI apps I built front to back &mdash; the screen, the server, and the AI logic in between. One drafts exam questions, checks them for errors and repeats, and sends them to a person for approval. The other answers questions about your data and remembers how you like the charts drawn.
+            </p>
+
+            <p class="portfolio-summary-text" data-summary-for=".filter-ai">
+              Five projects on the modeling side: an agent that learns to drive by trial and error, a Bitcoin price predictor, an interactive story about 25 years of solar power in New Jersey, a music recommender that explains its picks, and a restaurant ranker built from about 90,000 Yelp reviews.
+            </p>
+
+            <p class="portfolio-summary-text" data-summary-for=".filter-app">
+              An iPhone app written in Swift. It pulls photo posts from the Tumblr API and shows them as a scrolling feed; tap one to read the full story.
+            </p>
+
+            <p class="portfolio-summary-text" data-summary-for="*">
+              Nine projects across AI apps, machine learning, cloud, and mobile &mdash; some built for real users, others to work through an idea end to end.
+            </p>
+
           </div>
 
           <!-- End Portfolio Item -->
@@ -952,6 +978,27 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
+
+  // Swap the portfolio blurb to match the filter tab the visitor picked.
+  (function () {
+    var summaries = document.querySelectorAll(".portfolio-summary-text");
+    if (!summaries.length) return;
+
+    function showSummary(filter) {
+      summaries.forEach(function (summary) {
+        summary.classList.toggle(
+          "summary-active",
+          summary.getAttribute("data-summary-for") === filter
+        );
+      });
+    }
+
+    document.querySelectorAll(".portfolio-filters li").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        showSummary(this.getAttribute("data-filter"));
+      });
+    });
+  })();
 
   // Start the hero entrance animation once the page has loaded and the
   // preloader is gone, so the reveal is not spent behind the overlay.
