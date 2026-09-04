@@ -77,7 +77,7 @@
 
       <div class="title-wrapper">
         <h1>Tumblr Photo Feed</h1>
-        <p>A native iOS app that pulls Humans of New York photo posts straight from the Tumblr API and lets you tap any one of them through to a full-screen story &mdash; Swift, UIKit, and a storyboard segue that carries the selected post with it.</p>
+        <p>A native iOS app that pulls Humans of New York photo posts from the Tumblr API and lets you tap into a full-screen story &mdash; Swift, UIKit, and a storyboard segue that carries the selected post along.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">iOS &mdash; Swift &amp; UIKit</div>
             <h1 class="project-title">A Feed You Can Tap Into</h1>
-            <p class="project-subtitle">A scrolling list is only half an app. This one fetches photo posts from the <em>Humans of New York</em> Tumblr blog over the public API, decodes them into Swift models, and renders each as a custom table view cell with its photo and story summary. Tapping a cell segues to a detail screen that receives <em>that</em> post &mdash; the full-size photo and the complete text &mdash; which is where the interesting work lives: giving a destination view controller the data it needs before it ever appears on screen.</p>
+            <p class="project-subtitle">A scrolling list is only half an app. This one fetches photo posts from the <em>Humans of New York</em> Tumblr blog over the public API, decodes them into Swift models, and shows each one as a custom table view cell with its photo and story summary. Tapping a cell segues to a detail screen that receives that post &mdash; the full-size photo and the complete text. That hand-off is where the interesting work lives: giving a destination view controller the data it needs before it ever appears.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -143,23 +143,23 @@
                     All four required features, shipped
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    Navigation wired to the detail screen &middot; the detail view UI built out &middot; the selected post passed through to the detail view controller &middot; personal finishing touches on top.<br><br>
+                    Navigation wired to the detail screen &middot; the detail view built out &middot; the selected post passed through to the detail view controller &middot; a few finishing touches on top.<br><br>
                     <strong>Swift and UIKit only</strong> &mdash; no SwiftUI, no networking framework. One URLSession data task, one JSONDecoder, and a storyboard segue.
                   </p>
                 </div>
-                <p class="overview-text">The feed is built on a plain UITableView with a custom PostCell. A background URLSession task hits Tumblr&rsquo;s public photo-posts endpoint, JSONDecoder maps the response into a small tree of Decodable structs, and the reload is hopped back onto the main queue before the table ever touches it.</p>
+                <p class="overview-text">The feed is built on a plain UITableView with a custom PostCell. A background URLSession task hits Tumblr&rsquo;s public photo-posts endpoint, JSONDecoder maps the response into a small tree of Decodable structs, and the reload jumps back to the main queue before the table ever sees it.</p>
 
-                <p class="overview-text">Photographs are loaded through Nuke rather than fetched inline, so a cell can be dequeued and reused without waiting on the network. The same loader fills the detail screen&rsquo;s image view with the original-size version of whichever photo was tapped.</p>
+                <p class="overview-text">Photos load through Nuke instead of being fetched inline, so a cell can be dequeued and reused without waiting on the network. The same loader fills the detail screen&rsquo;s image view with the full-size version of whichever photo was tapped.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>The Challenge</h3>
-                    <p>A detail screen has no idea which row the user tapped. The segue fires before the destination view controller has loaded its views, so the data has to be handed over in that narrow window &mdash; and handed over as a real model object, not scraped back out of the cell&rsquo;s labels. Get it wrong and the detail screen either shows the wrong story or arrives empty.</p>
+                    <p>A detail screen has no idea which row the user tapped. The segue fires before the destination view controller has loaded its views, so the data has to be handed over in that narrow window &mdash; as a real model object, not scraped back out of the cell&rsquo;s labels. Get it wrong and the detail screen shows the wrong story, or arrives empty.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>My Approach</h3>
-                    <p>Resolve the tapped row inside prepare(for:sender:), index into the same posts array the table is driven by, and assign the Post to a property on the destination. The detail view controller owns an optional post and unwraps it safely in viewDidLoad, logging rather than crashing if the segue was ever misconfigured &mdash; so a wiring mistake surfaces as a message, not a blank screen.</p>
+                    <p>I resolve the tapped row inside prepare(for:sender:), index into the same posts array the table is driven by, and assign the Post to a property on the destination. The detail view controller owns an optional post and unwraps it safely in viewDidLoad, logging rather than crashing if the segue was ever misconfigured &mdash; so a wiring mistake shows up as a message, not a blank screen.</p>
                   </div>
                 </div>
               </div>
@@ -229,7 +229,7 @@
             <div class="col-lg-4">
               <div class="features-intro">
                 <h3>Key Features</h3>
-                <p>Everything between a public JSON endpoint and a story you can read full-screen &mdash; the fetch, the models, the reusable cell, the segue that carries the data, and the small touches that make it feel like an app.</p>
+                <p>The fetch, the models, the reusable cell, the segue that carries the data, and the small touches that make it feel like an app.</p>
               </div>
             </div>
             <div class="col-lg-8">
@@ -240,7 +240,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Live Feed from the Tumblr API</h4>
-                    <p>A URLSession data task requests photo posts from the <em>Humans of New York</em> blog through Tumblr&rsquo;s v2 API. The completion handler guards each failure mode separately &mdash; a transport error, a status code outside 200&ndash;299, a nil body, a decoding failure &mdash; so a blank feed always comes with a reason attached rather than silently doing nothing.</p>
+                    <p>A URLSession data task requests photo posts from the <em>Humans of New York</em> blog through Tumblr&rsquo;s v2 API. The completion handler checks each failure mode separately &mdash; a transport error, a status code outside 200&ndash;299, a nil body, a decoding failure &mdash; so a blank feed always comes with a reason instead of silently doing nothing.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
@@ -249,7 +249,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Codable Models Mirroring the Response</h4>
-                    <p>The JSON is decoded into a small tree of Decodable structs &mdash; Blog wrapping a Response wrapping an array of Post, each carrying its photos. CodingKeys renames the API&rsquo;s original_size to a Swift-idiomatic originalSize, keeping the wire format&rsquo;s conventions out of the rest of the codebase.</p>
+                    <p>The JSON decodes into a small tree of Decodable structs &mdash; Blog wrapping a Response wrapping an array of Post, each carrying its photos. CodingKeys renames the API&rsquo;s original_size to the Swift-idiomatic originalSize, keeping the wire format's naming out of the rest of the codebase.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
@@ -258,7 +258,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Custom Cell, Reused Down the Feed</h4>
-                    <p>The view controller acts as the table&rsquo;s data source and dequeues a registered PostCell for every row. Each cell owns a single configure(with:) method that takes a post and fills in its summary text and photo &mdash; one place to change how a row looks, no configuration logic leaking into the view controller.</p>
+                    <p>The view controller acts as the table&rsquo;s data source and dequeues a registered PostCell for every row. Each cell has one configure(with:) method that takes a post and fills in its summary text and photo &mdash; one place to change how a row looks, with no configuration logic leaking into the view controller.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
@@ -267,7 +267,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Asynchronous Image Loading with Nuke</h4>
-                    <p>Photos are loaded into cell and detail image views through NukeExtensions.loadImage(with:into:), which handles fetching and caching off the main thread. Scrolling stays smooth because no cell ever blocks waiting on a download, and revisiting a row doesn&rsquo;t re-fetch an image already in the cache.</p>
+                    <p>Photos load into cell and detail image views through NukeExtensions.loadImage(with:into:), which handles fetching and caching off the main thread. Scrolling stays smooth because no cell ever blocks waiting on a download, and revisiting a row doesn&rsquo;t re-fetch an image already in the cache.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
@@ -285,7 +285,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>A Detail Screen Built for Reading</h4>
-                    <p>The story is presented in a UITextView configured deliberately: scrollable for long posts, non-editable so tapping never raises the keyboard, still selectable so text can be copied, with the container inset and line-fragment padding zeroed out so the copy aligns flush with the photo above it instead of floating in default padding.</p>
+                    <p>The story runs in a UITextView, configured on purpose: scrollable for long posts, non-editable so tapping never raises the keyboard, but still selectable so text can be copied. Container inset and line-fragment padding are zeroed out so the text sits flush with the photo above it instead of floating in default padding.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
@@ -294,7 +294,7 @@
                   </div>
                   <div class="feature-content">
                     <h4>Main-Thread Discipline</h4>
-                    <p>Decoding happens on the session&rsquo;s background queue; the model assignment and reloadData() are dispatched back to the main queue, captured weakly so a dismissed view controller isn&rsquo;t kept alive by an in-flight request. UIKit only ever hears from the main thread.</p>
+                    <p>Decoding happens on the session's background queue; the model assignment and reloadData() are dispatched back to the main queue, captured weakly so a dismissed view controller isn't kept alive by a request still in flight. UIKit only ever hears from the main thread.</p>
                   </div>
                 </div>
                 <div class="feature-row" data-aos="fade-up" data-aos-delay="500">

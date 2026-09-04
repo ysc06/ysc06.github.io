@@ -77,7 +77,7 @@
 
       <div class="title-wrapper">
         <h1>Adaptive Insights &mdash; Persistent User Preferences</h1>
-        <p>A 2026 IBM watsonx Hackathon project. I built the layer that makes the AI remember you: it tells a preference apart from a question, stores it per user, and keeps the interface steady where you have chosen &mdash; free to vary everywhere else.</p>
+        <p>A 2026 IBM watsonx Hackathon project. I built the layer that makes the AI remember you: it tells a preference apart from a question, stores it per user, and keeps the interface steady where you've chosen while leaving room to vary everywhere else.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -90,7 +90,7 @@
           <div class="hero-content" data-aos="fade-up">
             <div class="project-category">2026 IBM watsonx Hackathon &mdash; Personalization &amp; Agent Memory</div>
             <h1 class="project-title">Teaching an Adaptive UI to Remember You</h1>
-            <p class="project-subtitle">An AI that picks a fresh layout for every answer is impressive once and tiring by the fourth question. Adaptive Insights lets a local model plan how each result is drawn; I built the counterweight &mdash; <strong>persistent user preferences</strong>. Say &ldquo;use dark mode, a purple palette, and bar charts by default&rdquo; and the system reads it as an instruction rather than a question, saves it per user, and applies it in every session after. The hard part was not the file I/O. It was deciding <em>who wins</em> when a saved preference, the current prompt, and the model each want a different chart &mdash; and how much freedom to leave the model once the user&rsquo;s choices are locked.</p>
+            <p class="project-subtitle">An AI that picks a fresh layout for every answer is impressive once and tiring by the fourth question. Adaptive Insights lets a local model plan how each result is drawn; I built the counterweight, <strong>persistent user preferences</strong>. Say &ldquo;use dark mode, a purple palette, and bar charts by default&rdquo; and the system reads it as an instruction rather than a question, saves it per user, and applies it in every session after. The hard part was never the file I/O. It was deciding <em>who wins</em> when a saved preference, the current prompt, and the model each want a different chart, and how much freedom to leave the model once the user&rsquo;s choices are locked.</p>
           </div>
 
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
@@ -135,14 +135,14 @@
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
                     I owned the personalization layer end to end: the <strong>LLM intent classifier</strong> that separates <code>UPDATE_PREFERENCE</code> and <code>VIEW_PREFERENCES</code> from <code>QUERY_DATA</code>, the <strong>per-user store</strong> behind it, and the <strong>precedence rule</strong> that resolves conflicts between a saved default, the live prompt, and the render planner&rsquo;s own choice.<br><br>
-                    Four settings persist across sessions &mdash; <strong>theme, palette, chart type and number format</strong> &mdash; and they reach both ends of the stack: added to the planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read by React when it picks colors and formats numbers.
+                    Four settings persist across sessions: <strong>theme, palette, chart type and number format</strong>. They reach both ends of the stack, added to the planner&rsquo;s prompt as the user&rsquo;s standing defaults, and read by React when it picks colors and formats numbers.
                   </p>
                 </div>
-                <p class="overview-text"><strong>The classifier</strong> runs at temperature 0 against a fixed JSON contract, returning an intent plus only the preference keys the user actually named &mdash; it is told not to invent values. It also normalizes the words people really use: <em>grey</em> to gray, <em>violet</em> and <em>lavender</em> to purple, <em>navy</em> and <em>cyan</em> to blue, <em>colorful</em> to rainbow. If it fails or the model is unreachable, the request falls back to <code>QUERY_DATA</code> and the user still gets an answer.</p>
+                <p class="overview-text"><strong>The classifier</strong> runs at temperature 0 against a fixed JSON contract, returning an intent plus only the preference keys the user actually named; it is told not to invent values. It also normalizes the words people really use: <em>grey</em> to gray, <em>violet</em> and <em>lavender</em> to purple, <em>navy</em> and <em>cyan</em> to blue, <em>colorful</em> to rainbow. If it fails or the model is unreachable, the request falls back to <code>QUERY_DATA</code> and the user still gets an answer.</p>
 
                 <p class="overview-text"><strong>The store</strong> is keyed by username and merges partial updates instead of replacing the record. Anyone with no history gets documented defaults, so a first-time user and a returning one take the same code path.</p>
 
-                <p class="overview-text"><strong>The idea underneath it:</strong> an adaptive interface should be predictable where the user has chosen, and free everywhere else. Theme, palette, chart type, and number format are treated as promises and reproduced exactly. The details nobody mentioned &mdash; an accent, a card style, a legend position, a donut instead of a flat pie &mdash; are where the interface can move. Each variation is drawn to differ from the last one, so the surface stays alive across a session without ever changing something the user asked for.</p>
+                <p class="overview-text"><strong>The idea underneath it:</strong> an adaptive interface should be predictable where the user has chosen, and free everywhere else. Theme, palette, chart type, and number format are treated as promises and reproduced exactly. The details nobody mentioned, like an accent, a card style, a legend position, or a donut instead of a flat pie, are where the interface can move. Each variation is drawn to differ from the last one, so the surface stays alive across a session without ever changing something the user asked for.</p>
 
                 <div class="challenge-solution">
                   <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
@@ -166,7 +166,7 @@
               <h3>Project Context</h3>
             </div>
             <div class="col-lg-9">
-              <p class="overview-text"><strong>Adaptive Insights</strong> is our team&rsquo;s hackathon entry: an analytics interface that decides <em>how</em> to answer, not just what. A prompt comes in, a local Llama 3.2 model returns a render plan, and React draws whichever view fits &mdash; a spotlight for a single account, cards for a handful, a table for many, or a bar, pie, line, area, treemap or leaderboard for an aggregate. Three Docker services carry it: a Node.js broker that routes and validates, a Python service exposing MCP-style data tools, and Qdrant holding retrieval memory. Everything runs locally, including the model.</p>
+              <p class="overview-text"><strong>Adaptive Insights</strong> is our team&rsquo;s hackathon entry: an analytics interface that decides <em>how</em> to answer, not just what. A prompt comes in, a local Llama 3.2 model returns a render plan, and React draws whichever view fits: a spotlight for a single account, cards for a handful, a table for many, or a bar, pie, line, area, treemap or leaderboard for an aggregate. Three Docker services carry it: a Node.js broker that routes and validates, a Python service exposing MCP-style data tools, and Qdrant holding retrieval memory. Everything runs locally, including the model.</p>
               <p class="overview-text">The team described the architecture with a brain metaphor &mdash; the broker as routing, Qdrant as memory, Ollama as reasoning, validation as coordination, and a fixed fallback that keeps the UI answering when the model is offline. <strong>Preference persistence is the long-term memory</strong>: the part that carries something from one session into the next.</p>
             </div>
           </div>
