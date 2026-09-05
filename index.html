@@ -232,7 +232,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 
                   <p class="text-muted small">
                     <a href="portfolio-details.html" class="card-text-link">
-                      Turns a prompt or an uploaded document into structured exam items: drafted by an LLM, checked against a schema, compared with existing content for near-duplicates, then sent to a reviewer for approval. I built the prompt-orchestration layer and the FastAPI + React service around it.
+                      An LLM turns a prompt or document into exam items, checks them for errors and duplicates, then a reviewer approves them before they ship. I built the prompt pipeline and the FastAPI + React app around it, replacing a slow manual process with a faster, quality-checked one.
                     </a>
                   </p>
 
@@ -296,7 +296,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
 
                   <p class="text-muted small">
                     <a href="portfolio-details-watsonx.html" class="card-text-link">
-                      Our hackathon entry is an analytics UI where a local Llama 3.2 model decides <em>how</em> each answer is drawn. I built the layer that makes it remember you. An LLM classifier tells a preference from a question, so &ldquo;use bar charts by default&rdquo; is saved while &ldquo;show revenue by region&rdquo; is answered, and theme, palette, chart type and number format persist per user across sessions. A three-tier rule decides who wins when a saved default, the current prompt, and the model each want a different chart.
+                      Our hackathon entry lets a local Llama 3.2 model choose how to draw each chart. I built the piece that makes it remember you: an LLM saves your stated preferences, and a three-tier rule makes sure they win out over the model&rsquo;s own choice, so your settings stick across every session.
                     </a>
                   </p>
 
@@ -343,7 +343,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-taxi.html" class="card-text-link">
-                      Two agents written from scratch in NumPy &mdash; no PyTorch, no RL library. Tabular Q-learning solves Taxi-v3 in 1000 of 1000 test episodes. A 24-feature Linear DQN then steers a noisy-control car around lidar-sensed obstacles, reaching the goal in 4 of 5 unseen environments.
+                      Two agents built from scratch in NumPy, no PyTorch or RL library. Tabular Q-learning solves Taxi-v3 in 1000 of 1000 test episodes, and a Linear DQN steers a noisy car around obstacles to reach the goal in 4 of 5 unseen environments.
                     </a>
                   </p>
 
@@ -394,7 +394,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-bitcoin.html" class="card-text-link">
-                      Predicted daily Bitcoin price from 2,920 days of blockchain activity. Four on-chain features expand into 3-day and 7-day lag windows, split by date so the test period always comes after the training period. Plain linear regression beat Ridge and Lasso at RMSE 978.4 &mdash; about 82% below the mean baseline.
+                      Predicted daily Bitcoin price from 2,920 days of blockchain activity, testing only on days the model never saw. Plain linear regression beat Ridge and Lasso, cutting error 82% below a simple baseline.
                     </a>
                   </p>
 
@@ -446,7 +446,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-aws.html" class="card-text-link">
-                      A web service that scales with its own traffic: Flask instances behind an Application Load Balancer across two availability zones, with an Auto Scaling group tracking average CPU and starting each new machine from a launch template. Load-tested both ways &mdash; instances appear under demand and shut down once it passes.
+                      A web service that scales itself: Flask instances behind a load balancer across two zones, with an Auto Scaling group adding machines as CPU rises and removing them as it falls. Load-tested in both directions to confirm it actually works.
                     </a>
                   </p>
 
@@ -493,7 +493,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-solar.html" class="card-text-link">
-                      Turned 25 years of New Jersey solar data into a five-scene interactive story, each scene framed by the policy behind it. The state&rsquo;s published goals are plotted against what it actually built, with the gap shaded &mdash; so running ahead of plan, then falling behind a 17 GW target for 2035, is clear at a glance.
+                      Turned 25 years of New Jersey solar data into a five-scene interactive story, each scene framed by the policy behind it. Plotting the state&rsquo;s goals against what it actually built makes its early lead, and its later slide behind a 2035 target, clear at a glance.
                     </a>
                   </p>
 
@@ -547,7 +547,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-music.html" class="card-text-link">
-                      Built the whole recommender pipeline (features, a weighted scoring model, ranking, and evaluation) over an 18-song catalog and a four-field taste profile. Genre is worth 35 points, with mood, energy, and acoustic texture as tie-breakers. Every pick comes with an explanation, and a model card lists what the weighting costs: genre lock-in, thin coverage for rare styles, and three features left unused.
+                      Built a recommender end to end: features, a weighted scoring model, ranking, and evaluation, over an 18-song catalog matched to a taste profile. Every pick comes with a plain-language explanation, and a model card documents exactly where the weighting falls short.
                     </a>
                   </p>
 
@@ -601,7 +601,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-philly.html" class="card-text-link">
-                      Ranked Philadelphia&rsquo;s 200 most-reviewed restaurants on review text alone &mdash; no cuisine tags, no price filters. A free-text craving is scored against ~90,000 pooled Yelp reviews with BM25, Word2Vec, and pivoted length normalization, then combined with sentiment from four analyzers (VADER, TextBlob, SentiWordNet, BERT) so no single method sets a restaurant&rsquo;s reputation.
+                      Ranked Philadelphia&rsquo;s 200 most-reviewed restaurants on review text alone, no cuisine tags or price filters. A craving is scored against ~90,000 Yelp reviews for relevance, then checked against four sentiment analyzers so no single method decides a restaurant&rsquo;s reputation.
                     </a>
                   </p>
 
@@ -657,7 +657,7 @@ View Featured Projects<i class="bi bi-arrow-right ms-2"></i>
                   <br>
                   <p class="text-muted small">
                     <a href="portfolio-details-tumblr.html" class="card-text-link">
-                      An iPhone app that pulls <em>Humans of New York</em> photo posts from the Tumblr API into a scrolling feed &mdash; a URLSession fetch decoded into Codable models, a custom table view cell, and Nuke loading photos off the main thread so scrolling stays smooth. Tapping a row hands the selected post to a detail screen built for reading.
+                      An iPhone app that pulls <em>Humans of New York</em> photos from the Tumblr API into a scrolling feed, with images loading in the background so scrolling never stalls. Tapping a post hands it off to a detail screen built for reading the full story.
                     </a>
                   </p>
 
