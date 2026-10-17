@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>FitFindr - Naomi Cheng</title>
+  <meta name="description" content="FitFindr — a tool-using AI agent built for CodePath AI 201: it searches 40 secondhand listings for a plain-English request, styles the find with clothes the user already owns, writes a fit card caption, and stops early with a fix when nothing matches.">
+  <meta name="keywords" content="AI agent, tool calling, planning loop, LLM, Gemini, Python, CodePath, AI 201, acceptance criteria, prompt design, secondhand fashion, AI-assisted development">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/feather2.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=3">
+  <link rel="shortcut icon" href="/favicon.ico?v=3">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MinimalFolio
+  * Template URL: https://bootstrapmade.com/minimalfolio-bootstrap-portfolio-template/
+  * Updated: Aug 05 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Home">
+        <span class="visually-hidden">Home</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Projects</a></li>
+            <li class="breadcrumb-item active current">FitFindr</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>FitFindr</h1>
+        <p>A thrift-shopping agent built for CodePath AI 201. Three tools and a loop that checks each result before it picks the next step.</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-hero">
+          <div class="hero-content" data-aos="fade-up">
+            <div class="project-category">AI Agents &mdash; Tool Use &amp; Planning</div>
+            <h1 class="project-title">From &ldquo;vintage graphic tee under $30&rdquo; to an Outfit You Can Wear</h1>
+            <p class="project-subtitle">You type what you want, like &ldquo;vintage graphic tee under $30&rdquo; or &ldquo;black jeans size M&rdquo;. FitFindr searches 40 secondhand listings from Depop, ThredUp and Poshmark and picks the best keyword match within your price and size. An LLM then suggests one or two outfits that pair the item with pieces already in your wardrobe and writes a short caption for the find. What makes it an agent rather than a script is the branch: when the search comes back empty, the loop stops before any model call and tells you which filter to loosen.</p>
+          </div>
+
+          <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="meta-column">
+              <div class="meta-label">Project</div>
+              <div class="meta-value">Tool-Using AI Agent</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Context</div>
+              <div class="meta-value">CodePath AI 201 &mdash; Project 2</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Role</div>
+              <div class="meta-value">Sole author &mdash; tool contracts, search, query parsing, planning loop, prompts, acceptance criteria; built AI-assisted</div>
+            </div>
+            <div class="meta-column">
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">Python, Google Gen AI SDK (Gemini), JSON data</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-7">
+              <div class="visual-showcase" data-aos="zoom-in" data-aos-delay="100">
+                <div class="main-visual">
+                  <img src="assets/img/portfolio/fitfindr.png"
+                       alt="One FitFindr run: the query 'looking for a vintage graphic tee under $30' parsed into description vintage graphic tee, max price $30 and any size; the match, a Y2K Baby Tee with a butterfly print for $18 on Depop; two outfits built from the user's wardrobe; and a fit card caption, above a pipeline strip reading parse_query, search_listings, which stops when empty, suggest_outfit, and create_fit_card"
+                       class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="project-overview" data-aos="fade-up">
+                <h2>Project Overview</h2>
+                <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
+                    <i class="bi bi-signpost-split" style="font-size: 1.2rem; color: #f26f5b;"></i>
+                    The branch rule
+                  </div>
+                  <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
+                    If <code>search_listings</code> returns an empty list, write a message to <code>session["error"]</code> and return. Otherwise take the first result and move on to <code>suggest_outfit</code>.<br><br>
+                    <em>&ldquo;designer ballgown size XXS under $5&rdquo;</em> ends after the search with <strong>0 model calls</strong> and a message to raise the price above $5.00, drop the XXS size, or use broader keywords.
+                  </p>
+                </div>
+                <p class="overview-text">Each run lives in one session dict. The query is parsed into a description, a size and a max price. Then come the search results, the selected item, the outfit suggestion and the fit card. Every tool reads its inputs back out of the session instead of taking the last call's return value, so any step of a run can be printed and checked.</p>
+
+                <p class="overview-text">I wrote a contract for each tool before writing its code: what goes in, with types, what comes back, and what it returns when it has nothing. I also wrote five acceptance criteria with numeric targets before any results existed. That way the evaluation measures against a bar I set ahead of time, not one I picked after seeing the output.</p>
+
+                <div class="challenge-solution">
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>The Challenge</h3>
+                    <p>A loop that calls all three tools no matter what comes back is just a list of function calls. The hard part was choosing what each tool returns when it comes up empty. Return the wrong kind of value and the loop can't tell &ldquo;no match&rdquo; from a result, so it hands garbage to the model and calls the model for nothing.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>My Approach</h3>
+                    <p>Each tool returns a clear signal and the loop writes the message. The search returns <code>[]</code>, never a sentence, so <code>if not results</code> catches it. The outfit tool falls back to general styling advice when the wardrobe is empty. The caption tool skips the model call entirely when there is no outfit to describe.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="technology-stack" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Technology Stack</h3>
+            </div>
+            <div class="col-lg-9">
+              <div class="tech-categories">
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="150">
+                  <div class="category-title">Core</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Python 3</span>
+                    <span class="tech-item">Type Hints</span>
+                    <span class="tech-item">CLI</span>
+                    <span class="tech-item">AI-Assisted Development</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                  <div class="category-title">Agent Design</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Tool Calling</span>
+                    <span class="tech-item">Planning Loop</span>
+                    <span class="tech-item">Session State</span>
+                    <span class="tech-item">Early-Exit Branching</span>
+                    <span class="tech-item">Tool Contracts</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="250">
+                  <div class="category-title">LLM</div>
+                  <div class="tech-list">
+                    <span class="tech-item">Gemini</span>
+                    <span class="tech-item">Google Gen AI SDK</span>
+                    <span class="tech-item">Prompt Design</span>
+                    <span class="tech-item">Temperature Tuning</span>
+                  </div>
+                </div>
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                  <div class="category-title">Data &amp; Evaluation</div>
+                  <div class="tech-list">
+                    <span class="tech-item">JSON Listings</span>
+                    <span class="tech-item">Keyword Scoring</span>
+                    <span class="tech-item">Acceptance Criteria</span>
+                    <span class="tech-item">Tool-Level Tests</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="features-intro">
+                <h3>Key Features</h3>
+                <p>Three tools, the loop that connects them, and how each one handles coming up empty.</p>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="features-list">
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
+                  <div class="feature-icon">
+                    <i class="bi bi-search"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Filtered Keyword Search</h4>
+                    <p><code>search_listings</code> drops anything over the price ceiling or outside the size, then ranks the rest by how many words they share with the description. Sizes match whole tokens, so &ldquo;M&rdquo; matches &ldquo;S/M&rdquo; but not &ldquo;XL&rdquo;, and &ldquo;S&rdquo; doesn&rsquo;t match &ldquo;US 9&rdquo;.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-icon">
+                    <i class="bi bi-input-cursor-text"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Readable Query Parsing</h4>
+                    <p><code>parse_query</code> uses plain string splitting instead of regex. A word starting with <code>$</code> becomes the max price, the word after &ldquo;size&rdquo; becomes the size, and the rest become the description once filler words are removed. I picked this version because I could debug it line by line.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
+                  <div class="feature-icon">
+                    <i class="bi bi-signpost-split"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>A Loop That Can Stop</h4>
+                    <p><code>run_agent</code> checks the search result before going on. An empty search ends the run with a message built from the filters the user actually set, so it always names something to change. The loop also counts its steps against a cap.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-icon">
+                    <i class="bi bi-person-bounding-box"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Outfits From Your Own Closet</h4>
+                    <p><code>suggest_outfit</code> asks the model for one or two outfits that name specific wardrobe pieces alongside the new item. If the wardrobe is empty, it returns general styling advice instead of an empty string or an error.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
+                  <div class="feature-icon">
+                    <i class="bi bi-chat-quote"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Fit Card Captions</h4>
+                    <p><code>create_fit_card</code> writes a two-to-four sentence, post-style caption that mentions the item, price and platform once each. Temperature is set to 0.9 so the wording changes between runs. With no outfit to describe, it skips the model call and returns a fixed message.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-icon">
+                    <i class="bi bi-clipboard-check"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Criteria Set Before Results</h4>
+                    <p>Five acceptance criteria, each with a target and a reason. Matching queries should finish all three tools in at least 4 of 5 tries, since plain keyword matching misses some phrasings, like &ldquo;t-shirt&rdquo; vs. &ldquo;tee&rdquo;. Impossible queries must stop in 5 of 5, because nothing on that path is random.</p>
+                  </div>
+                </div>
+                <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
+                  <div class="feature-icon">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>AI-Assisted, With Checks</h4>
+                    <p>Claude reviewed my first tool contract and caught that a &ldquo;no match&rdquo; string is truthy. The loop would never have caught it, and <code>results[0]</code> would have passed the letter &ldquo;s&rdquo; to the outfit tool. I switched the empty case to <code>[]</code>. Later I typed in a parser it drafted, found a size leaking into the description during testing, and fixed the missing line myself.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-footer" data-aos="fade-up" data-aos-delay="200">
+          <div class="footer-navigation">
+            <a href="index.html#portfolio" class="nav-link all-projects">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <span>All Projects</span>
+            </a>
+            <a href="https://github.com/ysc06/ai201-project2-fitfindr-starter-v2026" target="_blank" rel="noopener noreferrer" class="nav-link next-project">
+              <span class="nav-direction">Repository</span>
+              <span class="nav-title">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Naomi Cheng</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
