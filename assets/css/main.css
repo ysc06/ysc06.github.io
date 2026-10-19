@@ -3173,6 +3173,10 @@ ul li {
   margin-bottom: 0;
 }
 
+.portfolio-details .content-section .project-overview .challenge-solution .overview-list li {
+  font-size: inherit; /* override the global `ul li { font-size: 20px }` */
+}
+
 .portfolio-details .content-section .project-overview .challenge-solution .overview-list li + li {
   margin-top: 0.5rem;
 }
