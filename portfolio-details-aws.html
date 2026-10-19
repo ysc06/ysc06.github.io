@@ -74,8 +74,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>AWS Elastic Infrastructure</h1>
-        <p>A Flask service on AWS that scales itself &mdash; load balanced across EC2 in two zones, with an Auto Scaling group adding and removing instances as CPU demand rises and falls, verified under real load tests in both directions.</p>
+        <h1>AWS Elastic Infrastructure: A Load-Balanced, Auto-Scaling Web Service</h1>
+        <p>A single server is a single point of failure and a fixed ceiling on throughput. This project replaces it with a Flask service on EC2 behind an Application Load Balancer, where an Auto Scaling group across two availability zones adds and removes instances as CPU demand rises and falls.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -85,12 +85,6 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="project-hero">
-          <div class="hero-content" data-aos="fade-up">
-            <div class="project-category">Cloud Infrastructure Project</div>
-            <h1 class="project-title">Elastic Web Infrastructure on AWS</h1>
-            <p class="project-subtitle">A single server is a single point of failure and a fixed ceiling on throughput. This project replaces it with infrastructure that has neither: an Application Load Balancer spreads HTTP requests across healthy Flask instances in two availability zones, and an Auto Scaling group watches average CPU and <em>starts or stops instances on its own</em> &mdash; each new machine configuring itself from a launch template and joining the load balancer with nobody touching a console.</p>
-          </div>
-
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
             <div class="meta-column">
               <div class="meta-label">Project</div>
@@ -136,17 +130,25 @@
                     <strong>Scale-in:</strong> once demand fell away, the group shut the extra instances down again &mdash; capacity following demand in both directions, not just upward.
                   </p>
                 </div>
-                <p class="overview-text">A hands-on AWS project: a Python Flask REST service on Amazon EC2, behind an Application Load Balancer, under an Auto Scaling group sized <code>min 0 / desired 1 / max 3</code> across two availability zones. The goal was to work through the whole chain &mdash; networking, health checks, bootstrapping, and elasticity &mdash; rather than any one piece on its own.</p>
-
                 <div class="challenge-solution">
-                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
-                    <h3>The Challenge</h3>
-                    <p>Elasticity only works if a machine that did not exist a minute ago can configure itself, pass a health check, and start taking real traffic with no manual step in between. That means the security groups, the target group, the health-check path, and the startup script all have to be right at once. Get any one wrong and instances launch but quietly never receive a request.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>What I Built</h3>
+                    <p>I deployed a Python Flask REST service on Amazon EC2 and worked through the whole chain of networking, health checks, bootstrapping and elasticity. An Application Load Balancer and target group spread HTTP requests across every instance currently reporting healthy. The instances run in an Auto Scaling group sized <code>min 0 / desired 1 / max 3</code> across two availability zones. Each one starts from an EC2 launch template whose startup script installs dependencies, pulls the application code and starts the service on boot. A health endpoint tells the target group when a new instance is ready to take traffic.</p>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-                    <h3>My Approach</h3>
-                    <p>An EC2 launch template with a startup script that installs dependencies, pulls the application code, and starts the service on boot; security-group rules scoped so the load balancer &mdash; and only the load balancer &mdash; can reach the application port; and a target-tracking policy driven by CloudWatch average CPU. Then I tested it the only way that counts: generating CPU load and watching instances appear, register, and later go away.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Design Decisions</h3>
+                    <p>I put all instance setup in the launch template&rsquo;s startup script, so a brand-new machine configures itself and serves traffic with no manual step. I scoped the security groups so only the load balancer can reach the application port, which keeps the instances off the open internet and routes every request through health-checked targets. For scaling, I used a target-tracking policy on CloudWatch average CPU at 50%, so the group holds load near its target on its own instead of reacting to hand-set thresholds.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                    <h3>The Result</h3>
+                    <p>Under simulated CPU load, the group started new instances that passed their health checks and joined the load balancer on their own. Once demand dropped, it shut the extra instances down again, so idle capacity was released rather than left running and billed.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Key Features</h3>
+                    <p>Load-balanced Flask REST services on EC2 behind an Application Load Balancer and target group; security groups that open the application port only to the load balancer, plus a health endpoint for readiness; a self-bootstrapping launch template that installs, fetches and starts the service; CPU-driven target tracking across two availability zones; and scale-out and scale-in, both verified under load.</p>
                   </div>
                 </div>
               </div>
@@ -195,66 +197,6 @@
                     <span class="tech-item">Python</span>
                     <span class="tech-item">Flask</span>
                     <span class="tech-item">REST APIs</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="features-intro">
-                <h3>Key Features</h3>
-                <p>Routing, health checks, bootstrapping, and the policy that decides how many machines exist at all.</p>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="features-list">
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
-                  <div class="feature-icon">
-                    <i class="bi bi-diagram-3"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Load-Balanced Flask Services on EC2</h4>
-                    <p>Python Flask REST services on Amazon EC2, with an Application Load Balancer and target group spreading HTTP requests across every instance currently reporting healthy.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
-                  <div class="feature-icon">
-                    <i class="bi bi-shield-lock"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Security Groups &amp; Health Checks</h4>
-                    <p>The application port is open to the load balancer rather than the internet, and a health endpoint tells the target group when an instance is genuinely ready to serve.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
-                  <div class="feature-icon">
-                    <i class="bi bi-file-earmark-code"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Self-Bootstrapping Launch Template</h4>
-                    <p>An EC2 launch template carrying a startup script that installs dependencies, fetches the application code, and launches the service &mdash; so a brand-new instance serves traffic with no manual setup.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
-                  <div class="feature-icon">
-                    <i class="bi bi-speedometer2"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>CPU-Driven Target Tracking</h4>
-                    <p>An Auto Scaling group across two availability zones adds and removes capacity to hold average CPU near its target, rather than reacting to hand-set thresholds.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
-                  <div class="feature-icon">
-                    <i class="bi bi-arrow-repeat"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Verified Scale-Out and Scale-In</h4>
-                    <p>Scale-out was tested under simulated CPU load, confirming that new instances joined the load balancer on their own. Scale-in was checked after demand dropped, so idle capacity is released rather than left running and billed.</p>
                   </div>
                 </div>
               </div>

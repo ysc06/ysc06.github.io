@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Philly Restaurant Recommender - Naomi Cheng</title>
-  <meta name="description" content="A Philadelphia restaurant ranking system built purely on review text — BM25, Word2Vec and pivoted length normalization for retrieval, four sentiment analyzers fused by z-score, over ~90,000 Yelp reviews from the city's 200 most-reviewed restaurants.">
+  <meta name="description" content="A Philadelphia restaurant ranking system built purely on review text: BM25, Word2Vec and pivoted length normalization for retrieval, plus four sentiment analyzers fused by z-score, over ~90,000 Yelp reviews from the city's 200 most-reviewed restaurants.">
   <meta name="keywords" content="text retrieval, information retrieval, BM25, Word2Vec, pivoted length normalization, sentiment analysis, VADER, TextBlob, SentiWordNet, BERT, transformers, NLP, Yelp Open Dataset, recommender system, ranking, CS410, Python">
 
   <!-- Favicons -->
@@ -74,8 +74,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>Philly Restaurant Recommender</h1>
-        <p>A ranking system built on ~90,000 Yelp reviews alone, with no cuisine tags or price filters &mdash; three retrieval algorithms and four sentiment analyzers combine into one score, so the ranking reflects what diners actually said.</p>
+        <h1>Philly Restaurant Recommender: Ranking Restaurants on Review Text Alone</h1>
+        <p>Filtering restaurants by cuisine tag and price range is a database query, not a recommendation, and it ignores what diners actually said. This system ranks Philadelphia&rsquo;s 200 most-reviewed restaurants on ~90,000 Yelp reviews alone, combining how well the reviews match a free-text query with how positively they read.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -85,12 +85,6 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="project-hero">
-          <div class="hero-content" data-aos="fade-up">
-            <div class="project-category">Text Retrieval &mdash; NLP &amp; Sentiment Analysis</div>
-            <h1 class="project-title">Ranking Restaurants on Review Text Alone</h1>
-            <p class="project-subtitle">Filtering by cuisine tag and price range is a database query, not a recommendation. This system skips the metadata and ranks on the only signal that carries an opinion: the reviews themselves. A free-text craving like <em>&ldquo;Japanese sushi&rdquo;</em> is matched against the pooled reviews of each of Philadelphia&rsquo;s 200 most-reviewed restaurants, then combined with how positively those same ~90,000 reviews read. Relevance says the place serves what you asked for; sentiment says people were glad they went.</p>
-          </div>
-
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
             <div class="meta-column">
               <div class="meta-label">Project</div>
@@ -136,19 +130,25 @@
                     Sentiment is combined per restaurant two ways: a <strong>plain average</strong>, and a <strong>weighted average</strong> that leans on reviewers with more history and more useful votes.
                   </p>
                 </div>
-                <p class="overview-text">Restaurant data and reviews came from the Yelp Open Dataset, cleaned in Jupyter and OpenRefine, and narrowed to Philadelphia&rsquo;s 200 most-reviewed restaurants. Each restaurant&rsquo;s reviews are pooled into one document, so a query is scored against everything diners have said about the place, not just one review.</p>
-
-                <p class="overview-text">Four sentiment methods run over all ~90,000 reviews &mdash; three lexicon-based (vaderSentiment, TextBlob, SentiWordNet) and one transformer-based (BERT). Their raw scores sit on different scales, so each is converted to a z-score, averaged across methods, and normalized again before being weighed against the retrieval score.</p>
-
                 <div class="challenge-solution">
-                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
-                    <h3>The Challenge</h3>
-                    <p>Relevance and sentiment answer different questions and are measured in different units. A restaurant whose reviews mention sushi constantly may still be mediocre; a beloved one may barely match the query. Combining the two means putting them on the same scale first &mdash; and four sentiment analyzers that disagree with each other make that harder, not easier.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>What I Built</h3>
+                    <p>This was a team project for CS410 Text Information Systems. Restaurant data and reviews came from the Yelp Open Dataset, cleaned through staged Jupyter notebooks and an OpenRefine transform and narrowed to Philadelphia&rsquo;s 200 most-reviewed restaurants. Each restaurant&rsquo;s reviews are pooled into one document, and a free-text query is scored against it with three retrieval algorithms built end to end: BM25 (rank-bm25), Word2Vec embeddings (gensim), and pivoted length normalization. Four sentiment analyzers score all ~90,000 reviews: vaderSentiment, TextBlob and SentiWordNet on the lexicon side, and BERT through transformers. Relevance and normalized sentiment then combine into a single weighted score that sorts the restaurants from highest to lowest.</p>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-                    <h3>My Approach</h3>
-                    <p>I treated analyzer disagreement as signal, not noise: standardize each method to a z-score so no scale dominates, average across all four, then normalize again. Retrieval got the same treatment &mdash; BM25, Word2Vec, and pivoted length normalization were each built end to end, so the ranking could be compared under a lexical, a semantic, and a length-corrected view of the same query.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Design Decisions</h3>
+                    <p>I ran four sentiment analyzers and treated their disagreement as signal, so no single method&rsquo;s blind spot decides a restaurant&rsquo;s reputation. Because their raw scores share no common range, each one is converted to a z-score, averaged across the four, and normalized again, which gives a real average of opinions instead of letting the widest-spread analyzer dominate. I also built three retrieval models side by side, so the same query can be ranked under a lexical, a semantic and a length-corrected view and compared head to head.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                    <h3>The Result</h3>
+                    <p>The pipeline takes a craving typed in plain words and returns a ranked top 10, 25 or 50 list of Philadelphia restaurants. Example rankings for the query <em>&ldquo;Japanese sushi&rdquo;</em> are checked in for each of the three algorithms, and score distributions for all four analyzers are plotted across the full ~90,000-review set.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Key Features</h3>
+                    <p>Free-text queries scored against each restaurant&rsquo;s pooled reviews instead of cuisine and price filters; three retrieval algorithms (BM25, Word2Vec and pivoted length normalization) implemented in parallel; a four-analyzer sentiment ensemble fused by z-score; reviewer-weighted sentiment aggregation; one weighted score with top 10, 25 or 50 results; and a reproducible data pipeline with every intermediate step written to CSV in a pinned Python 3.8 Conda environment.</p>
                   </div>
                 </div>
               </div>
@@ -203,84 +203,6 @@
                     <span class="tech-item">z-score Normalization</span>
                     <span class="tech-item">Matplotlib</span>
                     <span class="tech-item">Plotly</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="features-intro">
-                <h3>Key Features</h3>
-                <p>The cleaning, the three retrieval models, the four sentiment analyzers, and the score that reconciles them.</p>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="features-list">
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
-                  <div class="feature-icon">
-                    <i class="bi bi-search"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Free-Text Query, Not a Filter</h4>
-                    <p>Users describe what they want in their own words instead of ticking cuisine and price boxes. The query is scored against the pooled reviews of each restaurant, so a phrase like <em>&ldquo;Japanese sushi&rdquo;</em> surfaces places diners actually describe that way, no matter how the listing is categorized.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
-                  <div class="feature-icon">
-                    <i class="bi bi-diagram-3"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Three Retrieval Algorithms, Implemented in Parallel</h4>
-                    <p>BM25 handles term frequency, pivoted length normalization keeps long-winded restaurants from winning on volume alone, and Word2Vec embeddings catch queries whose wording never literally appears in a review. Each has its own preprocessing and search stage, so the three rankings can be compared head to head.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
-                  <div class="feature-icon">
-                    <i class="bi bi-emoji-smile"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>A Four-Analyzer Sentiment Ensemble</h4>
-                    <p>Three lexicon-based methods and one transformer score every review on its own. Lexicons are fast and easy to inspect but stumble on negation and sarcasm; BERT reads context but costs far more compute. Running all four and averaging keeps any one method&rsquo;s blind spot from deciding a restaurant&rsquo;s reputation.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
-                  <div class="feature-icon">
-                    <i class="bi bi-rulers"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>z-Score Fusion Across Incompatible Scales</h4>
-                    <p>VADER&rsquo;s compound score, TextBlob&rsquo;s polarity, SentiWordNet&rsquo;s lexical sums, and BERT&rsquo;s class probabilities share no common range. Each is standardized to a z-score, averaged across the four methods, and normalized again &mdash; so the result is a real average of opinions, not just whichever analyzer has the widest spread.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
-                  <div class="feature-icon">
-                    <i class="bi bi-person-check"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Reviewer-Weighted Aggregation</h4>
-                    <p>Alongside the plain per-restaurant average, a weighted average factors in reviewer signals from the dataset &mdash; the reviewer&rsquo;s rating, their lifetime average, review count, and useful votes &mdash; so a considered review from an experienced reviewer counts for more than a drive-by rating.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
-                  <div class="feature-icon">
-                    <i class="bi bi-sliders"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>One Weighted Score, Top 10 / 25 / 50</h4>
-                    <p>Relevance and normalized sentiment combine into a single weighted score, and restaurants are sorted highest to lowest. It's designed for a dashboard where a visitor types a craving, picks a list length, and gets a ranked shortlist &mdash; with example rankings for the query <em>&ldquo;Japanese sushi&rdquo;</em> checked in for each algorithm.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="450">
-                  <div class="feature-icon">
-                    <i class="bi bi-bar-chart-line"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Reproducible Data Pipeline</h4>
-                    <p>Yelp&rsquo;s raw JSON is cleaned through staged notebooks plus an OpenRefine transform, with every intermediate step written to CSV under a fixed folder layout and a pinned Python 3.8 Conda environment. Score distributions for all four analyzers are plotted across the full ~90,000-review set, so the inputs can be checked rather than assumed.</p>
                   </div>
                 </div>
               </div>

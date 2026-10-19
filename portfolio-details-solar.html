@@ -74,8 +74,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>New Jersey Solar Journey</h1>
-        <p>A five-scene D3.js story of 25 years of New Jersey solar policy &mdash; plotting promise against outcome makes the state's rise to #4 nationally, and its 2023 fall from the Top 10, readable at a glance.</p>
+        <h1>New Jersey Solar Journey: A Narrative Visualization of Solar Policy</h1>
+        <p>A cumulative solar capacity chart only ever rises, so it hides whether New Jersey is ahead of or behind what it promised, and which policy bent the curve. This five-scene D3.js story plots the state&rsquo;s published goals against actual installations and ties each era to its policy, making the rise to #4 nationally and the 2023 fall from the Top 10 readable at a glance.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -85,12 +85,6 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="project-hero">
-          <div class="hero-content" data-aos="fade-up">
-            <div class="project-category">Data Visualization Project</div>
-            <h1 class="project-title">How Far Has New Jersey Come on Its Solar Journey?</h1>
-            <p class="project-subtitle">A line chart alone will not tell you <em>why</em> a curve bends. This project turns two decades of New Jersey solar installation data into a five-scene story, each scene framed by the policy behind it &mdash; from the 2001 rebate program through the SREC boom to Executive Order 315 and its pledge of 100% clean electricity by 2035. Readers move through it scene by scene, and the chart stays interactive throughout: click any year for its exact capacity, jump to any era, or open the commentary on what the numbers leave out.</p>
-          </div>
-
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
             <div class="meta-column">
               <div class="meta-label">Project</div>
@@ -136,17 +130,25 @@
                     <strong>The turn:</strong> in 2023 the state fell out of the national Top 10 for the first time in twenty years &mdash; just as its new target demands <strong>17 GW by 2035</strong>, roughly <strong>1.05 GW every year</strong>, about triple the pace of the decade behind it.
                   </p>
                 </div>
-                <p class="overview-text">The visualization follows the <em>interactive slideshow</em> pattern: a fixed sequence of five scenes, each holding the reader inside one policy era, with free exploration inside every scene rather than only at the end. Scene state drives everything &mdash; the year range, the annotation, the highlighted endpoints, the growth rate &mdash; so the story and the chart can never fall out of step.</p>
-
                 <div class="challenge-solution">
-                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
-                    <h3>The Challenge</h3>
-                    <p>Twenty-five years of a curve that only rises looks like uninterrupted success. The interesting question &mdash; is New Jersey ahead of or behind what it promised? &mdash; is invisible unless the promise is drawn next to the outcome, and unless the reader is told which policy was in force at each bend.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>What I Built</h3>
+                    <p>I built an interactive narrative visualization in D3.js v7 that walks through New Jersey&rsquo;s solar history in five scenes, one per policy era: the Clean Energy Program, the SREC launch, the Solar Act, the Successor Incentive, and the 2035 Energy Master Plan. For the data, I derived annual and cumulative capacity from national installation records, matched it against the state&rsquo;s published goals, and used interpolation to fill the gap between the last stated target and the 17 GW commitment for 2035. The chart draws actual installations as a solid line over the goals as a dashed line, and d3-annotation labels mark the milestone behind each era. A single scene state sets the year range, the annotation, the highlighted endpoints and the growth rate for each scene. The whole piece is built with JavaScript, HTML and CSS and is hosted on GitHub Pages.</p>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-                    <h3>My Approach</h3>
-                    <p>I plotted the state's published capacity goals as a dashed line under the actual installations, then shaded the area between them wherever reality ran ahead of plan &mdash; so running ahead, and later stopping, is clear at a glance. Around that, each of the five scenes carries an annotation, a national ranking, and an insight panel, so every bend is tied to the decision that caused it.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Design Decisions</h3>
+                    <p>I followed the interactive slideshow pattern, with a fixed sequence of scenes and free exploration inside every one of them, so readers stay anchored in one policy era while still checking any number they want. I shaded the area between the goal line and the actual curve wherever installations beat plan, which makes running ahead, and later losing that lead, visible before any caption explains it. Every scene also reports one growth rate across its own span, giving the reader a single comparable number per era. Because one scene state drives every element, the story and the chart always stay in step.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                    <h3>The Result</h3>
+                    <p>The finished visualization is live on GitHub Pages. It shows New Jersey growing from 23 kW in 2001 to 4.4 GW by 2023, staying ahead of its own targets for most of two decades, and then leaving the national Top 10 in 2023 just as the 17 GW goal for 2035 calls for roughly 1.05 GW a year.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Key Features</h3>
+                    <p>A five-scene guided sequence with Next/Previous controls and timeline buttons to jump to any era; actual installations plotted against published goals with the lead shaded in green; d3-annotation milestones, a national ranking, and an expandable commentary panel on what the curve leaves out; a per-scene growth rate with each span&rsquo;s endpoints marked; and click-to-pin tooltips with exact capacity, several at once, available in every scene.</p>
                   </div>
                 </div>
               </div>
@@ -196,75 +198,6 @@
                     <span class="tech-item">HTML5</span>
                     <span class="tech-item">CSS3</span>
                     <span class="tech-item">GitHub Pages</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="features-intro">
-                <h3>Key Features</h3>
-                <p>The scene sequence, the reference line, the annotations, and the freedom to check any of it yourself.</p>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="features-list">
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
-                  <div class="feature-icon">
-                    <i class="bi bi-collection-play"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Five-Scene Guided Sequence</h4>
-                    <p>Each policy era &mdash; the Clean Energy Program, the SREC launch, the Solar Act, the Successor Incentive, and the 2035 Energy Master Plan &mdash; is its own scene, reachable with Next/Previous or by jumping straight to a period from the timeline buttons.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
-                  <div class="feature-icon">
-                    <i class="bi bi-graph-up"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Promise Plotted Against Outcome</h4>
-                    <p>Actual installations run as a solid line above the state's published goals as a dashed one, with the area between them filled wherever installations beat plan &mdash; so a shrinking green band shows the state losing its lead before any caption says so.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
-                  <div class="feature-icon">
-                    <i class="bi bi-chat-square-quote"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Annotations and Expert Commentary</h4>
-                    <p>A d3-annotation label marks the milestone behind each era, a national ranking sits above the chart, and a panel the reader can open supplies what the curve cannot &mdash; the trade-off, the risk, the comparison to other states.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
-                  <div class="feature-icon">
-                    <i class="bi bi-percent"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Per-Scene Growth Rate</h4>
-                    <p>Every scene shows the growth rate across its own span, with its first and last years marked on the line &mdash; one comparable number per era, instead of leaving the reader to eyeball slopes.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="350">
-                  <div class="feature-icon">
-                    <i class="bi bi-cursor"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Exploration Inside the Story</h4>
-                    <p>The line draws itself in, then hands over control: click any point to pin a tooltip with its exact capacity, and keep several pinned at once to compare &mdash; available in every scene, not only after the story ends.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="400">
-                  <div class="feature-icon">
-                    <i class="bi bi-database-check"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Cleaned, Reconciled Data</h4>
-                    <p>Annual and cumulative capacity were derived from national installation records and matched against New Jersey's published goals, with interpolation filling the gap between the last stated target and the 17 GW commitment for 2035.</p>
                   </div>
                 </div>
               </div>
