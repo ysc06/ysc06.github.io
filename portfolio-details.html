@@ -74,8 +74,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>AI-Powered Exam Authoring and Review Platform</h1>
-        <p>An LLM drafts exam items from a prompt or document, checks them for validity and near-duplicates, and a person approves them before they ship &mdash; the underlying method won a 2025 ETS Spot Award.</p>
+        <h1>ExamFlux: AI-Powered Exam Authoring and Review</h1>
+        <p>LLMs can summarize and rewrite, but they struggle to write questions that require inference across multiple passages, so those items are still drafted by hand or outsourced. ExamFlux makes AI drafts usable: every item is validated, checked for near-duplicates, and approved by a reviewer before it enters the item bank.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -85,12 +85,6 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="project-hero">
-          <div class="hero-content" data-aos="fade-up">
-            <div class="project-category">AI + Full-Stack Project</div>
-            <h1 class="project-title">ExamFlux</h1>
-            <p class="project-subtitle">Give ExamFlux a prompt or a .docx file and it drafts structured exam items. Each item is checked for validity, compared against existing content using semantic embeddings, and routed through an approval workflow before it reaches the database.</p>
-          </div>
-
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
             <div class="meta-column">
               <div class="meta-label">Project</div>
@@ -178,17 +172,30 @@
                     A reusable prompt-based LLM workflow for complex TOEIC multi-passage items, built by breaking inference and synthesis tasks into structured generation steps. It addressed a projected $56K+ a year in outsourced item-writer costs and earned an ETS Spot Award in 2025.
                   </p>
                 </div>
-                <p class="overview-text">ExamFlux grew out of that work. It turns the same prompt engineering into a full system for writing higher-order items &mdash; synthesis and inference questions &mdash; with human review kept in the loop.</p>
-
                 <div class="challenge-solution">
-                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="100">
-                    <h3>The Challenge</h3>
-                    <p>Writing exam items by hand is slow, inconsistent, and hard to scale. An LLM speeds it up, but without controls around it, the output is often weak, repetitive, or malformed. The workflow had to keep the speed and add validation, consistency, and reviewer accountability.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+                    <h3>What I Built</h3>
+                    <p>ExamFlux turns that prompt workflow into a full-stack app. A FastAPI backend sends a text prompt, or the contents of an uploaded .docx, to the OpenAI API in JSON mode, so each response comes back as a structured item: stimulus, stem, four choices and an answer key. Pydantic validators enforce the item-writing rules at the schema level, such as keeping every answer choice under 12 words. Each stimulus is embedded with a Sentence Transformers model (all-MiniLM-L6-v2) and compared by cosine similarity against the rest of the bank. In the React dashboard, reviewers approve or reject items, collect approved ones in a cart, commit them in one batch, and export them to CSV.</p>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-                    <h3>My Approach</h3>
-                    <p>I built a full-stack pipeline: constrained prompts for generation, schema validation on the backend, embedding-based duplicate detection, and review checkpoints before anything is committed. Every item that ships has been checked by the system and approved by a person.</p>
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Trade-offs</h3>
+                    <p>I ran embeddings locally with a small open-source model instead of calling a paid embedding API. It costs nothing, runs offline, and stays fast on a CPU, but it captures less nuance in long passages. Vectors are cached in SQLite and searched with brute-force cosine similarity rather than a vector database. That needs no extra infrastructure while the bank is small, but it would have to move to PostgreSQL or a vector index to scale. Finally, nothing enters the bank without a person&rsquo;s approval. That slows things down, but a reviewer is accountable for every item that ships.</p>
+                  </div>
+
+                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>The Challenge</h3>
+                    <p>LLMs handle recall questions well but struggle with inference, where the answer depends on connecting facts across several passages. From a single open-ended prompt, the model&rsquo;s items were often shallow, repetitive, or malformed. My fix was to break generation into structured steps, the same approach as the TOEIC workflow, constrain the output format, and catch weak items with validation and similarity checks before a reviewer spends time on them.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                    <h3>The Result</h3>
+                    <p>The method behind ExamFlux earned a 2025 ETS Spot Award and addressed a projected $56K+ a year in outsourced item-writing costs. ExamFlux makes it a complete pipeline: a prompt goes in, and a validated, de-duplicated, reviewer-approved item comes out, ready to export.</p>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Key Features</h3>
+                    <p>Prompt-to-item and .docx-to-item generation with structured JSON output; validation guardrails that reject malformed items at the schema level; near-duplicate detection that surfaces the most similar existing items; and an approve, reject, and commit review workflow with CSV export, so a person signs off on every item before it reaches the bank.</p>
                   </div>
                 </div>
               </div>
@@ -238,57 +245,6 @@
                     <span class="tech-item">Docker</span>
                     <span class="tech-item">dotenv</span>
                     <span class="tech-item">JSON Validation</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-features-section" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="features-intro">
-                <h3>Key Features</h3>
-                <p>Generation, validation, similarity checks, and human review, in one workflow.</p>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="features-list">
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="150">
-                  <div class="feature-icon">
-                    <i class="bi bi-robot"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Prompt-to-Item Generation</h4>
-                    <p>A prompt or an uploaded .docx file becomes draft exam items in a structured format, ready for review.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="200">
-                  <div class="feature-icon">
-                    <i class="bi bi-shield-check"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Validation Guardrails</h4>
-                    <p>Every item is checked against formatting and content rules, so invalid choices and malformed output are caught early.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="250">
-                  <div class="feature-icon">
-                    <i class="bi bi-graph-up-arrow"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Duplicate Detection</h4>
-                    <p>Embedding similarity flags near-duplicate items before they reach the item bank.</p>
-                  </div>
-                </div>
-                <div class="feature-row" data-aos="fade-up" data-aos-delay="300">
-                  <div class="feature-icon">
-                    <i class="bi bi-people"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Human Review Workflow</h4>
-                    <p>Reviewers approve, reject, or commit each item, so a person is always accountable for what ships.</p>
                   </div>
                 </div>
               </div>
