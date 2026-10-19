@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>FitFindr: A Tool-Using Agent for Thrift Shopping</h1>
-        <p>Secondhand listings are scattered across sites, and a good find still leaves you wondering what to wear it with. FitFindr takes a plain-English request, finds the best-matching listing within your price and size, styles it with clothes you already own, and stops early with a clear fix when nothing matches.</p>
+        <p>A Python agent that turns a plain-English thrift request into a matching listing and an outfit, and stops early when nothing fits.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -133,22 +133,12 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>FitFindr is a Python CLI agent built for CodePath AI 201 that turns a plain-English request into a secondhand find and an outfit. <code>parse_query</code> splits the request into a description, a size and a max price using plain string splitting. <code>search_listings</code> filters 40 listings from Depop, ThredUp and Poshmark by price and whole-token size, then ranks the rest by how many words they share with the description. <code>suggest_outfit</code> asks Gemini, through the Google Gen AI SDK, for one or two outfits that pair the find with pieces already in the user&rsquo;s wardrobe, and <code>create_fit_card</code> writes a short post-style caption at temperature 0.9. <code>run_agent</code> connects the steps, stores each run in one session dict, and counts its steps against a cap.</p>
+                    <p>Built for CodePath AI 201 with an AI coding assistant. Four tools run in a loop: <code>parse_query</code> pulls out description, size and max price; <code>search_listings</code> filters 40 listings from Depop, ThredUp and Poshmark and ranks them by keyword overlap; <code>suggest_outfit</code> asks Gemini to pair the find with the user&rsquo;s own wardrobe; and <code>create_fit_card</code> writes a caption. If the search comes back empty, the run ends before any model call. I wrote each tool&rsquo;s contract and five acceptance criteria before writing code.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Design Decisions</h3>
-                    <p>Each tool returns a clear signal and the loop writes the message: the search returns <code>[]</code> when nothing matches, so <code>if not results</code> ends the run before any model call and the user gets a message naming the filters they set. Every tool reads its inputs from the shared session instead of the previous call&rsquo;s return value, which lets me print and check any step of a run. I also wrote a contract for each tool and five acceptance criteria with numeric targets before writing code, so the evaluation measures against a bar set ahead of time.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
                     <h3>The Result</h3>
-                    <p>A request like &ldquo;vintage graphic tee under $30&rdquo; returns a Y2K Baby Tee for $18 on Depop, two outfits built from the user&rsquo;s wardrobe, and a fit card caption. An impossible request like &ldquo;designer ballgown size XXS under $5&rdquo; stops after the search with 0 model calls and tells the user to raise the price, drop the size, or broaden the keywords.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>Readable query parsing that pulls out price, size and description; filtered keyword search with whole-token size matching, so &ldquo;M&rdquo; matches &ldquo;S/M&rdquo; but not &ldquo;XL&rdquo;; a loop that stops early on an empty search with a fix the user can act on; outfit suggestions from the user&rsquo;s own closet, with general styling advice when the wardrobe is empty; fit card captions that mention the item, price and platform once each; and acceptance criteria and tool contracts written before any results existed.</p>
+                    <p>&ldquo;Vintage graphic tee under $30&rdquo; returns an $18 Y2K Baby Tee from Depop, two outfits built from the user&rsquo;s wardrobe, and a caption.</p>
                   </div>
                 </div>
               </div>

@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>ExamFlux: AI-Powered Exam Authoring and Review</h1>
-        <p>LLMs can summarize and rewrite, but they struggle to write questions that require inference across multiple passages, so those items are still drafted by hand or outsourced. ExamFlux makes AI drafts usable: every item is validated, checked for near-duplicates, and approved by a reviewer before it enters the item bank.</p>
+        <p>An AI exam-authoring app that drafts multiple-choice items with an LLM, checks them for rule violations and near-duplicates, and sends every item to a human reviewer before it is saved.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -171,22 +171,31 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>ExamFlux turns that prompt workflow into a full-stack app. A FastAPI backend sends a text prompt, or the contents of an uploaded .docx, to the OpenAI API in JSON mode, so each response comes back as a structured item: stimulus, stem, four choices and an answer key. Pydantic validators enforce the item-writing rules at the schema level, such as keeping every answer choice under 12 words. Each stimulus is embedded with a Sentence Transformers model (all-MiniLM-L6-v2) and compared by cosine similarity against the rest of the bank. In the React dashboard, reviewers approve or reject items, collect approved ones in a cart, commit them in one batch, and export them to CSV.</p>
+                    <p>ExamFlux turns my award-winning prompt workflow into a full-stack app. A FastAPI backend sends a text prompt, or the contents of an uploaded .docx, to the OpenAI API in JSON mode, so each response comes back as a structured item: stimulus, stem, four choices and an answer key. Pydantic validators enforce item-writing rules at the schema level, such as keeping every answer choice under 12 words. Each stimulus is embedded with a Sentence Transformers model (all-MiniLM-L6-v2) and compared by cosine similarity against the rest of the bank. In the React dashboard, reviewers approve or reject items, collect approved ones in a cart, commit them in one batch, and export them to CSV.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
                     <h3>Design Decisions</h3>
-                    <p>I ran embeddings locally with a small open-source model so similarity checks cost nothing per item, work offline, and stay fast on a CPU. Vectors are cached in SQLite and compared with cosine similarity, which keeps the whole system in one lightweight database with no extra infrastructure to deploy or maintain. Every item also needs a person&rsquo;s approval before it enters the bank, so a reviewer is accountable for everything that ships.</p>
+                    <ul class="overview-list">
+                      <li><strong>Local embeddings.</strong> A small open-source model runs on the CPU, so duplicate checks cost nothing per item and work offline.</li>
+                      <li><strong>SQLite for vectors.</strong> Embeddings are cached next to the items, which keeps the app in one lightweight database with nothing extra to deploy.</li>
+                      <li><strong>A person approves every item.</strong> Nothing reaches the bank without a reviewer, so someone is accountable for each item that ships.</li>
+                    </ul>
+                  </div>
+
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                    <h3>The Result</h3>
+                    <p>The app covers the full path from a prompt to an approved, exportable item, and is designed to support about 100 reviewers a month.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
-                    <h3>The Result</h3>
-                    <p>The method behind ExamFlux earned a 2025 ETS Spot Award and addressed a projected $56K+ a year in outsourced item-writing costs. ExamFlux makes it a complete pipeline: a prompt goes in, and a validated, de-duplicated, reviewer-approved item comes out, ready to export.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
                     <h3>Key Features</h3>
-                    <p>Prompt-to-item and .docx-to-item generation with structured JSON output; validation guardrails that reject malformed items at the schema level; near-duplicate detection that surfaces the most similar existing items; and an approve, reject, and commit review workflow with CSV export, so a person signs off on every item before it reaches the bank.</p>
+                    <ul class="overview-list">
+                      <li>Generation from a prompt or an uploaded .docx, returned as structured JSON</li>
+                      <li>Schema-level validation that rejects malformed items</li>
+                      <li>Near-duplicate search that lists the most similar existing items</li>
+                      <li>Approve, reject and batch-commit review flow with CSV export</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -224,7 +233,7 @@
                   <div class="category-title">AI / NLP</div>
                   <div class="tech-list">
                     <span class="tech-item">OpenAI API</span>
-                    <span class="tech-item">GPT-4.1</span>
+                    <span class="tech-item">GPT-4o mini</span>
                     <span class="tech-item">Sentence Transformers</span>
                     <span class="tech-item">Embeddings</span>
                     <span class="tech-item">Semantic Similarity</span>

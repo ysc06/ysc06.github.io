@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>Adaptive Insights: Persistent User Preferences for an Adaptive UI</h1>
-        <p>When a local LLM picks a fresh layout for every answer, the interface forgets what the user asked for, and a returning visitor has to restate the same settings each session. For our 2026 IBM watsonx Hackathon project, I built the preference layer that fixes this: an LLM classifier tells a preference apart from a question, saves it per user, and applies it in every later session, while details the user never specified stay free to vary.</p>
+        <p>A team hackathon app where a local LLM decides how to chart each answer. I built the layer that remembers each user&rsquo;s display preferences across sessions.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -88,7 +88,7 @@
           <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="200">
             <div class="meta-column">
               <div class="meta-label">Event</div>
-              <div class="meta-value">2026 IBM watsonx Hackathon &mdash; participating project</div>
+              <div class="meta-value">2026 IBM watsonx Hackathon &middot; only intern on the team</div>
             </div>
             <div class="meta-column">
               <div class="meta-label">My Contribution</div>
@@ -133,22 +133,21 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>Adaptive Insights is our team&rsquo;s hackathon entry: an analytics interface where a local Llama 3.2 model returns a render plan for each prompt and React draws the view that fits, backed by a Node.js broker, a Python service with MCP-style data tools, and Qdrant for retrieval memory, all running locally under Docker Compose. My part was persistent user preferences. Every prompt first goes through an LLM intent classifier, run at temperature 0 against a fixed JSON contract with few-shot examples, which routes it to <code>QUERY_DATA</code>, <code>UPDATE_PREFERENCE</code> or <code>VIEW_PREFERENCES</code> and returns only the preference keys the user named, with color synonyms normalized (<em>grey</em> to gray, <em>violet</em> to purple, <em>colorful</em> to rainbow). Preferences land in a store keyed by username that merges updates key by key, so setting a palette never clears a saved theme. The saved record is added to the render planner&rsquo;s prompt as standing defaults and read again in React, where the palette sets Recharts series colors, the theme switches the shell, and the number format decides how revenue prints.</p>
+                    <p>Adaptive Insights is our team&rsquo;s hackathon entry: a local Llama 3.2 model returns a render plan for each prompt and React draws the view, backed by a Node.js broker, a Python service with MCP-style data tools, and Qdrant, all under Docker Compose. My part was persistent preferences. Every prompt first goes through an LLM intent classifier (temperature 0, a fixed JSON contract, few-shot examples) that routes it to <code>QUERY_DATA</code>, <code>UPDATE_PREFERENCE</code> or <code>VIEW_PREFERENCES</code> and pulls out only the settings the user named. Those land in a per-user store that merges updates key by key, so setting a palette never clears a saved theme. The saved record goes into the render planner&rsquo;s prompt and is read again in React for chart colors, theme and number format.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
                     <h3>Design Decisions</h3>
-                    <p>I wrote the precedence rule down instead of letting it emerge: a request in the current prompt beats a saved default, a saved default beats the model&rsquo;s plan, and anything that doesn&rsquo;t fit the returned data falls back to a fixed view. Each response is stamped with the rule that fired (<code>ollama+prompt</code>, <code>ollama+preference</code>, <code>fallback</code>), so why a view appeared is a fact rather than a guess. I also treated the four saved settings as promises reproduced exactly, and kept a variation history so unstated details like accent, card style and legend position shift between answers, which keeps the interface fresh without touching anything the user chose. Finally, the layer fails soft: if the classifier or model is unreachable the request falls back to <code>QUERY_DATA</code>, and a missing store returns an empty object, so the user always gets an answer.</p>
+                    <ul class="overview-list">
+                      <li><strong>A written precedence rule.</strong> The current prompt beats a saved default, a saved default beats the model&rsquo;s plan, and a fixed view covers anything that doesn&rsquo;t fit the data. Each response is tagged with the rule that fired (<code>ollama+prompt</code>, <code>ollama+preference</code>, <code>fallback</code>), which made debugging straightforward.</li>
+                      <li><strong>Saved settings are reproduced exactly.</strong> Details the user never set, like accent, card style and legend position, rotate from a variation history.</li>
+                      <li><strong>Fail-soft defaults.</strong> If the classifier or model is unreachable, the request is treated as <code>QUERY_DATA</code>, and a missing store returns an empty object, so the user still gets an answer.</li>
+                    </ul>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>The Result</h3>
-                    <p>Theme, palette, chart type and number format now persist across sessions. A user who asks for dark mode, a purple palette and bar charts in one session can come back, ask &ldquo;show revenue by region&rdquo;, and get a purple bar chart with the applied preference reported in the response, without ever opening a settings screen.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>Intent classification that separates saving a preference, viewing saved settings and asking a data question; a per-user store that merges partial updates and gives first-time users documented defaults; three-tier precedence with the winning rule stamped in each response; color synonym normalization backed by a regex extractor ordered most-specific first; inline preferences pulled from a question, applied to that answer, and saved; preferences applied in both the render planner and React; and a variation history that keeps unstated details changing from one answer to the next.</p>
+                    <p>Theme, palette, chart type and number format persist across sessions. A user who asks for dark mode, a purple palette and bar charts can come back later, ask &ldquo;show revenue by region&rdquo;, and get a purple bar chart without opening a settings screen.</p>
                   </div>
                 </div>
               </div>

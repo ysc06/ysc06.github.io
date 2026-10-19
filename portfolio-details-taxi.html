@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>Taxi Agent &amp; Dubins Car: Reinforcement Learning from Scratch in NumPy</h1>
-        <p>An agent that is never given a model of its world has to learn only from states, actions and rewards, and a Q-table stops working once those states are continuous. I built two agents in pure NumPy to cover both cases: tabular Q-learning solves Taxi-v3 in 1000 of 1000 test episodes, and a Linear DQN that generalizes from hand-designed features steers a noisy car to the goal in 4 of 5 unseen environments.</p>
+        <p>Two reinforcement learning agents written from scratch in NumPy: tabular Q-learning for Taxi-v3, and a Linear DQN that drives a noisy car around obstacles.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -182,22 +182,17 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>I wrote two reinforcement learning agents from scratch for UIUC CS440, using only NumPy with no PyTorch or RL library. The first is epsilon-greedy tabular Q-learning over Taxi-v3&rsquo;s 500 &times; 6 Q-table, with pessimistic initialization and terminal-aware bootstrapping in the update rule. The second drives a car in a custom Gymnasium-registered Dubins-car environment with unicycle dynamics, noise added to its controls, polygon collision checks at every substep, shaped progress rewards and JSON-defined workspaces. That car sees obstacles only through a 16-beam lidar and has 30 steps per episode, so I used a Linear DQN, <code>Q(s, a) = &phi;(s) &middot; w<sub>a</sub></code>, over a 24-dimensional feature vector. The features cover goal geometry, heading error as sine and cosine, minimum lidar range and the 16 beam distances.</p>
+                    <p>I wrote two reinforcement learning agents for UIUC CS440 using only NumPy, with no PyTorch or RL library. The first is epsilon-greedy tabular Q-learning over Taxi-v3&rsquo;s 500 &times; 6 Q-table, with pessimistic initialization and terminal-aware bootstrapping in the update rule. The second drives a car in a custom Gymnasium Dubins-car environment with noisy controls, polygon collision checks at every substep, shaped progress rewards and JSON-defined workspaces. The car sees obstacles only through a 16-beam lidar and gets 30 steps per episode, so I used a Linear DQN, <em>Q(s, a) = &phi;(s) &middot; w<sub>a</sub></em>, over a 24-dimensional feature vector built from goal geometry, heading error, and the lidar returns.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
                     <h3>Design Decisions</h3>
-                    <p>I switched from a lookup table to linear function approximation over hand-built features for the car, because its continuous states are never revisited exactly; the features let one set of weights generalize across positions. I trained it with minibatches from a 50k-transition replay buffer and targets from a copy of the weights frozen for 100 updates at a time, which keeps linear Q-learning stable instead of diverging. I also had every run in the 21-run sweep write its own directory of weights, path plots and a results JSON, so the winning checkpoint traces straight back to the configuration that produced it.</p>
+                    <p>The car&rsquo;s states are continuous and never repeat exactly, so a Q-table was out. Linear function approximation over 24 hand-built features let one set of weights cover every position. Training draws minibatches from a 50k-transition replay buffer, with target weights frozen for 100 updates at a time to keep the updates stable. Every run in my 21-run sweep saved its own weights, path plots and results JSON, which let me trace the best checkpoint back to its exact configuration.</p>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>The Result</h3>
-                    <p>On Taxi-v3, average return climbs from roughly &minus;490 to near-optimal within about 1,500 episodes, and the final policy delivers every passenger in 1000 of 1000 test episodes. The best Dubins-car checkpoint reaches the goal in 4 of 5 unseen test environments with no truncated episodes.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>Tabular Q-learning on Taxi-v3 with epsilon-greedy exploration; a 24-dimensional feature design built from goal geometry and lidar returns; a replay buffer and frozen target weights for stable linear Q-learning; a custom Dubins-car environment with action noise, collision checking and shaped rewards; and a reproducible 21-run sweep where every run keeps its weights, plots and results.</p>
+                    <p>On Taxi-v3, average return climbs from roughly &minus;490 to near-optimal within about 1,500 episodes, and the final policy delivers every passenger in 1000 of 1000 test episodes. The best Dubins-car checkpoint reaches the goal in 4 of 5 unseen environments with no truncated episodes.</p>
                   </div>
                 </div>
               </div>

@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>Bitcoin Price Prediction: Forecasting Price from On-Chain Activity</h1>
-        <p>Bitcoin&rsquo;s price drifts and swings, and its on-chain predictors are all correlated with one another, so it is hard to tell how much of the daily price that activity can actually explain. I compared Linear, Ridge, and Lasso regression on the same lagged features and the same chronological split; plain linear regression won, cutting RMSE 82% below a mean baseline.</p>
+        <p>A regression study that predicts daily Bitcoin price from on-chain activity and compares Linear, Ridge and Lasso on a strict chronological split.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -133,22 +133,21 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>This is a time-series regression study built in Python with scikit-learn, pandas, NumPy, and mlxtend, as the sole author for UIUC CS 598, Practical Statistical Learning. The dataset holds <strong>2,920 daily observations</strong> of Bitcoin network activity across 23 variables. I kept four of them, trade volume, transaction count, estimated USD transaction volume, and output volume, and expanded each into lagged copies: <strong>12 predictors</strong> at a 3-day window and <strong>28</strong> at 7 days. I forward-filled the missing values that building lags creates and dropped the leading rows that don&rsquo;t line up. Then I fit OLS with sequential forward selection, <code>RidgeCV</code>, <code>LassoCV</code>, and a constant-mean baseline, and scored each one by RMSE on the same held-out period.</p>
+                    <p>A time-series regression study for UIUC CS 598, Practical Statistical Learning, built in Python with scikit-learn, pandas, NumPy and mlxtend. The dataset holds <strong>2,920 daily observations</strong> of Bitcoin network activity across 23 variables. I kept four, trade volume, transaction count, estimated USD transaction volume and output volume, and expanded each into lagged copies: <strong>12 predictors</strong> at a 3-day window and <strong>28</strong> at 7 days. After forward-filling the gaps the lags create, I fit OLS with sequential forward selection, <code>RidgeCV</code>, <code>LassoCV</code> and a constant-mean baseline, and scored each by RMSE on the same held-out period.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
                     <h3>Design Decisions</h3>
-                    <p>I split the data <strong>by date, 80/20</strong>, because a price series cannot be shuffled; the test set is always later than the training set, so no model ever trains on the future and every score reflects real forecasting. I held the features and the split fixed and changed only the model, which means the RMSE differences come from the models themselves. I also chose four variables I could explain, each standing for liquidity, demand, economic activity, or coin movement, which keeps the model readable, and I ran the 3-day and 7-day windows separately so the effect of more history could be measured directly.</p>
+                    <ul class="overview-list">
+                      <li><strong>Split by date, 80/20.</strong> The test period always comes after the training period, so no model sees the future.</li>
+                      <li><strong>Change one thing at a time.</strong> Features and split stay fixed while the model changes, so RMSE differences come from the models.</li>
+                      <li><strong>Four variables I could explain,</strong> each run at 3-day and 7-day lags to measure what extra history adds.</li>
+                    </ul>
                   </div>
 
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
+                  <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <h3>The Result</h3>
-                    <p>Plain linear regression on the 7-day window scored the best <strong>RMSE of 978.4</strong>, against roughly <strong>5570</strong> for the mean baseline, an error reduction of about <strong>82%</strong>. Ridge reached 1150.7 and Lasso 2191.4, so regularization did not help on this data. Moving from a 3-day to a 7-day window lowered linear RMSE from 1384.6 to 978.4.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>An interpretable four-variable on-chain feature set; 3-day and 7-day lag windows treated as a controlled variable; a leakage-free chronological split with forward-fill and leading-row removal (2,333 train / 584 test rows at L=3, 2,330 / 583 at L=7); two kinds of feature selection, sequential forward selection for OLS and the L1 penalty for Lasso; and a four-way RMSE comparison of Linear, Ridge, Lasso, and a mean baseline on the same held-out period.</p>
+                    <p>Linear regression on the 7-day window had the lowest error, RMSE 978.4, about 82% below the mean baseline. Widening the window from 3 to 7 days cut its RMSE from 1384.6 to 978.4.</p>
                   </div>
                 </div>
               </div>

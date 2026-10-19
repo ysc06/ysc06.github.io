@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>New Jersey Solar Journey: A Narrative Visualization of Solar Policy</h1>
-        <p>A cumulative solar capacity chart only ever rises, so it hides whether New Jersey is ahead of or behind what it promised, and which policy bent the curve. This five-scene D3.js story plots the state&rsquo;s published goals against actual installations and ties each era to its policy, making the rise to #4 nationally and the 2023 fall from the Top 10 readable at a glance.</p>
+        <p>A five-scene D3.js story that plots New Jersey&rsquo;s solar goals against actual installations, one policy era per scene.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -133,22 +133,12 @@
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>I built an interactive narrative visualization in D3.js v7 that walks through New Jersey&rsquo;s solar history in five scenes, one per policy era: the Clean Energy Program, the SREC launch, the Solar Act, the Successor Incentive, and the 2035 Energy Master Plan. For the data, I derived annual and cumulative capacity from national installation records, matched it against the state&rsquo;s published goals, and used interpolation to fill the gap between the last stated target and the 17 GW commitment for 2035. The chart draws actual installations as a solid line over the goals as a dashed line, and d3-annotation labels mark the milestone behind each era. A single scene state sets the year range, the annotation, the highlighted endpoints and the growth rate for each scene. The whole piece is built with JavaScript, HTML and CSS and is hosted on GitHub Pages.</p>
+                    <p>Built for UIUC CS 416, Data Visualization. I derived annual and cumulative capacity from national installation records, matched it to the state&rsquo;s published goals, and interpolated toward the 17 GW target for 2035. Each scene covers one policy era, from the Clean Energy Program to the 2035 Energy Master Plan, with actual installations drawn over the dashed goal line, the lead shaded in green, and d3-annotation labels at each milestone. One scene state controls the year range, annotation and growth rate, and readers can click to pin exact values in any scene.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Design Decisions</h3>
-                    <p>I followed the interactive slideshow pattern, with a fixed sequence of scenes and free exploration inside every one of them, so readers stay anchored in one policy era while still checking any number they want. I shaded the area between the goal line and the actual curve wherever installations beat plan, which makes running ahead, and later losing that lead, visible before any caption explains it. Every scene also reports one growth rate across its own span, giving the reader a single comparable number per era. Because one scene state drives every element, the story and the chart always stay in step.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
                     <h3>The Result</h3>
-                    <p>The finished visualization is live on GitHub Pages. It shows New Jersey growing from 23 kW in 2001 to 4.4 GW by 2023, staying ahead of its own targets for most of two decades, and then leaving the national Top 10 in 2023 just as the 17 GW goal for 2035 calls for roughly 1.05 GW a year.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>A five-scene guided sequence with Next/Previous controls and timeline buttons to jump to any era; actual installations plotted against published goals with the lead shaded in green; d3-annotation milestones, a national ranking, and an expandable commentary panel on what the curve leaves out; a per-scene growth rate with each span&rsquo;s endpoints marked; and click-to-pin tooltips with exact capacity, several at once, available in every scene.</p>
+                    <p>The visualization is live on GitHub Pages.</p>
                   </div>
                 </div>
               </div>

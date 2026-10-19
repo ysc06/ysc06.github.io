@@ -3166,6 +3166,17 @@ ul li {
   line-height: 1.7;
 }
 
+.portfolio-details .content-section .project-overview .challenge-solution .overview-list {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.portfolio-details .content-section .project-overview .challenge-solution .overview-list li + li {
+  margin-top: 0.5rem;
+}
+
 .portfolio-details .metrics-showcase {
   padding: 4rem 0;
   background-color: color-mix(in srgb, var(--surface-color), transparent 50%);

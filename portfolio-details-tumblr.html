@@ -74,8 +74,8 @@
       </div>
 
       <div class="title-wrapper">
-        <h1>Tumblr Photo Feed: A Native iOS Photo Feed with a Detail Screen</h1>
-        <p>A scrolling list is only half an app: when a reader taps a row, the detail screen has no idea which post they picked. This Swift and UIKit app pulls Humans of New York photo posts from the Tumblr API into a smooth feed and passes the selected post to a detail screen through a segue, so the full photo and story arrive with it.</p>
+        <h1>Tumblr Photo Feed: A Native iOS App</h1>
+        <p>An iPhone app that loads Humans of New York photo posts from the Tumblr API into a scrolling feed, with a detail screen for each post.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -132,32 +132,22 @@
                 <div class="project-recognition" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; border-left: 4px solid #f26f5b; background: rgba(242, 111, 91, 0.08); border-radius: 8px;">
                   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--heading-color);">
                     <i class="bi bi-phone" style="font-size: 1.2rem; color: #f26f5b;"></i>
-                    All four required features, shipped
+                    Keeping the main thread free
                   </div>
                   <p style="margin: 0; line-height: 1.7; color: color-mix(in srgb, var(--default-color), transparent 15%);">
-                    Navigation wired to the detail screen &middot; the detail view built out &middot; the selected post passed through to the detail view controller &middot; a few finishing touches on top.<br><br>
-                    <strong>Swift and UIKit only</strong> &mdash; no SwiftUI, no networking framework. One URLSession data task, one JSONDecoder, and a storyboard segue.
+                    JSON decoding runs on URLSession&rsquo;s background queue. Only the model assignment and <code>reloadData()</code> go back to the main queue, captured weakly so a dismissed screen isn&rsquo;t kept alive by a request still in flight.<br><br>
+                    <strong>Nuke</strong> fetches and caches images off the main thread, so no cell waits on a download and revisited rows don&rsquo;t fetch the same image twice.
                   </p>
                 </div>
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <h3>What I Built</h3>
-                    <p>I built this native iOS app for CodePath&rsquo;s iOS 101 in about four hours, using only Swift and UIKit. A URLSession data task requests photo posts from the Humans of New York blog through Tumblr&rsquo;s v2 API, and JSONDecoder maps the response into a small tree of Decodable structs: Blog wraps a Response, which wraps an array of Post. The feed is a plain UITableView that dequeues a custom PostCell for every row, and each cell fills itself in through a single configure(with:) method. Tapping a row fires the showDetail segue, where prepare(for:sender:) reads the selected index path, casts the destination to DetailViewController, and assigns the matching Post. The detail screen then shows the full-size photo and the complete story in a UITextView.</p>
+                    <p>A CodePath iOS 101 project built in about four hours with Swift and UIKit. URLSession fetches posts from the Tumblr v2 API, and JSONDecoder maps them into Codable structs. A UITableView with a custom cell shows the feed, and Nuke loads and caches images off the main thread so scrolling stays smooth. Tapping a row passes the selected post through a segue to a detail screen with the full photo and story.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Design Decisions</h3>
-                    <p>I pass the whole Post model to the detail screen instead of reading text back out of the cell&rsquo;s labels, so the detail view can show fields the cell never displayed. The detail view controller holds an optional post and unwraps it safely in viewDidLoad, logging a message if the segue is ever misconfigured, which makes a wiring mistake easy to spot. Photos load through Nuke, which fetches and caches off the main thread, so cells can be reused without waiting on the network and revisited rows don&rsquo;t download the same image twice.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
                     <h3>The Result</h3>
-                    <p>The app ships all four required features: navigation to the detail screen, a built-out detail view, the selected post passed through to the detail view controller, and a few finishing touches on top. In the simulator, the feed scrolls smoothly while photos load in asynchronously, and tapping any row opens its full photo and story.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>A live feed from the Tumblr API with separate handling for transport errors, bad status codes, empty bodies and decoding failures; Codable models with CodingKeys that rename original_size to originalSize; a reusable custom cell configured in one place; asynchronous, cached image loading with Nuke; a typed segue hand-off of the selected Post; a reading-friendly detail screen with a scrollable, selectable, non-editable UITextView; and finishing touches like a welcome alert and a String extension that strips HTML from Tumblr captions through NSAttributedString.</p>
+                    <p>All required features work in the simulator, plus a welcome alert and HTML stripping for Tumblr captions.</p>
                   </div>
                 </div>
               </div>

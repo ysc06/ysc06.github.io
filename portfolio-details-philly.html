@@ -75,7 +75,7 @@
 
       <div class="title-wrapper">
         <h1>Philly Restaurant Recommender: Ranking Restaurants on Review Text Alone</h1>
-        <p>Filtering restaurants by cuisine tag and price range is a database query, not a recommendation, and it ignores what diners actually said. This system ranks Philadelphia&rsquo;s 200 most-reviewed restaurants on ~90,000 Yelp reviews alone, combining how well the reviews match a free-text query with how positively they read.</p>
+        <p>A team course project that ranks Philadelphia&rsquo;s 200 most-reviewed restaurants by what ~90,000 Yelp reviews say, instead of by cuisine tags or price.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -132,23 +132,13 @@
                 </div>
                 <div class="challenge-solution">
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
-                    <h3>What I Built</h3>
-                    <p>This was a team project for CS410 Text Information Systems. Restaurant data and reviews came from the Yelp Open Dataset, cleaned through staged Jupyter notebooks and an OpenRefine transform and narrowed to Philadelphia&rsquo;s 200 most-reviewed restaurants. Each restaurant&rsquo;s reviews are pooled into one document, and a free-text query is scored against it with three retrieval algorithms built end to end: BM25 (rank-bm25), Word2Vec embeddings (gensim), and pivoted length normalization. Four sentiment analyzers score all ~90,000 reviews: vaderSentiment, TextBlob and SentiWordNet on the lexicon side, and BERT through transformers. Relevance and normalized sentiment then combine into a single weighted score that sorts the restaurants from highest to lowest.</p>
+                    <h3>What We Built</h3>
+                    <p>Built as a team for CS410 Text Information Systems. We pooled each restaurant&rsquo;s Yelp reviews into one document and scored free-text queries against it with three retrieval methods: BM25, Word2Vec and pivoted length normalization. Four sentiment analyzers (VADER, TextBlob, SentiWordNet and BERT) scored every review, and their scores were converted to z-scores and averaged so no single analyzer&rsquo;s scale dominated. Relevance and sentiment combine into one weighted score that ranks the restaurants.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Design Decisions</h3>
-                    <p>I ran four sentiment analyzers and treated their disagreement as signal, so no single method&rsquo;s blind spot decides a restaurant&rsquo;s reputation. Because their raw scores share no common range, each one is converted to a z-score, averaged across the four, and normalized again, which gives a real average of opinions instead of letting the widest-spread analyzer dominate. I also built three retrieval models side by side, so the same query can be ranked under a lexical, a semantic and a length-corrected view and compared head to head.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
                     <h3>The Result</h3>
-                    <p>The pipeline takes a craving typed in plain words and returns a ranked top 10, 25 or 50 list of Philadelphia restaurants. Example rankings for the query <em>&ldquo;Japanese sushi&rdquo;</em> are checked in for each of the three algorithms, and score distributions for all four analyzers are plotted across the full ~90,000-review set.</p>
-                  </div>
-
-                  <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Key Features</h3>
-                    <p>Free-text queries scored against each restaurant&rsquo;s pooled reviews instead of cuisine and price filters; three retrieval algorithms (BM25, Word2Vec and pivoted length normalization) implemented in parallel; a four-analyzer sentiment ensemble fused by z-score; reviewer-weighted sentiment aggregation; one weighted score with top 10, 25 or 50 results; and a reproducible data pipeline with every intermediate step written to CSV in a pinned Python 3.8 Conda environment.</p>
+                    <p>Type a craving like &ldquo;Japanese sushi&rdquo; and get a ranked top 10, 25 or 50 list. Example rankings for each retrieval method are saved in the repo.</p>
                   </div>
                 </div>
               </div>
