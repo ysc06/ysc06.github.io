@@ -179,13 +179,8 @@
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="150">
-                    <h3>Trade-offs</h3>
-                    <p>I ran embeddings locally with a small open-source model instead of calling a paid embedding API. It costs nothing, runs offline, and stays fast on a CPU, but it captures less nuance in long passages. Vectors are cached in SQLite and searched with brute-force cosine similarity rather than a vector database. That needs no extra infrastructure while the bank is small, but it would have to move to PostgreSQL or a vector index to scale. Finally, nothing enters the bank without a person&rsquo;s approval. That slows things down, but a reviewer is accountable for every item that ships.</p>
-                  </div>
-
-                  <div class="challenge-block" data-aos="fade-up" data-aos-delay="200">
-                    <h3>The Challenge</h3>
-                    <p>LLMs handle recall questions well but struggle with inference, where the answer depends on connecting facts across several passages. From a single open-ended prompt, the model&rsquo;s items were often shallow, repetitive, or malformed. My fix was to break generation into structured steps, the same approach as the TOEIC workflow, constrain the output format, and catch weak items with validation and similarity checks before a reviewer spends time on them.</p>
+                    <h3>Design Decisions</h3>
+                    <p>I ran embeddings locally with a small open-source model so similarity checks cost nothing per item, work offline, and stay fast on a CPU. Vectors are cached in SQLite and compared with cosine similarity, which keeps the whole system in one lightweight database with no extra infrastructure to deploy or maintain. Every item also needs a person&rsquo;s approval before it enters the bank, so a reviewer is accountable for everything that ships.</p>
                   </div>
 
                   <div class="solution-block" data-aos="fade-up" data-aos-delay="250">
